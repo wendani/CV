@@ -53,6 +53,9 @@
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
 
 
+
+
+
 \begin{document}
 
 
@@ -83,16 +86,6 @@ Canada & \\
 %%\end{minipage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %\end{figure}
 
-\vspace{0.1in}
-\resheading{Immigration Status}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\vspace{0.15in} %
-
-\leftskip 0.1in %
-
-Permanent resident of Canada, landed on 8 April, 2014
-
-\leftskip 0.0in
-
 
 \vspace{0.1in}
 \resheading{Education}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -121,48 +114,24 @@ Permanent resident of Canada, landed on 8 April, 2014
 
 
 
-\resheading{Honors and Awards}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\leftskip 0.04in %0.27
-\vspace{0.1in}
-\begin{tabular*}{7.08in}{l@{\extracolsep{\fill}}r} %6.5in
-Recognized reviewer for Elsevier Computer Communications & 2014\\
-\textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CN\$32,500)} & 2014\\
-\textcolor{Red}{Runner-up for the 2013 Fabio Neri Best Paper Award} & 2013\\
-{Eligibility as NSERC Visiting Fellow in Canadian Government Laboratories} & 2011\\%\textcolor{Red}
-{Eligibility as NSERC Visiting Fellow in Canadian Government Laboratories} & 2010\\%\textcolor{Red}
-Feng Deng conference travel grant (IEEE/OSA OFC 2010, San Diego, CA, USA, 12,000RMB) & 2009\\
-\textcolor{Red}{Semi-finalist in the 2010 Corning Outstanding Student Paper Competition (10-12 out of over 430)} & 2009\\
-Feng Deng conference travel grant (IEEE/OSA OFC 2009, San Diego, CA, USA, 10,000RMB) & 2008\\
-MPS (Monolithic Power System Inc.) Scholarship for excellent students (second class) & 2008\\
-\textcolor{Red}{DAAD (Deutscher Akademischer Austausch Dienst) research fellowship} & \multirow{2}{*}{2008}\\ %\officialeuro
-\textcolor{Red}{\hfill for young doctoral candidates up to six months (5,800\EURtm)} & \\
-Feng Deng conference travel grant (IEEE/OSA OFC 2008, San Diego, CA, USA, 10,000RMB) & 2007\\
-Excellent individual in social practice & 2007\\
-Feng Deng conference travel grant (IEEE GLOBECOM 2007, Washington D.C., USA, 10,000RMB) & 2007\\
-\textcolor{Red}{Excellent graduate of Tsinghua University} & 2005\\
-Shunde Wu Couple Scholarship for excellent students (second class) & 2004\\
-Shunde Wu Couple Scholarship for excellent students (second class) & 2003\\
-Individual prize in electronics process technology practice & 2003\\
-Citic Bank Scholarship for excellent students (second class) & 2002\\
-\end{tabular*}
-
-
-
-
-%\newpage
-\leftskip 0.0cm
-\vspace{0.05in}
+%\leftskip 0.0cm
+%\vspace{0.05in}
 \resheading{Work Experience}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
 \setlength{\itemindent}{-0.075in}
 
 \item
   \ressubheading{Viscore Technologies Inc.}{Ottawa, ON, Canada}
-  {R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - present}
+  {Lead R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - present}
   \begin{itemize}
     \resitem{Topics: reliable data replication over optical broadcast medium (optical coupler); prototype of HEDA protocol on NetFPGA-10G board}
-    \resitem{Setup NetFPGA-10G board on Fedora 14 through package installation, kernel module loading, and troubleshooting. Demonstrated UDP unicast, broadcast, and multicast over optical coupler with unidirectional communication links.}
+    \resitem{Setup NetFPGA-10G board on Fedora 14 through package installation, kernel module loading, and troubleshooting.}
+    \resitem{Demonstrated UDP unicast, broadcast, and multicast over optical coupler. The uniqueness of the system is unidirectional communication links.}
+    \resitem{Developed in-depth knowledge of NIC hardware data plane and control plane architecture and of the role each module plays with respect to Ethernet physical layer and link layer functionalities. Enabled burst-mode transmission---a key foundation of communication over an optical coupler---at the physical layer through disabling link fault signaling at the RS sublayer and masking fault alarms at the PCS sublayer.}
+    \resitem{Developed a control-plane method to perform burst transmission---an enabling technology of prototyping HEDA protocol on NetFPGA-10G board. Designed and implemented a user-space token-passing protocol to demonstrate burst data transmission between two hosts over an optical coupler. This milestone eliminates the biggest challenge to prototype the HEDA protocol.}
+    \resitem{Learned in-depth knowledge of Linux kernel architecture, Linux kernel programming, Linux network device driver, and Linux network stack. Architected the integration and interface solution of embracing HEDA protocol in the Linux networking system. Designed and currently implementing software modules of HEDA protocol at the kernel network device driver level.}
+    \resitem{Led a team of three at the hardware development phase and a team of two at the software development phase}
   \end{itemize}
 
 
@@ -170,7 +139,7 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
   \ressubheading{Source Technologies International, Ltd.}{Ottawa, ON, Canada}
   {Consulting software engineer}{Jun. 2014 - Aug. 2014}
   \begin{itemize}
-    \resitem{Developed a mobile scenario manager app---a commercial product for iPhone iOS---with both Objective-C and iOS programming learned from scratch. The key techniques employed include UIStoryboard, Model-View-Controller (MVC) pattern, target-action pattern, delegation pattern, singleton pattern, core data framework to interact with a local SQLite database, JSON text parsing, and HTTP/HTTPS POST method to communicate with a remote server for credential authentication and scenario fetching, update, and launching.}
+    \resitem{Developed a mobile scenario manager app---a commercial product for iPhone iOS---in 1.5 months with both Objective-C and iOS programming learned from scratch. The key techniques employed include UIStoryboard, Model-View-Controller (MVC) pattern, target-action pattern, delegation pattern, singleton pattern, core data framework to interact with a local SQLite database, JSON text parsing, and HTTP/HTTPS POST method to communicate with a remote server for credential authentication and scenario fetching, update, and launching.}
     \resitem{Tested app on iOS simulator and real iPhone device through Xcode. Created and Distributed iOS App Store Package to testers and clients for beta testing.}
     \resitem{Developed an Android counterpart fulfilling the same requirements with Android programming learned from scratch. Gained insights into Activity/Fragment lifecycle, and managed state transitions through callback methods. Designed user interface layout using XML. Debugged Java code using LogCat.}
   \end{itemize}
@@ -180,7 +149,7 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
     {Visiting researcher, Dept. of optical networking}{Jan. 2011 - Feb. 2011}
     \begin{itemize}
         \resitem{Topic: Xen hypervisor and virtual machine (VM) live migration}
-        \resitem{Setup Xen 4.0.1 pv-ops Ubuntu 10.10 through kernel configuration \& building and kernel module installation \& loading. Setup a network file system server to store the disk image that can be mounted concurrently by multiple VM clients. Demonstrated VM live migration between two physical hosts connected by a D-Link gigabit switch (DGS-2205).}
+        \resitem{Setup Xen 4.0.1 pv-ops Ubuntu 10.10 through kernel configuration \& building and kernel module building \& installation/loading. Setup a network file system server to store the disk image that can be mounted concurrently by multiple VM clients. Demonstrated VM live migration between two physical hosts connected by a D-Link gigabit switch (DGS-2205).}
         %\resitem{Research on passive optical networks} Linux operating systems
     \end{itemize}
 
@@ -210,7 +179,7 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
     \begin{itemize}
         \resitem{Topics: 1) Datacenter networking; 2) Optical datacenters; 3) Protocol design; 4) Survivable telecom network design and analysis; 5) Decomposition methods, in particular, Lagrangian relaxation and column generation, for solving network optimization problems; 6) Software-defined networks; 7) Passive optical networks; 8) Optical node architecture}
         \resitem{Designed optimal link capacity to enable full bandwidth communication in emerging datacenter networks using fat-tree and Microsoft VL2 topologies}
-        \resitem{Proposed a low-cost, power-efficient, and reliable datacenter network architecture using passive optical devices. Resolved physical-layer scalability issues by employing advanced interconnection techniques. Designed a fully distributed data-link layer communication protocol (termed HEDA) to enable collision-free frame transmission. Described the protocol using finite state machine and message sequence chart. Developed an analytical model to compute lower and upper bounds on the expected packet delay of our protocol. (\textcolor{Red}{This line of achievements are outputs of a six-month industry research project with Viscore Technologies Inc., Canada.)}}
+        \resitem{Proposed a low-cost, power-efficient, and reliable datacenter network architecture using passive optical devices. Resolved physical-layer scalability issues by employing advanced interconnection techniques. Designed a fully distributed link-layer communication protocol (termed HEDA) to enable collision-free frame transmission. Described the protocol using finite state machine and message sequence chart. Developed an analytical model to compute lower and upper bounds on the expected packet delay of our protocol. (\textcolor{Red}{This line of achievements are outputs of a six-month industry research project with Viscore Technologies Inc., Canada.)}}
         \resitem{Studied a novel layered network architecture---Valiant load balancing (VLB) networks over optical networks. Developed a network-level availability model to compute the probability that a VLB network is congestion-free under all traffic patterns. The main challenges in such a context arise from the unique routing and protection scheme that goes beyond the definition of conventional connection-level service availability as well as the logical link failure correlation that prohibits the use of traditional analytical methods. \textcolor{Red}{Our work was honored as a runner-up for the 2013 Fabio Neri Best Paper Award.} One winner and three runners-up were selected from all papers published in \textit{Elsevier Optical Switching and Networking} journal throughout year 2013. Official announcement: \url{http://www.journals.elsevier.com/optical-switching-and-networking/awards/announcement-2013-fabio-neri-best-paper-award/}}
 
 %        \vspace{-0.18in}
@@ -256,20 +225,18 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
 
 
 
-
-
 \resheading{Computer Skills}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \begin{description}
 \setlength{\itemindent}{-0.1in}
 
-\item[Programming Languages:] C, C++, Java, Python, Objective-C, XML, AMPL, MATLAB, bash script, assembly language, Fortran, Verilog, VHDL, SQL %
+\item[Programming Languages:] C, Java, C++, Objective-C, Python, XML, AMPL, MATLAB, bash script, assembly language, Fortran, Verilog, VHDL, SQL %
 
 \item[Operating Systems:] Linux (Ubuntu, Fedora), Windows, Mac OS X
 
 \item[Networking:] IEEE 802.3 (i.e., Ethernet), control plane (ioctl, AXI4-Lite, MDIO, I$^2$C), NetFPGA-10G, network interface card (NIC), network device driver, socket programming, OPNET simulator 
 
-\item[Linux kernel:] interrupt context, interrupts and interrupt handlers, softirq, tasklet, kernel synchronization, process context, work queues, kernel threads and sleep (wait queues), kernel preemption, timers, Network traffic control (TC)
+\item[Linux kernel:] kernel architecture, interrupt context, interrupts and interrupt handlers, softirq, tasklet, kernel synchronization, process context, work queues, kernel threads and sleep (wait queues), kernel preemption, hrtimer, Network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI)
 
 \item[Applications:] Linux kernel programming (kernel version 2.6.35.14), system programming, interprocess communication (IPC), process scheduling, multithreading (POSIX), synchronization \& condition synchronization, iOS programming, Android programming, design patterns, Makefile, AMPL/lp\_solve, AMPL/CPLEX
 
@@ -285,41 +252,37 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
 
 
 
-%\resheading{English Proficiency}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\resheading{Honors and Awards}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%\leftskip 0.2in
-
-%\vspace{0.15in} %
-%\textbf{TOEFL(IBT):} Reading: 29, Listening: 28, Speaking: 20, Writing: 25, Total: 102\\ %
-%\textbf{IELTS Academic:} Listening: 7.5, Reading: 8.0, Writing: 6.0, Speaking: 6.0, Overall: 7.0\\ %
-%\textbf{IELTS General Training:} Listening: 8.0, Reading: 8.5, Writing: 7.5, Speaking: 6.0, Overall: 7.5\\ %
-%\textbf{GRE:} Verbal: 540, Quantitative: 800, Analytical writing: 4.0\\ %
-
-
-%\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
-%TOEFL: Reading: 29, Listening: 28, Speaking: 20, Writing: 25, Total: 102\\ %
-%IELTS: Listening: 7.5, Reading: 8.0, Writing: 6.0, Speaking: 6.0, Overall: 7.0\\ %
-%GRE: Verbal: 540, Quantitative: 800, Analytical writing: 4.0\\ %
-%Public English Test System Level 5 (PETS-5): Pass\\ %
-%English Proficiency Test II of Tsinghua University (TEPT-II):  Pass\\ %
-%English Proficiency Test I of Tsinghua University (TEPT-I):  Excellent\\ %
-%College English Test-6 (CET-6):  Pass\\ %
-%College English Test-4 (CET-4):  Excellent\\
-%\end{tabular*}
-
-%\textbf{Public English Test System Level 5 (PETS-5):} Pass\\ %
-%\textbf{English Proficiency Test II of Tsinghua University (TEPT-II):}  Pass\\ %
-%\textbf{English Proficiency Test I of Tsinghua University (TEPT-I):}  Excellent\\ %
-%\textbf{College English Test-6 (CET-6):}  Pass\\ %
-%\textbf{College English Test-4 (CET-4):}  Excellent\\
-
-%\leftskip 0.0cm \vspace{0.1in}
+\leftskip 0.04in %0.27
+\vspace{0.1in}
+\begin{tabular*}{7.08in}{l@{\extracolsep{\fill}}r} %6.5in
+\textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CN\$32,500)} & 2014\\
+Recognized reviewer for Elsevier Computer Communications & 2014\\
+\textcolor{Red}{Runner-up for the 2013 Fabio Neri Best Paper Award} & 2013\\
+{Eligibility as NSERC Visiting Fellow in Canadian Government Laboratories} & 2011\\%\textcolor{Red}
+{Eligibility as NSERC Visiting Fellow in Canadian Government Laboratories} & 2010\\%\textcolor{Red}
+Feng Deng conference travel grant (IEEE/OSA OFC 2010, San Diego, CA, USA, 12,000RMB) & 2009\\
+\textcolor{Red}{Semi-finalist in the 2010 Corning Outstanding Student Paper Competition (10-12 out of over 430)} & 2009\\
+Feng Deng conference travel grant (IEEE/OSA OFC 2009, San Diego, CA, USA, 10,000RMB) & 2008\\
+MPS (Monolithic Power System Inc.) Scholarship for excellent students (second class) & 2008\\
+\textcolor{Red}{DAAD (Deutscher Akademischer Austausch Dienst) research fellowship} & \multirow{2}{*}{2008}\\ %\officialeuro
+\textcolor{Red}{\hfill for young doctoral candidates up to six months (5,800\EURtm)} & \\
+Feng Deng conference travel grant (IEEE/OSA OFC 2008, San Diego, CA, USA, 10,000RMB) & 2007\\
+Excellent individual in social practice & 2007\\
+Feng Deng conference travel grant (IEEE GLOBECOM 2007, Washington D.C., USA, 10,000RMB) & 2007\\
+\textcolor{Red}{Excellent graduate of Tsinghua University} & 2005\\
+Shunde Wu Couple Scholarship for excellent students (second class) & 2004\\
+Shunde Wu Couple Scholarship for excellent students (second class) & 2003\\
+Individual prize in electronics process technology practice & 2003\\
+Citic Bank Scholarship for excellent students (second class) & 2002\\
+\end{tabular*}
 
 
 
 
-
-%\newpage
+\leftskip 0.0cm
+\vspace{0.1in}
 \resheading{Professional and Volunteer Activities}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{itemize}
 \setlength{\itemindent}{-0.075in}
@@ -343,7 +306,7 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 \textbf{Technical committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM) 2013, 2014, 2015
 
 \item
-\textbf{Technical committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC), Optical and Grid Computing Symposium 2014, 2015
+\textbf{Technical committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC), Optical and Grid Computing Symposium 2014, 2015, 2016
 
 \item
 \textbf{Technical committee member} of IEEE International Conference on Networks (ICON) 2012, 2013
@@ -355,23 +318,35 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 
 \item
-\textbf{Reviewer} for IEEE/OSA Journal of Lightwave Technology (4), IEEE/OSA Journal of Optical Communications and Networking (6), IEEE Transactions on Communications (1), IEEE Communications Letters (1), Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (11), Springer Photonic Network Communications (2), Springer Telecommunication Systems (1), Wiley International Journal of Communication Systems (1), IEEE China Communications (1), Chinese Optics Letters (1), Acta Electronica Sinica (1), Journal of Beijing University of Posts and Telecommunications (1), and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DRCN, IEEE ONDM, etc.
+\textbf{Reviewer} for IEEE/OSA Journal of Lightwave Technology (4), IEEE/OSA Journal of Optical Communications and Networking (6), IEEE Transactions on Communications (1), IEEE Communications Letters (1), Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (11), Springer Photonic Network Communications (3), Springer Telecommunication Systems (1), Wiley International Journal of Communication Systems (1), IEEE China Communications (1), Chinese Optics Letters (1), Acta Electronica Sinica (1), Journal of Beijing University of Posts and Telecommunications (1), and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DRCN, IEEE ONDM, etc.
 
 \end{itemize}
 
 
 
+
+%\vspace{0.1in}
+\resheading{Immigration Status}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{0.15in} %
+
+\leftskip 0.1in %
+
+Permanent resident of Canada, landed on 8 April, 2014
+
+\leftskip 0.0in
+
+
+
+\vspace{0.1in}
 \resheading{Patents}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% (Selected)
 \begin{enumerate}
 \item
 Yunqu Liu, Kin-Wai Leong, \textbf{Wenda Ni}, and Changcheng Huang, ``Methods and systems for passive optical switching,'' application no. PCT/CA2013/000976, filed 26 Nov., 2013.
-
-
 \end{enumerate}
 
 
 
-%\newpage
+
 \resheading{Journal Papers}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% (Selected)
 \begin{enumerate}
 %\setlength{\itemindent}{-0.05in}
@@ -625,7 +600,7 @@ E-mail: zhy-dee@tsinghua.edu.cn\\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%\newpage
+\newpage
 \vspace{0.2in}%
 \textbf{Michael Schlosser}\\
 %\textit{Leader},  ``Network design and modeling'' group\\
@@ -686,6 +661,39 @@ E-mail: robert.liu@srctek.com\\
 %%%Tel: +86-10-6277-3377, Fax: +86-10-6277-0317\\
 %%E-mail: egxshen@gmail.com; gshen@ciena.com\\ %\url{}
 %%URL: http://www.gangxiang-shen.com
+
+
+
+
+%\resheading{English Proficiency}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\leftskip 0.2in
+
+%\vspace{0.15in} %
+%\textbf{TOEFL(IBT):} Reading: 29, Listening: 28, Speaking: 20, Writing: 25, Total: 102\\ %
+%\textbf{IELTS Academic:} Listening: 7.5, Reading: 8.0, Writing: 6.0, Speaking: 6.0, Overall: 7.0\\ %
+%\textbf{IELTS General Training:} Listening: 8.0, Reading: 8.5, Writing: 7.5, Speaking: 6.0, Overall: 7.5\\ %
+%\textbf{GRE:} Verbal: 540, Quantitative: 800, Analytical writing: 4.0\\ %
+
+
+%\begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+%TOEFL: Reading: 29, Listening: 28, Speaking: 20, Writing: 25, Total: 102\\ %
+%IELTS: Listening: 7.5, Reading: 8.0, Writing: 6.0, Speaking: 6.0, Overall: 7.0\\ %
+%GRE: Verbal: 540, Quantitative: 800, Analytical writing: 4.0\\ %
+%Public English Test System Level 5 (PETS-5): Pass\\ %
+%English Proficiency Test II of Tsinghua University (TEPT-II):  Pass\\ %
+%English Proficiency Test I of Tsinghua University (TEPT-I):  Excellent\\ %
+%College English Test-6 (CET-6):  Pass\\ %
+%College English Test-4 (CET-4):  Excellent\\
+%\end{tabular*}
+
+%\textbf{Public English Test System Level 5 (PETS-5):} Pass\\ %
+%\textbf{English Proficiency Test II of Tsinghua University (TEPT-II):}  Pass\\ %
+%\textbf{English Proficiency Test I of Tsinghua University (TEPT-I):}  Excellent\\ %
+%\textbf{College English Test-6 (CET-6):}  Pass\\ %
+%\textbf{College English Test-4 (CET-4):}  Excellent\\
+
+%\leftskip 0.0cm \vspace{0.1in}
 
 
 
