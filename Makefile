@@ -7,7 +7,7 @@ DATE=
 #18Jan14
 
 
-STRING=resume_Ind_nwd
+STRING=cv_wendani
 TEX=$(STRING)$(DATE).tex
 AUX=$(TEX:.tex=.aux)
 DVI=$(TEX:.tex=.dvi)
