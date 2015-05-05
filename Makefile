@@ -9,11 +9,11 @@ DATE=
 
 STRING=resume_Ind_nwd
 TEX=$(STRING)$(DATE).tex
-AUX=$(STRING)$(DATE).aux
-DVI=$(STRING)$(DATE).dvi
-LOG=$(STRING)$(DATE).log
-PS=$(STRING)$(DATE).ps
-PDF=$(STRING)$(DATE).pdf
+AUX=$(TEX:.tex=.aux)
+DVI=$(TEX:.tex=.dvi)
+LOG=$(TEX:.tex=.log)
+PS=$(TEX:.tex=.ps)
+PDF=$(TEX:.tex=.pdf)
 
 $(PDF): $(PS)
 	ps2pdf $(PS)
