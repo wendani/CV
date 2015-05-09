@@ -6,24 +6,26 @@ DATE=
 #20Dec13
 #18Jan14
 
+CV=cv_wendani
+RESUME=resume_wendani
 
-STRING=cv_wendani
-TEX=$(STRING)$(DATE).tex
+TEX=$(CV)$(DATE).tex $(RESUME)$(DATE).tex
 AUX=$(TEX:.tex=.aux)
 DVI=$(TEX:.tex=.dvi)
 LOG=$(TEX:.tex=.log)
 PS=$(TEX:.tex=.ps)
 PDF=$(TEX:.tex=.pdf)
 
-$(PDF): $(PS)
-	ps2pdf $(PS)
+all: $(PDF)
 
-$(PS): $(DVI)
-	dvips $(DVI)
+%.pdf: %.ps
+	ps2pdf $<
 
-$(DVI): $(TEX)
-	latex $(TEX)
+%.ps: %.dvi
+	dvips $<
 
+%.dvi: %.tex
+	latex $<
 
 clean:
 	rm -rf $(AUX) $(DVI) $(LOG) $(PS) $(PDF)

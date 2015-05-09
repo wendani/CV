@@ -24,12 +24,79 @@
 
 \usepackage[left=0.75in,top=0.6in,right=0.75in,bottom=0.6in]{geometry} % Document margins
 
-\name{John Smith} % Your name
-\address{123 Broadway \\ City, State 12345} % Your address
-\address{123 Pleasant Lane \\ City, State 12345} % Your secondary addess (optional)
-\address{(000)~$\cdot$~111~$\cdot$~1111 \\ john@smith.com} % Your phone number and email
+\name{Wenda Ni, Ph.D.} % Your name
+\address{29-3240 Southgate RD, Ottawa, ON K1V 8W7, Canada} % Your address
+\address{M: +1 (613) 790 6788 E: wonda.ni@gmail.com (primary), wenda.ni@viscore.com} % Your phone number and email
 
 \begin{document}
+
+
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Work Experience}
+
+\begin{rSubsection}{Viscore Technologies, Inc}{Ottawa, ON, Canada}{Lead R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - Present}
+\item Developed in-depth knowledge of NIC hardware data plane and control plane architecture. Disabled link fault signaling at the physical layer to allow burst-mode transmission.
+\item Designed and implemented a user-space token-passing protocol to demonstrate burst data transmission between two hosts connected through an optical coupler.
+\item Architected the integration and interface solution of embedding our own link-layer protocol---HEDA---in the Linux networking system.
+\item Designed and currently implementing software modules of HEDA at the kernel device driver level.
+\end{rSubsection}
+
+%------------------------------------------------
+
+\begin{rSubsection}{Source Technologies International, Ltd.}{Ottawa, ON, Canada}{Consulting software engineer}{Jun. 2014 - Aug. 2014}
+\item Developed a mobile scenario manager app---a commercial product for iPhone iOS---in 1.5 months.
+\item Developed an Android counterpart fulfilling the same requirements.
+\end{rSubsection}
+
+\end{rSection}
+
+
+\begin{rSection}{R\&D Experience}
+
+\begin{rSubsection}{Carleton University}{Ottawa, ON, Canada}{Researcher}{Jun. 2011 - Aug. 2014}
+\item Proposed POXN---a datacenter network architecture using passive optical devices. Designed HEDA---a distributed link-layer communication protocol. Granted OCE (Ontario Centres of Excellence) TalentEdge fellowship for research commercialization. % Resolved physical-layer scalability issue.
+\item Developed an availability model for Valiant load balancing networks over optical networks. Honored as a runner-up for the 2013 Fabio Neri Best Paper Award (4 papers out of year 2013).
+\end{rSubsection}
+
+%------------------------------------------------
+
+\begin{rSubsection}{NEC Laboratories America, Inc.}{Jan. 2011 - Feb. 2011}{Visiting researcher, Dept. of optical networking}{Princeton, NJ, USA}
+\item Setup Xen 4.0.1 pv-ops Ubuntu 10.10 through kernel configuration \& building. 
+\item Demonstrated VM live migration between two physical hosts connected by a gigabit switch.
+\end{rSubsection}
+
+\end{rSection}
+
+
+
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+\begin{rSection}{Technical Skills}
+
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Languages & C, Java, C++, Objective-C, Python, XML, AMPL, MATLAB, bash script, \\
+& assembly language, Verilog \\
+OS & Linux, Windows, Mac OS X \\
+Networking & IEEE 802.3, control plane, NIC, device driver, socket programming \\
+Linux kernel & architecture, interrupt context, synchronization, process context, hrtimer, \\
+& traffic control, Tx \& Rx path below layer 3, NAPI \\
+Applications & Linux kernel programming, Linux system programming, iOS programming, \\
+& Android programming, Makefile, OPNET simulator, design patterns \\
+Hardware & NetFPGA-10G, Xilinx, Virtex-5 \\
+Version Control & Git \\
+IDE & Xcode, Eclipse \\
+Text and Graphs & Emacs, \LaTeX, PSTricks, Gnuplot
+\end{tabular}
+
+\end{rSection}
+
+
 
 %----------------------------------------------------------------------------------------
 %	EDUCATION SECTION
@@ -37,75 +104,36 @@
 
 \begin{rSection}{Education}
 
-{\bf University of California, Berkeley} \hfill {\em June 2004} \\ 
-B.S. in Computer Science \& Engineering \\
-Minor in Linguistics \smallskip \\
-Member of Eta Kappa Nu \\
-Member of Upsilon Pi Epsilon \\
-Overall GPA: 5.678
+{\bf Tsinghua University, Beijing, China} \hfill {\em Sept. 2005 - Jul. 2010} \\ 
+Ph.D., Electronic Engineering \\
+Thesis: Resource optimization and service quality in WDM optical networks \\
+DAAD (Deutscher Akademischer Austausch Dienst) research fellowship \\
+Semi-finalist for the 2010 Corning Outstanding Student Paper Award (10-12 out of over 430)
+
+{\bf Tsinghua University, Beijing, China} \hfill {\em Sept. 2001 - Jul. 2005} \\ 
+B.Eng., Electronic Engineering \\
+Major: Physical electronics and Optoelectronics \\
+Overall GPA: 88.8/100 Rank: 5/80 \\
+Excellent graduate of Tsinghua University, an honor entitled to top 10\% graduates
 
 \end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	WORK EXPERIENCE SECTION
-%----------------------------------------------------------------------------------------
 
-\begin{rSection}{Experience}
 
-\begin{rSubsection}{ACME, Inc}{October 2010 - Present}{Web Developer}{Palo Alto, CA}
-\item Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.
-\item Donec et mollis dolor. Praesent et diam eget libero Adobe Coldfusion egestas mattis sit amet vitae augue.
-\item Nam tincidunt congue enim, ut porta lorem Microsoft SQL lacinia consectetur.
-\item Donec ut libero sed arcu vehicula ultricies a non tortor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-\item Pellentesque auctor nisi id magna consequat JavaScript sagittis.
-\item Aliquam at massa ipsum. Quisque bash bibendum purus convallis nulla ultrices ultricies.
-\end{rSubsection}
+\begin{rSection}{Patents}
 
-%------------------------------------------------
-
-\begin{rSubsection}{AJAX Hosting}{December 2009 - October 2010}{Lead Developer}{Austin, TX}
-\item Aenean ut gravida lorem. Ut turpis felis, Perl pulvinar a semper sed, adipiscing id dolor.
-\item Curabitur dapibus enim sit amet elit pharetra tincidunt website feugiat nisl imperdiet. Ut convallis AJAX libero in urna ultrices accumsan.
-\item Cum sociis natoque penatibus et magnis dis MySQL parturient montes, nascetur ridiculus mus.
-\item In rutrum accumsan ultricies. Mauris vitae nisi at sem facilisis semper ac in est.
-\item Nullam cursus suscipit nisi, et ultrices justo sodales nec. Fusce venenatis facilisis lectus ac semper.
-\end{rSubsection}
-
-%------------------------------------------------
-
-\begin{rSubsection}{TinySoft}{January 2008 - April 2010}{Web Designer \& Developer}{Gainesville, GA}
-\item Vivamus PostgreSQL fermentum semper porta. Nunc diam velit PHP, adipiscing ut tristique vitae
-\item Maecenas convallis ullamcorper ultricies stylesheets.
-\item Quisque mi metus, unit tests CSS ornare sit amet fermentum et, tincidunt et orci.
-\item Curabitur venenatis pulvinar tellus gravida ornare. Sed et erat faucibus nunc euismod ultricies ut id
-\end{rSubsection}
+Yunqu Liu, Kin-Wai Leong, \textbf{Wenda Ni}, and Changcheng Huang, ``Methods and systems for passive optical switching,'' publication no. WO/2014/078940, published 30 May, 2014.
 
 \end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	TECHNICAL STRENGTHS SECTION
-%----------------------------------------------------------------------------------------
 
-\begin{rSection}{Technical Strengths}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Computer Languages & Prolog, Haskell, AWK, Erlang, Scheme, ML \\
-Protocols \& APIs & XML, JSON, SOAP, REST \\
-Databases & MySQL, PostgreSQL, Microsoft SQL \\
-Tools & SVN, Vim, Emacs
-\end{tabular}
-
+\begin{rSection}{Activities}
+Technical program committee (TPC) member for IEEE ICC, GLOBECOM, OSA NETWORKS, etc. \\
+Reviewer for IEEE, Elsevier, Springer, Wiley, etc. \\
+Volunteer of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 \end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	EXAMPLE SECTION
-%----------------------------------------------------------------------------------------
-
-%\begin{rSection}{Section Name}
-
-%Section content\ldots
-
-%\end{rSection}
 
 %----------------------------------------------------------------------------------------
 
