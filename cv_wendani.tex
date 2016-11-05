@@ -124,10 +124,22 @@ Canada & \\
     \resitem{Topics: reliable data replication over optical broadcast medium (optical coupler); prototype of HEDA protocol on NetFPGA-10G board, funded in part by OCE TalentEdge fellowship}
     \resitem{Setup NetFPGA-10G board on Fedora 14 through package installation, kernel module loading, and troubleshooting.}
     \resitem{Demonstrated UDP unicast, broadcast, and multicast over optical coupler. The uniqueness of the system is unidirectional communication links.}
-    \resitem{Developed in-depth knowledge of NIC hardware data plane and control plane architecture and of the role each module plays with respect to Ethernet physical layer and link layer functionalities. Enabled burst-mode transmission---a key foundation of communication over an optical coupler---at the physical layer through disabling link fault signaling at the RS sublayer and masking fault alarms at the PCS sublayer.}
-    \resitem{Developed a control-plane method to perform burst transmission---an enabling technology of prototyping HEDA protocol on NetFPGA-10G board. Designed and implemented a user-space token-passing protocol to demonstrate burst data transmission between two hosts over an optical coupler. This milestone eliminates the biggest challenge to prototype the HEDA protocol.}
-    \resitem{Learned in-depth knowledge of Linux kernel architecture, Linux kernel programming, Linux network device driver, and Linux network stack. Architected the integration and interface solution of embracing HEDA protocol in the Linux networking system. Designed and currently implementing software modules of HEDA protocol at the kernel network device driver level.}
+    \resitem{Developed in-depth knowledge of NIC hardware data plane and control plane architecture and of the role each module plays
+    with respect to Ethernet physical layer and link layer standards.
+    Enabled burst-mode transmission---a key foundation of communication over an optical coupler---at the physical layer
+    through disabling link fault signaling at the RS sublayer and masking fault alarms at the PCS sublayer.}
+    \resitem{Developed a control-plane method to perform burst transmission---an enabling technology of prototyping HEDA protocol on NetFPGA-10G board.
+    Designed and implemented a user-space token-passing protocol in C to demonstrate burst data transmission between two hosts over an optical coupler.
+    This milestone eliminates the biggest challenge to prototype the HEDA protocol.}
+    \resitem{Learned in-depth knowledge of Linux kernel architecture, Linux kernel programming, Linux network device driver, and Linux network stack.
+    Architected the integration and interface solution of embracing HEDA protocol in the Linux networking system.
+    Designed and currently implementing software modules of HEDA protocol in C at the kernel network device driver level.}
     \resitem{Led a team of three at the hardware development phase and a team of two at the software development phase.}
+    \resitem{Developed an in-depth understanding of various RDMA technologies---InfiniBand, RoCE, and iWARP---through
+    standard study (IBTA specification and IETF RFCs), programming practice, and hands-on experience playing with various NICs on our platform.
+    Refactored OFA (OpenFabrics Alliance) libibverbs example code to work with Mellanox OFED.}
+    \resitem{Gained insights into the internal workings of RoCE data path and control path through code reading of open source Soft-RoCE implementation.}
+    \resitem{Peeled Soft-RoCEv2 off Linux source tree, and ported it to work with kernel 4.2.0-rc8 as a kernel module.}
   \end{itemize}
 
 
@@ -135,9 +147,14 @@ Canada & \\
   \ressubheading{Source Technologies International, Ltd.}{Ottawa, ON, Canada}
   {Consulting software engineer}{Jun. 2014 - Aug. 2014}
   \begin{itemize}
-    \resitem{Developed a mobile scenario manager app---a commercial product for iPhone iOS---in 1.5 months with both Objective-C and iOS programming learned from scratch. The key techniques employed include UIStoryboard, Model-View-Controller (MVC) pattern, target-action pattern, delegation pattern, singleton pattern, core data framework to interact with a local SQLite database, JSON text parsing, and HTTP/HTTPS POST method to communicate with a remote server for credential authentication and scenario fetching, update, and launching.}
+    \resitem{Developed a mobile scenario manager app---a commercial product for iPhone iOS---in 1.5 months with both Objective-C and iOS programming learned from scratch.
+    The key techniques employed include UIStoryboard, Model-View-Controller (MVC) pattern, target-action pattern, delegation pattern, singleton pattern,
+    core data framework to interact with a local SQLite database, JSON text parsing,
+    and HTTP/HTTPS POST method to communicate with a remote server for credential authentication and scenario fetching, update, and launching.}
     \resitem{Tested app on iOS simulator and real iPhone device through Xcode. Created and Distributed iOS App Store Package to testers and clients for beta testing.}
-    \resitem{Developed an Android counterpart fulfilling the same requirements with Android programming learned from scratch. Gained insights into Activity/Fragment lifecycle, and managed state transitions through callback methods. Designed user interface layout using XML. Debugged Java code using LogCat.}
+    \resitem{Developed an Android counterpart in Java fulfilling the same requirements with Android programming learned from scratch.
+    Gained insights into Activity/Fragment lifecycle, and managed state transitions through callback methods.
+    Designed user interface layout using XML. Debugged Java code using LogCat.}
   \end{itemize}
 
 \item
@@ -145,7 +162,9 @@ Canada & \\
     {Visiting researcher, Dept. of optical networking}{Jan. 2011 - Feb. 2011}
     \begin{itemize}
         \resitem{Topic: Xen hypervisor and virtual machine (VM) live migration}
-        \resitem{Setup Xen 4.0.1 pv-ops Ubuntu 10.10 through kernel configuration \& building and kernel module building \& installation/loading. Setup a network file system server to store the disk image that can be mounted concurrently by multiple VM clients. Demonstrated VM live migration between two physical hosts connected by a D-Link gigabit switch (DGS-2205).}
+        \resitem{Setup Xen 4.0.1 pv-ops Ubuntu 10.10 through kernel configuration \& building and kernel module building \& installation/loading.
+        Setup a network file system server to store the disk image that can be mounted concurrently by multiple VM clients.
+        Demonstrated VM live migration between two physical hosts connected by a D-Link gigabit switch (DGS-2205).}
     \end{itemize}
 
 \item
@@ -153,7 +172,9 @@ Canada & \\
     {System design engineer intern, Dept. of broadband networks}{Jul. 2009 - Sept. 2009}
     \begin{itemize}
         \resitem{Topic: IEEE 1588v2 (precision clock synchronization protocol) over Ethernet}
-        \resitem{Developed a solid understanding of the clock synchronization mechanism. Finished one technical report on protocol review. The knowledge acquired becomes critical in later designing a link-layer polling protocol for optical datacenters (\textcolor{Red}{project with Viscore Technologies Inc., Canada}), where the issue of clock synchronization among ports was resolved using a similar yet simpler mechanism.}
+        \resitem{Developed a solid understanding of the clock synchronization mechanism. Finished one technical report on protocol review.
+        The knowledge acquired becomes critical in later designing a link-layer polling protocol for optical datacenters (\textcolor{Red}{project with Viscore Technologies Inc., Canada}),
+        where the issue of clock synchronization among ports was resolved using a similar yet simpler scheme.}
     \end{itemize}
 
 \end{itemize}
@@ -171,13 +192,28 @@ Canada & \\
     \ressubheading{Carleton University}{Ottawa, ON, Canada} %
     {Researcher, Dept. of Systems and Computer Engineering}{Jun. 2011 - Aug. 2014} %Postdoctoral fellow
     \begin{itemize}
-        \resitem{Topics: 1) Datacenter networking; 2) Optical datacenters; 3) Protocol design; 4) Survivable telecom network design and analysis; 5) Decomposition methods, in particular, Lagrangian relaxation and column generation, for solving network optimization problems; 6) Software-defined networks; 7) Passive optical networks; 8) Optical node architecture}
+        \resitem{Topics: 1) Datacenter networking; 2) Optical datacenters; 3) Protocol design; 4) Survivable telecom network design and analysis;
+        5) Decomposition methods, in particular, Lagrangian relaxation and column generation, for solving network optimization problems; 6) Software-defined networks;
+        7) Passive optical networks; 8) Optical node architecture}
         \resitem{Designed optimal link capacity to enable full bandwidth communication in emerging datacenter networks using fat-tree and Microsoft VL2 topologies}
-        \resitem{Proposed a low-cost, power-efficient, and reliable datacenter network architecture using passive optical devices. Resolved physical-layer scalability issues by employing advanced interconnection techniques. Designed a fully distributed link-layer communication protocol (termed HEDA) to enable collision-free frame transmission. Described the protocol using finite state machine and message sequence chart. Developed an analytical model to compute lower and upper bounds on the expected packet delay of our protocol. (\textcolor{Red}{This line of achievements are outputs of a six-month industry research project with Viscore Technologies Inc., Canada.)}}
-        \resitem{Studied a novel layered network architecture---Valiant load balancing (VLB) networks over optical networks. Developed a network-level availability model to compute the probability that a VLB network is congestion-free under all traffic patterns. The main challenges in such a context arise from the unique routing and protection scheme that goes beyond the definition of conventional connection-level service availability as well as the logical link failure correlation that prohibits the use of traditional analytical methods. \textcolor{Red}{Our work was honored as a runner-up for the 2013 Fabio Neri Best Paper Award.} One winner and three runners-up were selected from all papers published in \textit{Elsevier Optical Switching and Networking} journal throughout year 2013. Official announcement: \url{http://www.journals.elsevier.com/optical-switching-and-networking/awards/announcement-2013-fabio-neri-best-paper-award/}}
+        \resitem{Proposed a low-cost, power-efficient, and reliable datacenter network architecture using passive optical devices.
+        Resolved physical-layer scalability issues by employing advanced interconnection techniques.
+        Designed a fully distributed link-layer communication protocol, termed HEDA, to enable collision-free frame transmission.
+        Described the protocol using finite state machine and message sequence chart.
+        Developed an analytical model to compute lower and upper bounds on the expected packet delay of our protocol.
+        (\textcolor{Red}{This line of achievements are outputs of a six-month industry research project with Viscore Technologies Inc., Canada.)}}
+        \resitem{Studied a novel layered network architecture---Valiant load balancing (VLB) networks over optical networks.
+        Developed a network-level availability model to compute the probability that a VLB network is congestion-free under all traffic patterns.
+        The main challenges in such a context arise from the unique routing and protection scheme that goes beyond the definition of conventional connection-level service availability
+        as well as the logical link failure correlation that prohibits the use of traditional analytical methods.
+        \textcolor{Red}{Our work was honored as a runner-up for the 2013 Fabio Neri Best Paper Award.}
+        One winner and three runners-up were selected from all papers published in \textit{Elsevier Optical Switching and Networking} journal throughout year 2013.
+        Official announcement: \url{http://www.journals.elsevier.com/optical-switching-and-networking/awards/2013-fabio-neri-best-paper-award/}}
 
 %        \vspace{-0.18in}
-        \resitem{Developed analytical models to accurately compute the availability of upper-layer connections in two-layer networks, where dedicated path protection is deployed at either the lower layer or the upper layer. The accuracy of our model is validated through OPNET simulation. A real-life case of such two-layer networks is IP over optical networks.}
+        \resitem{Developed analytical models to accurately compute the availability of upper-layer connections in two-layer networks,
+        where dedicated path protection is deployed at either the lower layer or the upper layer.
+        The accuracy of our model is validated through OPNET simulation. A real-life case of such two-layer networks is IP over optical networks.}
 %        \resitem{Learned to be versatile on various research topics}
         \resitem{Learned to be versatile on various network topics. Developed mental toughness in demanding R\&D environments.}
     \end{itemize}
@@ -187,7 +223,11 @@ Canada & \\
     {Senior research scientist, Dept. of Computer Science and Engineering}{Oct. 2010 - May 2011} %
     \begin{itemize}
         \resitem{Topics: network function virtualization; virtual network embedding; reliable network design and analysis}
-        \resitem{Studied service availability in virtual infrastructure mapping and cloud computing such as Amazon EC2. Implemented a numerical method in MATLAB to compute the probability that the target availability is not fulfilled over a finite service subscription period. Since the service duration is finite, conventional steady-state analysis cannot be applied. Rather, the numerical calculation is a method that performs transient analysis. Our study can help service providers to work out service level agreements that avoid significant penalty risk.}
+        \resitem{Studied service availability in virtual infrastructure mapping and cloud computing such as Amazon EC2.
+        Implemented a numerical method in MATLAB to compute the probability that the target availability is not fulfilled over a finite service subscription period.
+        Since the service duration is finite, conventional steady-state analysis cannot be applied.
+        Rather, the numerical calculation is a method that performs transient analysis.
+        Our study can help service providers to work out service level agreements that avoid significant penalty risk.}
         \resitem{Learned to get along with supervisors and managers}
     \end{itemize}
 
@@ -196,8 +236,12 @@ Canada & \\
     {Visiting student, Dept. of Photonic Networks and Systems}{Oct. 2008 - Mar. 2009} %
     \begin{itemize}
         \resitem{Topic: survivability of WDM networks}
-        \resitem{Evaluated connection availability in optical networks that employ shared path protection and backup path reprovisioning after failure occurrence. Compared the impact of revertive and non-revertive operations after failure repair on connection availability.}
-        \resitem{Proposed and studied a new logical topology mapping problem, which incorporates the lightpath-based physical-layer failure localization capability into the traditional mapping design of IP over transparent optical networks. \textcolor{Red}{I, as the first author, was selected as a semi-finalist in the 2010 Corning Outstanding Student Paper Competition for this work.} Over 430 student submissions were received that year, of which 10-12 papers were selected as semi-finalists.}
+        \resitem{Evaluated connection availability in optical networks that employ shared path protection and backup path reprovisioning after failure occurrence.
+        Compared the impact of revertive and non-revertive operations after failure repair on connection availability.}
+        \resitem{Proposed and studied a new logical topology mapping problem, which incorporates the lightpath-based physical-layer failure localization capability
+        into the traditional mapping design of IP over transparent optical networks.
+        \textcolor{Red}{I, as the first author, was selected as a semi-finalist in the 2010 Corning Outstanding Student Paper Competition for this work.}
+        Over 430 student submissions were received that year, of which 10-12 papers were selected as semi-finalists.}
     \end{itemize}
 
 \item
@@ -208,7 +252,8 @@ Canada & \\
         \resitem{Responsible for project implementation, including topology and routing algorithm design and optimization,
         differentiated service provisioning, protection and restoration, service availability analysis, multi-period network planning, etc.}
         \resitem{Carried out joint research work with peers} %(e.g., Michael Schlosser, Heinrich-Hertz-Institut, Germany; Dr. Yabin Ye, Huawei, Germany)}
-        \resitem{Took major roles in drafting research proposals based on the industry trends (proposal ``Resource allocation and optimization in optical networks'' funded by National 863 High Tech Program, year 2007-2008; %, grant no. 2006AA01Z249
+        \resitem{Took major roles in drafting research proposals based on the industry trends
+        (proposal ``Resource allocation and optimization in optical networks'' funded by National 863 High Tech Program, year 2007-2008; %, grant no. 2006AA01Z249
         proposal ``Path-computation-element-based (PCE-based) network architecture and testbed for multi-layer multi-domain transport
         networks'' funded by National 863 High Tech Program, year 2009-2010)} %, grant no. 2009AA01Z254
         \resitem{Networked with world-class research groups and scientists through conferences and emails} %(e.g., Dr. Victor Yu Liu, Juniper Networks, USA; Prof.-Dr. Jing Wu, CRC, Canada; Dr. Gangxiang Shen, Ciena, USA; Prof.-Dr. Darli A. A. Mello, University of Brasilia; Prof.-Dr. Biswanath Mukherjee, UCDavis; Dr. Dominic A. Schupke, Nokia Siemens Networks, Germany; etc.)}
@@ -228,12 +273,12 @@ Canada & \\
 
 \item[Operating Systems:] Linux (CentOS, Ubuntu, Fedora, Red Hat), Windows, Mac OS X
 
-\item[Networking:] IEEE 802.3, EPON, IEEE 802.1, bridge, VLAN, PFC, control plane (ioctl, AXI4-Lite, MDIO, I$^2$C),
+\item[Networking:] IEEE 802.3, EPON, flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, control plane (ioctl, AXI4-Lite, MDIO, I$^2$C),
 network device driver, TCP/IP, UDP, socket programming, InfiniBand, RoCE, iWARP (RDMAP/DDP/MPA), RDMA, Verbs programming
 
 \item[Linux kernel:] kernel architecture, interrupt context, interrupt and interrupt handler, softirq, tasklet, kernel synchronization,
-process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
-char driver, Network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI), syscall, tracepoint, kprobe, kdump, kbuild
+RCU, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
+char driver, Network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
 
 \item[Applications:] Linux kernel programming, Linux system programming, interprocess communication (IPC), process scheduling,
 multithreading (POSIX), synchronization \& condition synchronization, iOS programming, Android programming,
@@ -248,6 +293,7 @@ OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns
 \item[IDE:] Eclipse, Xcode
 
 \item[Text and Graphs:] Vim, Emacs, \LaTeX, PSTricks, Gnuplot, Origin
+
 \end{description}
 
 
@@ -258,18 +304,18 @@ OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns
 \leftskip 0.04in %0.27
 \vspace{0.1in}
 \begin{tabular*}{7.08in}{l@{\extracolsep{\fill}}r} %6.5in
-\textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CN\$32,500)} & 2015\\
-\textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CN\$32,500)} & 2014\\
+\textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CAD\$32,500)} & 2015\\
+\textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CAD\$32,500)} & 2014\\
 Recognized reviewer for Elsevier Computer Communications & 2014\\
-\textcolor{Red}{Runner-up for the 2013 Fabio Neri Best Paper Award} & 2013\\
+\textcolor{Red}{Runner-up of the 2013 Fabio Neri Best Paper Award} & 2013\\
 {Eligibility as NSERC Visiting Fellow in Canadian Government Laboratories} & 2011\\%\textcolor{Red}
 {Eligibility as NSERC Visiting Fellow in Canadian Government Laboratories} & 2010\\%\textcolor{Red}
 Feng Deng conference travel grant (IEEE/OSA OFC 2010, San Diego, CA, USA, 12,000RMB) & 2009\\
-\textcolor{Red}{Semi-finalist in the 2010 Corning Outstanding Student Paper Competition (10-12 out of over 430)} & 2009\\
+\textcolor{Red}{Semi-finalist of the 2010 Corning Outstanding Student Paper Award (10-12 out of over 430)} & 2009\\
 Feng Deng conference travel grant (IEEE/OSA OFC 2009, San Diego, CA, USA, 10,000RMB) & 2008\\
 MPS (Monolithic Power System Inc.) Scholarship for excellent students (second class) & 2008\\
-\textcolor{Red}{DAAD (Deutscher Akademischer Austausch Dienst) research fellowship} & \multirow{2}{*}{2008}\\ %\officialeuro
-\textcolor{Red}{\hfill for young doctoral candidates up to six months (5,800\EURtm)} & \\
+\textcolor{Red}{DAAD (Deutscher Akademischer Austausch Dienst) research scholarship} & \multirow{2}{*}{2008}\\ %\officialeuro
+\textcolor{Red}{\hfill for young doctoral candidates up to six months (5,000\EURtm)} & \\
 Feng Deng conference travel grant (IEEE/OSA OFC 2008, San Diego, CA, USA, 10,000RMB) & 2007\\
 Excellent individual in social practice & 2007\\
 Feng Deng conference travel grant (IEEE GLOBECOM 2007, Washington D.C., USA, 10,000RMB) & 2007\\
@@ -296,22 +342,31 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
 Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - December 2013
 
 \item
-\textbf{Technical committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016
+\textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016
 
 \item
-\textbf{Technical committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015
+\textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016
 
 \item
-\textbf{Technical committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium 2012, 2013, 2014, 2015, 2016
+\textbf{Technical program committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium
+2012, 2013, 2014, 2015, 2016, 2017
 
 \item
-\textbf{Technical committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM) 2013, 2014, 2015, 2016
+\textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM) 2013, 2014, 2015, 2016
 
 \item
-\textbf{Technical committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC), Optical and Grid Computing Symposium 2014, 2015, 2016
+\textbf{Technical program committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC),
+Optical and Grid Networking Symposium 2014, 2015, 2016, 2017
 
 \item
-\textbf{Technical committee member} of IEEE International Conference on Networks (ICON) 2012, 2013
+\textbf{Technical program committee member} of OSA Asia Communications and Photonics Conference (ACP),
+Track 3 Network Architectures, Management and Applications 2016
+
+\item
+\textbf{Technical program committee member} of IEEE Asia-Pacific Conference on Communications (APCC) 2016
+
+\item
+\textbf{Technical program committee member} of IEEE International Conference on Networks (ICON) 2012, 2013
 
 \item
 \textbf{Organization committee member} of the 56th Canadian Operational Research Society (CORS) Annual Conference, Telecommunications Cluster 2014
@@ -320,7 +375,11 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 
 \item
-\textbf{Reviewer} for IEEE/OSA Journal of Lightwave Technology (4), IEEE/OSA Journal of Optical Communications and Networking (8), IEEE Transactions on Communications (1), IEEE Communications Letters (1), Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (11), Springer Photonic Network Communications (4), Springer Telecommunication Systems (1), Wiley International Journal of Communication Systems (1), IEEE China Communications (1), Chinese Optics Letters (1), Acta Electronica Sinica (2), Journal of Beijing University of Posts and Telecommunications (2), and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DRCN, IEEE ONDM, etc.
+\textbf{Reviewer} for IEEE/OSA Journal of Lightwave Technology (4), IEEE/OSA Journal of Optical Communications and Networking (8), IEEE Transactions on Communications (1),
+IEEE Communications Letters (1), Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (11),
+Springer Photonic Network Communications (6), Springer Telecommunication Systems (1), Wiley International Journal of Communication Systems (1),
+IEEE China Communications (1), Chinese Optics Letters (1), Acta Electronica Sinica (2), Journal of Beijing University of Posts and Telecommunications (4),
+and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DRCN, IEEE ONDM, etc.
 
 \end{itemize}
 
@@ -331,7 +390,7 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 \resheading{Immigration Status}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.15in} %
 
-\leftskip 0.1in %
+\leftskip 0.2in %
 
 Permanent resident of Canada, landed on 8 April, 2014
 
@@ -339,11 +398,25 @@ Permanent resident of Canada, landed on 8 April, 2014
 
 
 
+
 \vspace{0.1in}
+\resheading{Miscellaneous}
+\begin{description}
+\setlength{\itemindent}{-0.1in}
+\item[GitHub:] https://github.com/wendani
+
+\item[Google Scholar:] https://scholar.google.ca/citations?user=KX0P6HsAAAAJ\&hl=en
+\end{description}
+
+
+
+
+%\vspace{0.1in}
 \resheading{Patents}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% (Selected)
 \begin{enumerate}
 \item
 Yunqu Liu, Kin-Wai Leong, \textbf{Wenda Ni}, and Changcheng Huang, ``Methods and systems for passive optical switching,'' publication no. WO/2014/078940, published 30 May, 2014.
+
 \item
 Yunqu Liu, Kin-Wai Leong, \textbf{Wenda Ni}, and Changcheng Huang, ``Parallel optoelectronic network that supports a no-packet-loss signaling system and loosely coupled application-weighted routing,'' U.S. patent pending, application no. 61/992,570, filed 13 May, 2014.
 \end{enumerate}
@@ -364,7 +437,7 @@ Yunqu Liu, Kin-Wai Leong, \textbf{Wenda Ni}, and Changcheng Huang, ``Parallel op
 
 \item
 \textbf{Wenda Ni}, Changcheng Huang, and Jing Wu, ``Provisioning high-availability datacenter networks for full bandwidth communication,'' \textit{Elsevier Computer Networks, Special Issue on Communications and Networking in the Cloud}, vol. 68, pp. 71--94, Aug. 2014.
-(A thorough study with 24 pages in double-column format. 13 papers were accepted out of 60 submissions. Decision from the first-round review is ``conditional accept'' subject to ``moderate revisions''.)
+(A thorough study with 24 pages in double-column format. 12 papers were accepted out of over 60 submissions. Decision from the first-round review is ``conditional accept'' subject to ``moderate revisions''.)
 % \textcolor{Red}
 
 \item
@@ -401,6 +474,7 @@ Qingshan Li, Xiaoping Zheng, \textbf{Wenda Ni}, Yanhe Li, Hanyi Zhang, ``Increme
 
 
 
+
 \resheading{Conference Papers (Selected)}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% (Selected)
 
 \begin{enumerate}
@@ -420,10 +494,8 @@ Qingshan Li, Xiaoping Zheng, \textbf{Wenda Ni}, Yanhe Li, Hanyi Zhang, ``Increme
 \item
 \textbf{Wenda Ni}, Yabin Ye, Michael Schlosser, Erwin Patzak, and Hanyi Zhang, ``Survivable mapping with maximal physical-layer failure-localization potential in IP over transparent optical networks,'' in \textit{Proc. IEEE/OSA Optical Fiber Communication Conference and Exposition (OFC)}, Mar. 2010, OWH1. \textcolor{Red}{(Semi-finalist in the 2010 Corning Outstanding Student Paper Competition---10-12 papers were selected as semi-finalists out of over 430 student submissions)}
 
-
 \item
 \textbf{Wenda Ni}, Erwin Patzak, Michael Schlosser, Yabin Ye, and Hanyi Zhang, ``On operating shared-path-protected WDM networks non-revertively by using backup path reprovisioning,'' in \textit{Proc. IEEE/OSA Optical Fiber Communication Conference and Exposition (OFC)}, Mar. 2010, OWH4.
-
 
 \item
 %\textcolor{NavyBlue} { %
@@ -548,7 +620,7 @@ Jing Wu, \textbf{Wenda Ni}, and Changcheng Huang, ``Flow availability in two-lay
 \textbf{Changcheng Huang, Ph.D., P. Eng.}\\
 \textit{Professor}, Department of Systems and Computer Engineering,
 Carleton University\\
-Tel: +1 (613) 220 5682\\ %+1 (613) 520 5730\\
+Tel: +1 (613) 260 7387\\
 E-mail: huang@sce.carleton.ca\\
 URL: \url{http://www.sce.carleton.ca/faculty/huang.html}
 
@@ -567,8 +639,8 @@ URL: \url{http://www.sce.carleton.ca/faculty/huang.html}
 %\newpage
 \textbf{Kin-Wai Leong, Ph.D.}\\
 \textit{Senior Vice-president}, Viscore Technologies Inc.\\
-300 March RD, Suite 404\\
-Ottawa, ON K2K 2E2, Canada\\
+80 Aberdeen Street, Suite 100\\
+Ottawa, ON K1S 5R5, Canada\\
 Tel: +1 (613) 862 6618\\
 %Fax: +86-10-6277-0317\\
 E-mail: kinwai.leong@viscore.com\\ 
@@ -578,13 +650,13 @@ E-mail: kinwai.leong@viscore.com\\
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \vspace{0.2in}%
-\newpage
+%\newpage
 \textbf{Victor Yu Liu, Ph.D.}\\
 \textit{Chief Network Architect}, Visa\\
 Foster City, CA, USA\\
-Tel: +1 (408) 768 8806\\
+Tel: +1 (510) 384 3811\\
 %Fax: +86-10-6277-0317\\
-E-mail: packerliu@gmail.com, yuliu@ieee.org\\ %\url{}
+E-mail: viliu@visa.com, packerliu@gmail.com, yuliu@ieee.org\\
 URL: \url{http://www.sis.pitt.edu/~yliu/}
 
 

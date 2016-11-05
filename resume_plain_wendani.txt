@@ -1,0 +1,75 @@
+WENDA NI, PH.D.
+
+29-3240 Southgate RD
+Ottawa, ON K1V 8W7
+Canada
+M: +1 (613) 790 6788 
+E: wonda.ni@gmail.com (primary), wenda.ni@viscore.com
+
+
+OBJECTIVE
+Kernel and system level software design and development for networking and embedded systems
+
+
+WORK EXPERIENCE
+Viscore Technologies, Inc Ottawa, ON, Canada
+Lead R&D engineer on network architecture, software, and hardware Sept. 2014 - Present
+· Architected the integration and interface solution of embedding our own link-layer protocol---HEDA---in the Linux networking system.
+· Designed and currently implementing software modules of HEDA at the kernel device driver level.
+· Designed and implemented a user-space token-passing protocol to demonstrate burst data transmission between two hosts connected through an optical coupler.
+· Developed in-depth knowledge of NIC hardware data plane and control plane architecture. Disabled link fault signaling at the physical layer to allow burst-mode transmission.
+
+Source Technologies International, Ltd. Ottawa, ON, Canada
+Consulting software engineer Jun. 2014 - Aug. 2014
+· Developed a mobile scenario manager app---a commercial product for iPhone iOS---in 1.5 months with both Objective-C and iOS programming learned from scratch.
+· Developed an Android counterpart fulfilling the same requirements.
+
+
+R&D EXPERIENCE
+Carleton University Ottawa, ON, Canada
+Researcher Jun. 2011 - Aug. 2014
+· Proposed POXN---a datacenter network architecture using passive optical devices. Designed HEDA---a distributed link-layer communication protocol. Granted OCE (Ontario Centres of Excellence) TalentEdge fellowship for research commercialization.
+· Developed an availability model for Valiant load balancing networks over optical networks. Honored as a runner-up for the 2013 Fabio Neri Best Paper Award (4 papers out of year 2013).
+
+NEC Laboratories America, Inc. Princeton, NJ, USA
+Visiting researcher, Dept. of optical networking Jan. 2011 - Feb. 2011
+· Setup Xen 4.0.1 pv-ops Ubuntu 10.10 through kernel conﬁguration & building.
+· Demonstrated VM live migration between two physical hosts connected by a gigabit switch.
+
+
+TECHNICAL SKILLS
+Languages: C, Java, C++, Objective-C, Python, XML, AMPL, MATLAB, bash script, assembly language, Verilog
+OS: Linux, Windows, Mac OS X
+Networking: IEEE 802.3, bridge, TCP/IP, socket, InfiniBand, RoCE, iWARP, RDMA Verbs, Wireshark
+Linux kernel: architecture, interrupt context, synchronization, process context, hrtimer, device driver, memory, traffic control, Tx & Rx path below layer 3, NAPI, kprobe
+Applications: Linux kernel programming, Linux system programming, iOS programming, Android programming, Makefile, OPNET simulator, design patterns
+Hardware: NetFPGA-10G, Xilinx, Virtex-5, NIC (Mellanox, Chelsio), switch (Arista)
+Version Control: Git
+IDE: Eclipse, Xcode
+Text and Graphs: Vim, Emacs, LATEX, PSTricks, Gnuplot
+
+
+EDUCATION
+Tsinghua University, Beijing, China Sept. 2005 - Jul. 2010
+Ph.D., Electronic Engineering
+Thesis: Resource optimization and service quality in WDM optical networks
+DAAD (Deutscher Akademischer Austausch Dienst) research fellowship
+Semi-finalist for the 2010 Corning Outstanding Student Paper Award (10-12 out of over 430)
+
+Tsinghua University, Beijing, China Sept. 2001 - Jul. 2005
+B.Eng., Electronic Engineering
+Major: Physical electronics and Optoelectronics
+Overall GPA: 88.8/100 Rank: 5/80
+Excellent graduate of Tsinghua University, an honor entitled to top 10% graduates
+
+
+PATENTS
+Yunqu Liu, Kin-Wai Leong, Wenda Ni, and Changcheng Huang, “Methods and systems for passive optical switching,” publication no. WO/2014/078940, published 30 May, 2014.
+
+Yunqu Liu, Kin-Wai Leong, Wenda Ni, and Changcheng Huang, “Parallel optoelectronic network that supports a no-packet-loss signaling system and loosely coupled application-weighted routing,” U.S. patent pending, application no. 61/992,570, ﬁled 13 May, 2014.
+
+
+ACTIVITIES
+Technical program committee (TPC) member for IEEE ICC, GLOBECOM, OSA NETWORKS, etc.
+Reviewer for IEEE, OSA, Elsevier, Springer, Wiley, etc.
+Volunteer of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
