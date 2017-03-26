@@ -13,10 +13,10 @@ Kernel and system level software design and development for networking and embed
 
 WORK EXPERIENCE
 Viscore Technologies, Inc Ottawa, ON, Canada
-Lead R&D engineer on network architecture, software, and hardware Sept. 2014 - Present
+Lead R&D engineer on network architecture, software, and hardware Sept. 2014 - Dec. 2016
 · Architected the integration and interface solution of embedding our own link-layer protocol---HEDA---in the Linux networking system.
-· Designed and currently implementing software modules of HEDA at the kernel device driver level.
-· Designed and implemented a user-space token-passing protocol to demonstrate burst data transmission between two hosts connected through an optical coupler.
+· Designed and implementing software modules of HEDA in C at the kernel device driver level.
+· Designed and implemented a user-space token-passing protocol in C to demonstrate burst data transmission between two hosts connected through an optical coupler.
 · Developed in-depth knowledge of NIC hardware data plane and control plane architecture. Disabled link fault signaling at the physical layer to allow burst-mode transmission.
 
 Source Technologies International, Ltd. Ottawa, ON, Canada
@@ -29,7 +29,7 @@ R&D EXPERIENCE
 Carleton University Ottawa, ON, Canada
 Researcher Jun. 2011 - Aug. 2014
 · Proposed POXN---a datacenter network architecture using passive optical devices. Designed HEDA---a distributed link-layer communication protocol. Granted OCE (Ontario Centres of Excellence) TalentEdge fellowship for research commercialization.
-· Developed an availability model for Valiant load balancing networks over optical networks. Honored as a runner-up for the 2013 Fabio Neri Best Paper Award (4 papers out of year 2013).
+· Developed an availability model for Valiant load balancing networks over optical networks. Honored as a runner-up of the 2013 Fabio Neri Best Paper Award (4 papers out of year 2013).
 
 NEC Laboratories America, Inc. Princeton, NJ, USA
 Visiting researcher, Dept. of optical networking Jan. 2011 - Feb. 2011
@@ -38,12 +38,13 @@ Visiting researcher, Dept. of optical networking Jan. 2011 - Feb. 2011
 
 
 TECHNICAL SKILLS
-Languages: C, Java, C++, Objective-C, Python, XML, AMPL, MATLAB, bash script, assembly language, Verilog
+Languages: C, assembly, Java, C++, Objective-C, Python, XML, AMPL, MATLAB, script, Verilog
 OS: Linux, Windows, Mac OS X
-Networking: IEEE 802.3, bridge, TCP/IP, socket, InfiniBand, RoCE, iWARP, RDMA Verbs, Wireshark
-Linux kernel: architecture, interrupt context, synchronization, process context, hrtimer, device driver, memory, traffic control, Tx & Rx path below layer 3, NAPI, kprobe
-Applications: Linux kernel programming, Linux system programming, iOS programming, Android programming, Makefile, OPNET simulator, design patterns
-Hardware: NetFPGA-10G, Xilinx, Virtex-5, NIC (Mellanox, Chelsio), switch (Arista)
+Networking: IEEE 802.3, EPON, flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN, TCP/IP, UDP, socket, InfiniBand, RoCE, iWARP, RDMA Verbs
+Linux kernel: architecture, interrupt context, synchronization, RCU, process context, hrtimer, device driver, memory, traffic control, Tx & Rx path below layer 3, NAPI, syscall, sysfs, tracepoint, kprobe, kdump, kbuild
+Applications: Linux kernel programming, Linux system programming, iOS programming, Android programming, OPNET simulator, design patterns
+Tools: Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf
+Hardware: NetFPGA-10G, Xilinx, Virtex-5, NIC (Mellanox, Chelsio, Emulex), switch (Arista), SR-IOV
 Version Control: Git
 IDE: Eclipse, Xcode
 Text and Graphs: Vim, Emacs, LATEX, PSTricks, Gnuplot
@@ -54,7 +55,7 @@ Tsinghua University, Beijing, China Sept. 2005 - Jul. 2010
 Ph.D., Electronic Engineering
 Thesis: Resource optimization and service quality in WDM optical networks
 DAAD (Deutscher Akademischer Austausch Dienst) research fellowship
-Semi-finalist for the 2010 Corning Outstanding Student Paper Award (10-12 out of over 430)
+Semi-finalist of the 2010 Corning Outstanding Student Paper Award (10-12 out of over 430)
 
 Tsinghua University, Beijing, China Sept. 2001 - Jul. 2005
 B.Eng., Electronic Engineering
@@ -71,5 +72,11 @@ Yunqu Liu, Kin-Wai Leong, Wenda Ni, and Changcheng Huang, “Parallel optoelectr
 
 ACTIVITIES
 Technical program committee (TPC) member for IEEE ICC, GLOBECOM, OSA NETWORKS, etc.
-Reviewer for IEEE, OSA, Elsevier, Springer, Wiley, etc.
+Reviewer for IEEE, OSA, Elsevier, Springer, Wiley, etc. over 50 journal papers
 Volunteer of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
+
+
+MISCELLANEOUS
+O-1 visa recipient---Individuals with Extraordinary Ability or Achievement
+GitHub: https://github.com/wendani
+Google Scholar: https://scholar.google.ca/citations?user=KX0P6HsAAAAJ&hl=en

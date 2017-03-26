@@ -72,7 +72,7 @@
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
 2689 Dupont Street&  \\
 Ottawa, ON, K1V 8N2  & M: +1 (613) 790 6788\\
-Canada & E: wonda.ni@gmail.com (primary), wenda.ni@viscore.com\\
+Canada & E: wonda.ni@gmail.com\\
 \end{tabular*}
 %\end{minipage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%\hspace{0.5ex} %
@@ -117,8 +117,15 @@ Canada & E: wonda.ni@gmail.com (primary), wenda.ni@viscore.com\\
 \setlength{\itemindent}{-0.075in}
 
 \item
-  \ressubheading{Viscore Technologies Inc.}{Ottawa, ON, Canada}
-  {Lead R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - present}
+  \ressubheading{Pleora Technologies Inc.}{Ottawa, ON, Canada}
+  {Senior embedded software designer}{Jan. 2017 - present}
+  \begin{itemize}
+    \resitem{Topics: video backhaul over GigE Vision standard protocol suite}
+  \end{itemize}
+
+\item
+  \ressubheading{Viscore Technologies Inc. (defunct)}{Ottawa, ON, Canada}
+  {Lead R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - Dec. 2016}
   \begin{itemize}
     \resitem{Topics: reliable data replication over optical broadcast medium (optical coupler); prototype of HEDA protocol on NetFPGA-10G board, funded in part by OCE TalentEdge fellowship}
     \resitem{Setup NetFPGA-10G board on Fedora 14 through package installation, kernel module loading, and troubleshooting.}
@@ -270,12 +277,13 @@ Canada & E: wonda.ni@gmail.com (primary), wenda.ni@viscore.com\\
 
 \item[Programming Languages:] C, assembly, Java, C++, Objective-C, Python, XML, AMPL, MATLAB, script, Fortran, Verilog, VHDL, SQL %
 
-\item[Operating Systems:] Linux (CentOS, Ubuntu, Fedora, Red Hat), Windows, Mac OS X
+\item[Operating Systems:] Linux (CentOS, Ubuntu, Fedora, Red Hat), Windows, Mac OS X, FreeRTOS
 
 \item[Networking:] IEEE 802.3, EPON, flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN, control plane (ioctl, AXI4-Lite, MDIO, I$^2$C),
-network device driver, TCP/IP, UDP, socket programming, InfiniBand, RoCE, iWARP (RDMAP/DDP/MPA), RDMA, Verbs programming
+network device driver, ARP, TCP/IP, BGP, UDP, DHCP, SNMP, socket programming, InfiniBand, RoCE, iWARP (RDMAP/DDP/MPA), RDMA, Verbs programming,
+1588v2, GigE Vision
 
-\item[Linux kernel:] kernel architecture, interrupt context, interrupt and interrupt handler, softirq, tasklet, kernel synchronization,
+\item[Linux kernel:] kernel architecture, interrupt context, interrupt \& interrupt handler, softirq, tasklet, kernel synchronization,
 RCU, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
 char driver, Network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
 
@@ -283,9 +291,10 @@ char driver, Network traffic control (TC), Tx \& Rx path below layer 3, new API 
 multithreading (POSIX), synchronization \& condition synchronization, iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns
 
-\item[Tools:] Makefile, gdb, crash, gprof, strace, ftrace, SystemTap, Wireshark, autoconf
+\item[Tools:] Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf, Jira, JTAG
 
-\item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, network interface card (Mellanox, Chelsio, Emulex), switch (Arista), SR-IOV
+\item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, network interface card (Mellanox, Chelsio, Emulex), switch (Arista, Ubiquiti),
+PCIe, SR-IOV, DMA, Nios II, ARM926EJ-S
 
 \item[Version Control:] Git (local and remote)
 
@@ -342,10 +351,10 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
 Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - December 2013
 
 \item
-\textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016
+\textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016, 2017
 
 \item
-\textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016
+\textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016, 2017
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium
@@ -375,11 +384,12 @@ Track 3 Network Architectures, Management and Applications 2016
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 
 \item
-\textbf{Reviewer} for IEEE/OSA Journal of Lightwave Technology (4), IEEE/OSA Journal of Optical Communications and Networking (10),
+\textbf{Reviewer} for IEEE/OSA Journal of Lightwave Technology (4), IEEE/OSA Journal of Optical Communications and Networking (11),
 IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (13),
-Springer Photonic Network Communications (7), Springer Telecommunication Systems (1), Wiley International Journal of Communication Systems (1),
-IEEE China Communications (1), Chinese Optics Letters (1), Acta Electronica Sinica (2), Journal of Beijing University of Posts and Telecommunications (4),
+Springer Photonic Network Communications (7), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
+IEEE China Communications (1), De Gruyter Journal of Optical Communications (1), Chinese Optics Letters (1), Acta Electronica Sinica (2),
+Journal of Beijing University of Posts and Telecommunications (4),
 and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DRCN, IEEE ONDM, etc.
 
 \end{itemize}
@@ -442,7 +452,7 @@ Yunqu Liu, Kin-Wai Leong, \textbf{Wenda Ni}, and Changcheng Huang, ``Parallel op
 % \textcolor{Red}
 
 \item
-\textbf{Wenda Ni}, Changcheng Huang, Jing Wu, and Michel Savoie, ``Availability of survivable Valiant load balancing (VLB) networks over optical networks,'' \textit{Elsevier Optical Switching and Networking, Special Section on Cross-Layer Innovations}, vol. 10, no. 3, pp. 274--289, Jul. 2013. \textcolor{Red}{(Runner-up for the 2013 Fabio Neri Best Paper Award---one winner and three runners-up were selected from all papers published in this journal in year 2013)}
+\textbf{Wenda Ni}, Changcheng Huang, Jing Wu, and Michel Savoie, ``Availability of survivable Valiant load balancing (VLB) networks over optical networks,'' \textit{Elsevier Optical Switching and Networking, Special Section on Cross-Layer Innovations}, vol. 10, no. 3, pp. 274--289, Jul. 2013. \textcolor{Red}{(Runner-up of the 2013 Fabio Neri Best Paper Award---one winner and three runners-up were selected from all papers published in this journal in year 2013)}
 
 \item
 \textbf{Wenda Ni}, Jing Wu, Changcheng Huang, and Michel Savoie, ``Analytical models of flow availability in two-layer networks with dedicated path protection,'' \textit{Elsevier Optical Switching and Networking, Special Issue on Advances in Optical Networks Control and Management}, vol. 10, no. 1, pp. 62--76, Jan. 2013.
@@ -493,7 +503,7 @@ Qingshan Li, Xiaoping Zheng, \textbf{Wenda Ni}, Yanhe Li, Hanyi Zhang, ``Increme
 \textbf{Wenda Ni}, Erwin Patzak, Michael Schlosser, and Hanyi Zhang, ``Availability evaluation in shared-path-protected WDM networks with startup-failure-driven backup path reprovisioning,'' in \textit{Proc. IEEE International Conference on Communications (ICC)}, May 2010, ON02.
 
 \item
-\textbf{Wenda Ni}, Yabin Ye, Michael Schlosser, Erwin Patzak, and Hanyi Zhang, ``Survivable mapping with maximal physical-layer failure-localization potential in IP over transparent optical networks,'' in \textit{Proc. IEEE/OSA Optical Fiber Communication Conference and Exposition (OFC)}, Mar. 2010, OWH1. \textcolor{Red}{(Semi-finalist in the 2010 Corning Outstanding Student Paper Competition---10-12 papers were selected as semi-finalists out of over 430 student submissions)}
+\textbf{Wenda Ni}, Yabin Ye, Michael Schlosser, Erwin Patzak, and Hanyi Zhang, ``Survivable mapping with maximal physical-layer failure-localization potential in IP over transparent optical networks,'' in \textit{Proc. IEEE/OSA Optical Fiber Communication Conference and Exposition (OFC)}, Mar. 2010, OWH1. \textcolor{Red}{(Semi-finalist in the 2010 Corning Outstanding Student Paper Competition---only 10-12 papers were selected as semi-finalists out of over 430 student submissions)}
 
 \item
 \textbf{Wenda Ni}, Erwin Patzak, Michael Schlosser, Yabin Ye, and Hanyi Zhang, ``On operating shared-path-protected WDM networks non-revertively by using backup path reprovisioning,'' in \textit{Proc. IEEE/OSA Optical Fiber Communication Conference and Exposition (OFC)}, Mar. 2010, OWH4.
