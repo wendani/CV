@@ -44,12 +44,21 @@ Kernel and system level software design and development for networking and embed
 
 \begin{rSection}{Work Experience}
 
+\begin{rSubsection}{Pleora Technologies, Inc}{Ottawa, ON, Canada}{Senior embedded software designer}{Jan. 2017 - present}
+\item Improved the USRT latency performance by over six times through batch data push and bug fixing.
+\item Grasped the agent-side SNMP implementation in depth by learning the basics of SNMP from scratch and leading through the code base.
+Pinpointed and fixed the bug within one week.
+\end{rSubsection}
+
+%------------------------------------------------
+
 \begin{rSubsection}{Viscore Technologies, Inc (defunct)}{Ottawa, ON, Canada}{Lead R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - Dec. 2016}
 %\item Peeled Soft-RoCEv2 off Linux source tree, and ported it to work with kernel 4.2.0-rc8 as a kernel module.
+\item Peeled Soft-RoCEv2 off Linux source tree, and ported it to work with kernel 4.2.0-rc8 as kernel module.
 \item Architected the integration and interface solution of embedding our own link-layer protocol---HEDA---in the Linux networking system.
 \item Designed and implementing software modules of HEDA in C at the kernel device driver level.
-\item Designed and implemented a user-space token-passing protocol in C to demonstrate burst data transmission between two hosts connected through an optical coupler.
-\item Developed in-depth knowledge of NIC hardware data plane and control plane architecture. Disabled link fault signaling at the physical layer to allow burst-mode transmission.
+\item Designed and implemented a user-space token-passing protocol in C to demonstrate burst data transmission between two hosts interconnected by an optical coupler.
+\item Grasped in-depth knowledge of NIC hardware data plane and control plane architecture. Disabled link fault signaling at the physical layer to allow burst-mode transmission.
 \end{rSubsection}
 
 %------------------------------------------------
@@ -65,8 +74,10 @@ Kernel and system level software design and development for networking and embed
 \begin{rSection}{R\&D Experience}
 
 \begin{rSubsection}{Carleton University}{Ottawa, ON, Canada}{Researcher}{Jun. 2011 - Aug. 2014}
-\item Proposed POXN---a datacenter network architecture using passive optical devices. Designed HEDA---a distributed link-layer communication protocol. Granted OCE (Ontario Centres of Excellence) TalentEdge fellowship for research commercialization. % Resolved physical-layer scalability issue.
-\item Developed an availability model for Valiant load balancing networks over optical networks. Honored as a runner-up of the 2013 Fabio Neri Best Paper Award (4 papers out of year 2013).
+\item Proposed POXN---a datacenter network architecture using passive optical devices. Designed HEDA---a distributed link-layer communication protocol.
+Granted OCE (Ontario Centres of Excellence) TalentEdge fellowship for research commercialization. % Resolved physical-layer scalability issue.
+\item Developed an availability model for Valiant load balancing networks over optical networks.
+Honored as a runner-up of the 2013 Fabio Neri Best Paper Award (4 papers out of year 2013).
 \end{rSubsection}
 
 %------------------------------------------------
@@ -86,28 +97,29 @@ Kernel and system level software design and development for networking and embed
 
 \begin{rSection}{Technical Skills}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-Languages & C, assembly, Java, C++, Objective-C, Python, XML, AMPL, MATLAB, script, \\
-& Verilog \\
-OS & Linux, Windows, Mac OS X, FreeRTOS \\
-Networking & IEEE 802.3, EPON, flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, \\
-& GRE, VXLAN, ARP, TCP/IP, BGP, UDP, DHCP, SNMP, socket, InfiniBand, \\
-& RoCE, iWARP, RDMA Verbs, 1588v2, GigE Vision \\
-Linux kernel & architecture, interrupt context, synchronization, RCU, process context, hrtimer, \\
-& device driver, memory, traffic control, Tx \& Rx path below layer 3, NAPI, \\
-& syscall, sysfs, tracepoint, kprobe, kdump, kbuild \\
-\end{tabular}
+%\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+%\end{tabular}
 
-\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{3ex}} l }
+Languages & C, C++ in C, assembly, inline assembly, C in C++, Java, C++, Objective-C, \\
+& Python, XML, AMPL, MATLAB, script, Verilog \\
+OS & Linux, FreeRTOS, Windows, Mac OS X \\
+Networking & IEEE 802.3, EPON, flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, \\
+& Q-in-Q, GRE, VXLAN, ARP, IPv4, LLA, TCP, BGP, UDP, DHCP, SNMP, \\
+& socket, InfiniBand, RoCE, iWARP, RDMA Verbs, 1588v2, GigE Vision \\
+Linux kernel & architecture, interrupt context, synchronization, RCU, memory barrier, \\
+& process context, hrtimer, device driver, memory, traffic control, NAPI, \\
+& Tx \& Rx path below layer 3, syscall, sysfs, tracepoint, kprobe, kdump, kbuild \\
 Applications & Linux kernel programming, Linux system programming, iOS programming, \\
 & Android programming, OPNET simulator, design patterns \\
 Tools & Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, \\
-& autoconf, Jira, JTAG \\
-Hardware & NetFPGA-10G, Xilinx, Virtex-5, NIC (Mellanox, Chelsio, Emulex), \\
-& switch (Arista, Ubiquiti), PCIe, SR-IOV, DMA, Nios II, ARM926EJ-S \\
-Version Control & Git \\
+& autoconf, cygwin, Jira, JTAG \\
+Hardware & NetFPGA-10G, Xilinx, Virtex-5, NIC (Mellanox, Chelsio, Emulex), switch \\
+& (Arista, Ubiquiti, Netgear), PCIe, SR-IOV, DMA, processor microarchitecture, \\
+& Nios II, ARM926EJ-S, Cortex-M3/M4, PHY (Broadcom, Marvell) \\
+Version ctrl & Git, Bitbucket, CVS, GitHub \\
 IDE & Eclipse, Xcode  \\
-Text and Graphs & Vim, Emacs, \LaTeX, PSTricks, Gnuplot
+Text \& Graphs & Vim, Emacs, \LaTeX, PSTricks, Gnuplot
 \end{tabular}
 
 \end{rSection}
@@ -145,13 +157,13 @@ Yunqu Liu, Kin-Wai Leong, \textbf{Wenda Ni}, and Changcheng Huang, ``Parallel op
 
 
 
-\begin{rSection}{Papers (Selected)}
-
-\textbf{Wenda Ni}, Changcheng Huang, Yunqu Leon Liu, Weiwei Li, Kin-Wai Leong, and Jing Wu, ``POXN: a new passive optical cross-connection network for low-cost power-efficient datacenters,'' \textit{IEEE/OSA Journal of Lightwave Technology}, vol. 32, no. 8, pp. 1482--1500, Apr. 15, 2014.
-
-\textbf{Wenda Ni}, Changcheng Huang, and Jing Wu, ``Provisioning high-availability datacenter networks for full bandwidth communication,'' \textit{Elsevier Computer Networks, Special Issue on Communications and Networking in the Cloud}, vol. 68, pp. 71--94, Aug. 2014.
-
-\end{rSection}
+%\begin{rSection}{Papers (Selected)}
+%
+%\textbf{Wenda Ni}, Changcheng Huang, Yunqu Leon Liu, Weiwei Li, Kin-Wai Leong, and Jing Wu, ``POXN: a new passive optical cross-connection network for low-cost power-efficient datacenters,'' \textit{IEEE/OSA Journal of Lightwave Technology}, vol. 32, no. 8, pp. 1482--1500, Apr. 15, 2014.
+%
+%\textbf{Wenda Ni}, Changcheng Huang, and Jing Wu, ``Provisioning high-availability datacenter networks for full bandwidth communication,'' \textit{Elsevier Computer Networks, Special Issue on Communications and Networking in the Cloud}, vol. 68, pp. 71--94, Aug. 2014.
+%
+%\end{rSection}
 
 
 

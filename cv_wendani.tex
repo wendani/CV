@@ -92,7 +92,8 @@ Canada & E: wonda.ni@gmail.com\\
     {Ph.D., Dept. of Electronic Engineering}{Sept. 2005 - Jul. 2010} %
     \begin{itemize}
         %\resitem{Research interests: survivability, service differentiation, and multi-layer traffic engineering in backbone networks}
-        \resitem{Topics: Network design, operation, and management with a focus on survivability, service differentiation, and two-layer traffic engineering in telecom transport networks}
+        \resitem{Topics: Network design, operation, and management with a focus on survivability, service differentiation,
+	and two-layer traffic engineering in telecom transport networks}
         \resitem{Thesis: Resource optimization and service quality in WDM optical networks}
     \end{itemize}
 
@@ -121,27 +122,31 @@ Canada & E: wonda.ni@gmail.com\\
   {Senior embedded software designer}{Jan. 2017 - present}
   \begin{itemize}
     \resitem{Topics: video backhaul over GigE Vision standard protocol suite}
+    \resitem{Improved the USRT latency performance by over six times through batch data push and bug fixing.}
+    \resitem{Grasped the agent-side SNMP implementation in depth by learning the basics of SNMP from scratch
+    and leading through the code base. Pinpointed and fixed the bug within one week.}
   \end{itemize}
 
 \item
   \ressubheading{Viscore Technologies Inc. (defunct)}{Ottawa, ON, Canada}
   {Lead R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - Dec. 2016}
   \begin{itemize}
-    \resitem{Topics: reliable data replication over optical broadcast medium (optical coupler); prototype of HEDA protocol on NetFPGA-10G board, funded in part by OCE TalentEdge fellowship}
+    \resitem{Topics: reliable data replication over optical broadcast medium (optical coupler); prototype of HEDA protocol on NetFPGA-10G board,
+    funded in part by OCE TalentEdge fellowship; low-latency data communication over RDMA}
     \resitem{Setup NetFPGA-10G board on Fedora 14 through package installation, kernel module loading, and troubleshooting.}
     \resitem{Demonstrated UDP unicast, broadcast, and multicast over optical coupler. The uniqueness of the system is unidirectional communication links.}
-    \resitem{Developed in-depth knowledge of NIC hardware data plane and control plane architecture and of the role each module plays
+    \resitem{Grasped in-depth knowledge of NIC hardware data plane and control plane architecture and of the role each module plays
     with respect to Ethernet physical layer and link layer standards.
     Enabled burst-mode transmission---a key foundation of communication over an optical coupler---at the physical layer
     through disabling link fault signaling at the RS sublayer and masking fault alarms at the PCS sublayer.}
     \resitem{Developed a control-plane method to perform burst transmission---an enabling technology of prototyping HEDA protocol on NetFPGA-10G board.
     Designed and implemented a user-space token-passing protocol in C to demonstrate burst data transmission between two hosts over an optical coupler.
     This milestone eliminates the biggest challenge to prototype the HEDA protocol.}
-    \resitem{Learned in-depth knowledge of Linux kernel architecture, Linux kernel programming, Linux network device driver, and Linux network stack.
+    \resitem{Learned exhaustive knowledge of Linux kernel architecture, Linux kernel programming, Linux network device driver, and Linux network stack.
     Architected the integration and interface solution of embracing HEDA protocol in the Linux networking system.
-    Designed and currently implementing software modules of HEDA protocol in C at the kernel network device driver level.}
+    Designed and implementing software modules of HEDA protocol in C at the kernel network device driver level.}
     \resitem{Led a team of three at the hardware development phase and a team of two at the software development phase.}
-    \resitem{Developed an in-depth understanding of various RDMA technologies---InfiniBand, RoCE, and iWARP---through
+    \resitem{Acquired a deep understanding of various RDMA technologies---InfiniBand, RoCE, and iWARP---through
     standard study (IBTA specification and IETF RFCs), programming practice, and hands-on experience playing with various NICs on our platform.
     Refactored OFA (OpenFabrics Alliance) libibverbs example code to work with Mellanox OFED.}
     \resitem{Gained insights into the internal workings of RoCE data path and control path through code reading of open source Soft-RoCE implementation.}
@@ -275,28 +280,34 @@ Canada & E: wonda.ni@gmail.com\\
 \begin{description}
 \setlength{\itemindent}{-0.1in}
 
-\item[Programming Languages:] C, assembly, Java, C++, Objective-C, Python, XML, AMPL, MATLAB, script, Fortran, Verilog, VHDL, SQL %
+\item[Programming Languages:] C, C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), ARM), inline assembly (gcc), C in C++, Java,
+C++, Objective-C, Python, XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Verilog, VHDL, SQL %
 
-\item[Operating Systems:] Linux (CentOS, Ubuntu, Fedora, Red Hat), Windows, Mac OS X, FreeRTOS
+\item[Operating Systems:] Linux (CentOS, Ubuntu, Fedora, Red Hat), FreeRTOS, Windows, Mac OS X
 
-\item[Networking:] IEEE 802.3, EPON, flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN, control plane (ioctl, AXI4-Lite, MDIO, I$^2$C),
-network device driver, ARP, TCP/IP, BGP, UDP, DHCP, SNMP, socket programming, InfiniBand, RoCE, iWARP (RDMAP/DDP/MPA), RDMA, Verbs programming,
-1588v2, GigE Vision
+\item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON, flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN,
+control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO, I$^2$C), network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA,
+TCP, BGP, UDP, DHCP, SNMP, socket programming, InfiniBand, RoCEv1, RoCEv2, iWARP (RDMAP/DDP/MPA), RDMA, Verbs programming, 1588v2, GigE Vision
 
 \item[Linux kernel:] kernel architecture, interrupt context, interrupt \& interrupt handler, softirq, tasklet, kernel synchronization,
-RCU, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
-char driver, Network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
+RCU, memory barrier, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
+char driver, network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
+
+\item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling
 
 \item[Applications:] Linux kernel programming, Linux system programming, interprocess communication (IPC), process scheduling,
 multithreading (POSIX), synchronization \& condition synchronization, iOS programming, Android programming,
-OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns
+OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge, singleton)
 
-\item[Tools:] Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf, Jira, JTAG
+\item[Tools:] Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf, cygwin, Jira, JTAG
 
-\item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, network interface card (Mellanox, Chelsio, Emulex), switch (Arista, Ubiquiti),
-PCIe, SR-IOV, DMA, Nios II, ARM926EJ-S
+\item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, network interface card (Mellanox, Chelsio, Emulex),
+switch (Arista 7124SX, Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
+processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
+computer \& microcontroller architecture (Nios II, ARM926EJ-S, Cortex-M3/M4),
+PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512), Camera Link interface, sensor (Maxim Integrated LM75), LED
 
-\item[Version Control:] Git (local and remote)
+\item[Version Control:] Git (local and remote), Bitbucket, CVS, GitHub
 
 \item[IDE:] Eclipse, Xcode
 
@@ -388,8 +399,8 @@ Track 3 Network Architectures, Management and Applications 2016
 IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (13),
 Springer Photonic Network Communications (7), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
-IEEE China Communications (1), De Gruyter Journal of Optical Communications (1), Chinese Optics Letters (1), Acta Electronica Sinica (2),
-Journal of Beijing University of Posts and Telecommunications (4),
+Wiley Networks Journal (1), IEEE China Communications (1), De Gruyter Journal of Optical Communications (1), Chinese Optics Letters (1),
+Acta Electronica Sinica (2), Journal of Beijing University of Posts and Telecommunications (4),
 and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DRCN, IEEE ONDM, etc.
 
 \end{itemize}
