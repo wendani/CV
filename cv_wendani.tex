@@ -121,8 +121,11 @@ Canada & E: wonda.ni@gmail.com\\
   \ressubheading{Pleora Technologies Inc.}{Ottawa, ON, Canada}
   {Senior embedded software designer}{Jan. 2017 - present}
   \begin{itemize}
-    \resitem{Topics: video backhaul over GigE Vision standard protocol suite}
-    \resitem{Improved the USRT latency performance by over six times through batch data push and bug fixing.}
+    \resitem{Topics: real-time video backhaul over GigE Vision standard protocol suite}
+    \resitem{Designed and developed embedded software in a C and C++ mixed environment. Summoned by the core project team within six months since onboarding.
+    Accomplished (passed product verification) five features in C++ with design pattern application in the first month of joining the core project.}
+    \resitem{Improved the USRT (serial port communication) latency performance by over six times through batch data push and bug fixing.
+    Identified architectural bottleneck that prohibits further performance improvements.}
     \resitem{Grasped the agent-side SNMP implementation in depth by learning the basics of SNMP from scratch
     and leading through the code base. Pinpointed and fixed the bug within one week.}
   \end{itemize}
@@ -217,7 +220,7 @@ Canada & E: wonda.ni@gmail.com\\
         Developed a network-level availability model to compute the probability that a VLB network is congestion-free under all traffic patterns.
         The main challenges in such a context arise from the unique routing and protection scheme that goes beyond the definition of conventional connection-level service availability
         as well as the logical link failure correlation that prohibits the use of traditional analytical methods.
-        \textcolor{Red}{Our work was honored as a runner-up for the 2013 Fabio Neri Best Paper Award.}
+        \textcolor{Red}{Our work was honored as a runner-up of the 2013 Fabio Neri Best Paper Award.}
         One winner and three runners-up were selected from all papers published in \textit{Elsevier Optical Switching and Networking} journal throughout year 2013.
         Official announcement: \url{http://www.journals.elsevier.com/optical-switching-and-networking/awards/2013-fabio-neri-best-paper-award/}}
 
@@ -285,18 +288,24 @@ C++, Objective-C, Python, XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Veril
 
 \item[Operating Systems:] Linux (CentOS, Ubuntu, Fedora, Red Hat), FreeRTOS, Windows, Mac OS X
 
-\item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON, flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN,
-control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO, I$^2$C), network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA,
-TCP, BGP, UDP, DHCP, SNMP, socket programming, InfiniBand, RoCEv1, RoCEv2, iWARP (RDMAP/DDP/MPA), RDMA, Verbs programming, 1588v2, GigE Vision
+\item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN,
+control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO, I$^2$C), network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927),
+TCP, BGP, UDP, DHCP, SNMP (agent, ASN.1 encoding/decoding), SNTPv4 (RFC 4330), NTPv4 (RFC 5905), NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c),
+socket programming, InfiniBand, RoCEv1, RoCEv2, iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2, GigE Vision
 
 \item[Linux kernel:] kernel architecture, interrupt context, interrupt \& interrupt handler, softirq, tasklet, kernel synchronization,
 RCU, memory barrier, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
 char driver, network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
 
-\item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling
+\item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling, software timer
+
+\item[Data structures (program):] array, linked list, hash table, queue, stack, tree, binary tree, heap, binary search tree, bitmap
+
+\item[Algorithms:] binary search, recursion, sorting (bubble sort, selection sort, insertion sort, shell sort, quick sort, merge sort, radix sort, heap sort),
+divide and conquer, dynamic programming, greedy, Dijkstra's algorithm
 
 \item[Applications:] Linux kernel programming, Linux system programming, interprocess communication (IPC), process scheduling,
-multithreading (POSIX), synchronization \& condition synchronization, iOS programming, Android programming,
+multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge, singleton)
 
 \item[Tools:] Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf, cygwin, Jira, JTAG
@@ -304,14 +313,15 @@ OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge, 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, network interface card (Mellanox, Chelsio, Emulex),
 switch (Arista 7124SX, Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
-computer \& microcontroller architecture (Nios II, ARM926EJ-S, Cortex-M3/M4),
-PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512), Camera Link interface, sensor (Maxim Integrated LM75), LED
+computer, microcontroller, and SoC architecture (Nios II, ARM926EJ-S, Cortex-M3/M4),
+PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512), Camera Link interface, sensor (Maxim Integrated LM75,
+Altera Arria 10 internal temperature sensing diode \& IP core), LED
 
 \item[Version Control:] Git (local and remote), Bitbucket, CVS, GitHub
 
 \item[IDE:] Eclipse, Xcode
 
-\item[Text and Graphs:] Vim, Emacs, \LaTeX, PSTricks, Gnuplot, Origin
+\item[Text and Graphs:] Vim, Emacs, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2
 
 \end{description}
 
@@ -376,7 +386,7 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC),
-Optical and Grid Computing Symposium 2014, 2015, 2016, 2017
+Optical and Grid Computing Symposium 2014, 2015, 2016, 2017, 2018
 
 \item
 \textbf{Technical program committee member} of OSA Asia Communications and Photonics Conference (ACP),
@@ -395,8 +405,8 @@ Track 3 Network Architectures, Management and Applications 2016
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 
 \item
-\textbf{Reviewer} for IEEE/OSA Journal of Lightwave Technology (4), IEEE/OSA Journal of Optical Communications and Networking (11),
-IEEE Transactions on Communications (1), IEEE Communications Letters (1),
+\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (4),
+IEEE/OSA Journal of Optical Communications and Networking (11), IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (13),
 Springer Photonic Network Communications (7), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
 Wiley Networks Journal (1), IEEE China Communications (1), De Gruyter Journal of Optical Communications (1), Chinese Optics Letters (1),
