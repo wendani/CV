@@ -128,6 +128,8 @@ Canada & E: wonda.ni@gmail.com\\
     Identified architectural bottleneck that prohibits further performance improvements.}
     \resitem{Grasped the agent-side SNMP implementation in depth by learning the basics of SNMP from scratch
     and leading through the code base. Pinpointed and fixed the bug within one week.}
+    \resitem{Ported third-party SNTPv4 module into our network stack and interfaced it with our embedded software for configuration, control, and application.
+    Spotted bug (confirmed by third party) in code reading on the third day of taking over the source code.}
   \end{itemize}
 
 \item
@@ -146,7 +148,7 @@ Canada & E: wonda.ni@gmail.com\\
     Designed and implemented a user-space token-passing protocol in C to demonstrate burst data transmission between two hosts over an optical coupler.
     This milestone eliminates the biggest challenge to prototype the HEDA protocol.}
     \resitem{Learned exhaustive knowledge of Linux kernel architecture, Linux kernel programming, Linux network device driver, and Linux network stack.
-    Architected the integration and interface solution of embracing HEDA protocol in the Linux networking system.
+    Architected the integration and interface solution of embracing HEDA protocol in the Linux networking system (kernel 2.6.35.14).
     Designed and implementing software modules of HEDA protocol in C at the kernel network device driver level.}
     \resitem{Led a team of three at the hardware development phase and a team of two at the software development phase.}
     \resitem{Acquired a deep understanding of various RDMA technologies---InfiniBand, RoCE, and iWARP---through
@@ -289,39 +291,50 @@ C++, Objective-C, Python, XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Veril
 \item[Operating Systems:] Linux (CentOS, Ubuntu, Fedora, Red Hat), FreeRTOS, Windows, Mac OS X
 
 \item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN,
-control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO, I$^2$C), network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927),
-TCP, BGP, UDP, DHCP, SNMP (agent, ASN.1 encoding/decoding), SNTPv4 (RFC 4330), NTPv4 (RFC 5905), NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c),
-socket programming, InfiniBand, RoCEv1, RoCEv2, iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2, GigE Vision
+control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
+network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927),
+TCP, BGP, UDP, DHCP, SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
+NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming, InfiniBand, RoCEv1, RoCEv2,
+iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2, GigE Vision
 
 \item[Linux kernel:] kernel architecture, interrupt context, interrupt \& interrupt handler, softirq, tasklet, kernel synchronization,
 RCU, memory barrier, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
 char driver, network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
 
-\item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling, software timer
+\item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling, software timer,
+heap memory management
 
-\item[Data structures (program):] array, linked list, hash table, queue, stack, tree, binary tree, heap, binary search tree, bitmap
+\item[Data structures (program):] array, linked list, queue, priority queue, stack,
+hash table, lookup table/map,
+tree, binary tree, heap, binary search tree, AVL tree, prefix tree/trie,
+bitmap/bit vector, set (bitmap, array, linked list, hash table, binary search tree),
+suffix array
 
-\item[Algorithms:] binary search, recursion, sorting (bubble sort, selection sort, insertion sort, shell sort, quick sort, merge sort, radix sort, heap sort),
-divide and conquer, dynamic programming, greedy, Dijkstra's algorithm
+\item[Algorithms:] searching (linear/sequential search, binary search), iteration, recursion,
+sorting (bubble sort, selection sort, insertion sort, shell sort, quick sort, merge sort, radix sort, heap sort),
+selection ($K$\textsuperscript{th} smallest/largest),
+random sampling (sorted output, random output),
+bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, minimum spanning tree, Dijkstra's algorithm
 
 \item[Applications:] Linux kernel programming, Linux system programming, interprocess communication (IPC), process scheduling,
 multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge, singleton)
 
-\item[Tools:] Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf, cygwin, Jira, JTAG
+\item[Tools:] Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf, cygwin, Jira, JTAG, SnmpB
 
-\item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, network interface card (Mellanox, Chelsio, Emulex),
+\item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
 switch (Arista 7124SX, Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
 computer, microcontroller, and SoC architecture (Nios II, ARM926EJ-S, Cortex-M3/M4),
-PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512), Camera Link interface, sensor (Maxim Integrated LM75,
+MAC core (MorethanIP 10/100/1000Mbps, Xilinx 10G),
+PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512, Microsemi VSC8541), Camera Link interface, sensor (Maxim Integrated LM75,
 Altera Arria 10 internal temperature sensing diode \& IP core), LED
 
 \item[Version Control:] Git (local and remote), Bitbucket, CVS, GitHub
 
 \item[IDE:] Eclipse, Xcode
 
-\item[Text and Graphs:] Vim, Emacs, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2
+\item[Text and Graphs:] Vim, Emacs, Confluence, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2, JSON
 
 \end{description}
 
