@@ -130,6 +130,11 @@ Canada & E: wonda.ni@gmail.com\\
     and leading through the code base. Pinpointed and fixed the bug within one week.}
     \resitem{Ported third-party SNTPv4 module into our network stack and interfaced it with our embedded software for configuration, control, and application.
     Spotted bug (confirmed by third party) in code reading on the third day of taking over the source code.}
+    \resitem{Proposed a lazy address conflict resolution method to reduce device boot-up time by $\sim$7 seconds.
+    Verified the feasibility of the method via experimental trials.
+    Proposal adopted and implemented in Pleora's latest devices for boot-up time optimization.}
+    %by skipping ARP probing (defined in RFC 5227 IPv4 address conflict detection) in IP configuration and
+    %deferring the address conflicts to manual resolution over GigE Vision FORCEIP control packet;
   \end{itemize}
 
 \item
@@ -293,7 +298,7 @@ C++, Objective-C, Python, XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Veril
 \item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN,
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
 network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927),
-TCP, BGP, UDP, DHCP, SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
+TCP, BGP, UDP, DHCP (RFC 2131), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
 NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming, InfiniBand, RoCEv1, RoCEv2,
 iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2, GigE Vision
 
@@ -305,7 +310,7 @@ char driver, network traffic control (TC), Tx \& Rx path below layer 3, new API 
 heap memory management
 
 \item[Data structures (program):] array, linked list, queue, priority queue, stack,
-hash table, lookup table/map,
+hash table, lookup table/map/dictionary,
 tree, binary tree, heap, binary search tree, AVL tree, prefix tree/trie,
 bitmap/bit vector, set (bitmap, array, linked list, hash table, binary search tree),
 suffix array
@@ -317,7 +322,7 @@ random sampling (sorted output, random output),
 bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, minimum spanning tree, Dijkstra's algorithm
 
 \item[Applications:] Linux kernel programming, Linux system programming, interprocess communication (IPC), process scheduling,
-multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
+multithreading (POSIX), synchronization \& condition synchronization, file access, {\tt select}, iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge, singleton)
 
 \item[Tools:] Makefile, gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf, cygwin, Jira, JTAG, SnmpB
@@ -334,7 +339,7 @@ Altera Arria 10 internal temperature sensing diode \& IP core), LED
 
 \item[IDE:] Eclipse, Xcode
 
-\item[Text and Graphs:] Vim, Emacs, Confluence, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2, JSON
+\item[Text and Graphs:] Vim, GVim, Emacs, Confluence, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2, JSON
 
 \end{description}
 
