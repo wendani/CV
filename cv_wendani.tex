@@ -121,9 +121,11 @@ Canada & E: wonda.ni@gmail.com\\
   \ressubheading{Microsoft Corporation}{Vancouver, BC, Canada}
   {Software engineer 2}{Dec. 2017 - present}
   \begin{itemize}
-  \resitem{Topics: white-box data center switches}
-  \resitem{Characterized the DSCP mapping, ingress admission control (flow control XOFF/XON threshold, pool size), egress admission control (drop state, pool size),
-  and WRED dropping behavior of memory management unit (MMU) on Broadcom BCM56850 and BCM56970 switch chips}
+  \resitem{Topics: white-box data center switches (40G, 50G, 100G)}
+  \resitem{Characterized the DSCP mapping, ingress admission control (flow control XOFF/XON threshold, pool size),
+  egress admission control (drop state, pool size), ECN marking, and WRED dropping behavior of memory management unit (MMU)
+  on Broadcom BCM56850 and BCM56970 switch chips
+  for various traffic types (lossy, lossless, data, and CPU).}
   \end{itemize}
 
 \item
@@ -300,9 +302,13 @@ Canada & E: wonda.ni@gmail.com\\
 \begin{description}
 \setlength{\itemindent}{-0.1in}
 
-\item[Programming Languages:] C ({\tt const}, {\tt volatile}), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM), inline assembly (gcc), C in C++, Java,
-C++ ({\tt explicit}, {\tt cast}, squential container, associative container, implicit interface, virtual function \& default argument), Objective-C,
-Python (sequence type (list)), XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Verilog, VHDL, SQL %
+\item[Programming Languages:] C ({\tt const}, {\tt volatile}), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
+inline assembly (gcc), C in C++, Java,
+C++ ({\tt explicit}, direct initialization, copy initialization, {\tt cast}, squential container, string (NULL, rational operators, {\tt stoul}),
+associative container, implicit interface, virtual function \& default argument),
+Objective-C,
+Python (sequence type (list, tuple), mappying type (dictionary), sorted, lambda, ternary, not), Jinja2 (template, custom filter), YAML (sequence, mapping, scalar),
+XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Verilog, VHDL, SQL %
 
 \item[Operating Systems:] Linux (CentOS, Fedora, Red Hat, Ubuntu, Debian), FreeRTOS, Windows, Mac OS X
 
@@ -310,10 +316,13 @@ Python (sequence type (list)), XML, AMPL, MATLAB, script (bash, tcsh), Fortran, 
 IEEE 802.1, bridge, VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN,
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
 network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED marking/dropping,
+ICMP (RFC 792, echo, echo reply),
 TCP, BGP, UDP, DHCP (RFC 2131), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
 NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming, InfiniBand, RoCEv1, RoCEv2,
 iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2,
-GigE Vision (WRITEREG, READREG, WRITEMEM, READMEM, EVENTDATA, DISCOVERY, PENDING\_ACK, FORCEIP, heartbeat)
+GigE Vision (WRITEREG, READREG, WRITEMEM, READMEM, EVENTDATA, DISCOVERY, PENDING\_ACK, FORCEIP, heartbeat),
+Software for Open Networking in the Cloud (SONiC), OCP switch abstration interface (SAI),
+FEC (Reed-Solomon)
 
 \item[Switching:] ingress admission control, virtual output queuing, egress admission control,
 scheduling (strict priority (preemptive, non-preemptive),
@@ -340,44 +349,54 @@ selection ($K$\textsuperscript{th} smallest/largest),
 random sampling (sorted output, random output),
 bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, minimum spanning tree, Dijkstra's algorithm
 
-\item[Applications:] Linux kernel programming, Linux system programming, interprocess communication (IPC), process scheduling,
-multithreading (POSIX), synchronization \& condition synchronization, file access, {\tt select}, iOS programming, Android programming,
+\item[Applications:] Linux kernel programming, Linux system programming ({\tt select}, {\tt getenv}), interprocess communication (IPC), process scheduling,
+multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge, singleton)
 
 \item[Tools:] Makefile (expansion (recursive, simple, secondary), {\tt eval}, phony target), gdb, crash, gprof, OProfile, {\tt iperf},
 strace, ftrace, SystemTap,
-Wireshark, autoconf (./autogen.sh, ./configure, make, make install), cygwin, cross toolchain (OpenWrt, Altera),
+Scapy (ether, dot1q, ip, arp, icmp), Wireshark, autoconf (./autogen.sh, ./configure, make, make install), cygwin, cross toolchain (OpenWrt, Altera),
 JTAG, SnmpB,
 {\tt lftp}, {\tt ssh} (localhost), {\tt sftp}, SecureCRT (SSH, SFTP), PuTTY,
-Jira, CodeFlow
+Jira, CodeFlow,
+jumpbox, Dnsmasq, syslog
 
 \item[Linux command line:] {\tt fdisk}, {\tt df}, {\tt du},
 {\tt ps},
-{\tt mkfs}, {\tt grep} \& regular expression, {\tt find}, {\tt less}, {\tt ln}, {\tt mount}, /etc/fstab, {\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz),
-{\tt ifconfig}, {\tt ethtool}, {\tt arp}, {\tt tcpdump}, {\tt ip route}, {\tt ip addr}, {\tt wget},
-{\tt chown}, {\tt chmod}, {\tt adduser}, {\tt usermod},
+{\tt mkfs}, {\tt grep} \& regular expression, {\tt find}, {\tt less}, {\tt tail}, {\tt ln}, {\tt mount}, /etc/fstab, {\tt file}, {\tt chmod},
+{\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz), {\tt zcat},
+{\tt ifconfig}, {\tt ip addr}, {\tt ip link}, {\tt ethtool}, {\tt arp}, {\tt ip neigh}, {\tt ip link}, {\tt tcpdump}, {\tt ip route}, {\tt wget},
+{\tt chown}, {\tt adduser}, {\tt usermod}, {\tt passwd}, {\tt id},
 {\tt dpkg},
 {\tt which}
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
-switch (Arista 7124SX, 7050QX-32S, 7260CX3-64, Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
+switch (Arista 7124SX, 7050QX-32S, 7260CX3-64, Dell S6100-ON, Mellanox SN2700, Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
 computer, microcontroller, and SoC architecture (Nios II, Cortex-M3/M4, MicroBlaze, ARM926EJ-S),
-switch chip (Broadcom BCM56850 (Trident2), BCM56970 (Tomahawk2), buffer management, cross-point (XP) architecture, PFC, ECN, WRED),
+switch chip (Broadcom BCM56850 (Trident2), BCM56970 (Tomahawk2), BCM56960 (Tomahawk), memory management unit, buffer management, buffer statistics tracking,
+cross-point (XP) architecture, PFC, ECN, WRED),
 MAC core (MorethanIP 10/100/1000Mbps, Xilinx 10G),
 PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512, Microsemi VSC8541), Camera Link interface, sensor (Maxim Integrated LM75,
 Altera Arria 10 internal temperature sensing diode \& IP core), LED,
 FireWire card (SYBA)
 
-\item[Virtualization:] hypervisor (VirtualBox, VMware, Hyper-V, Xen), container
+\item[Virtualization:] hypervisor (VirtualBox, VMware, Hyper-V, Xen), container, Docker (info,
+build context, Dockerfile (FROM, RUN, COPY; WORKDIR, EXPOSE, ENTRYPOINT),
+load, images, tag, image (ls, history, inspect, build),
+ps, run, exec, stop, start, attach,
+cp)
 
-\item[Automation:]
+\item[Automation:] Ansible (ansible-playbook)
 
-\item[Version Control:] Git (local and remote), GitHub workflow, Bitbucket, Visual Studio Team Services, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
+\item[Version Control:] Git (local, remote, apply, cherry-pick, submodule update, git bisect), GitHub workflow, Bitbucket, Visual Studio Team Services,
+CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
 
 \item[IDE:] Eclipse, Xcode
 
-\item[Text and Graphs:] Vim, GVim, Emacs, Confluence, OneNote, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2, JSON
+\item[Text and Graphs:] Vim, GVim, Emacs, Confluence, SharePoint, OneNote, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2, JSON
+
+\item[Garage:] 3D printing (Ultimaker 3 Extended, Cura)
 
 \end{description}
 
@@ -467,7 +486,7 @@ Track 3 Network Architectures, Management and Applications 2016
 
 \item
 \textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (4),
-IEEE/OSA Journal of Optical Communications and Networking (12), IEEE Transactions on Communications (1), IEEE Communications Letters (1),
+IEEE/OSA Journal of Optical Communications and Networking (14), IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (13),
 Springer Photonic Network Communications (7), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
 Wiley Networks Journal (1), IEEE China Communications (1), De Gruyter Journal of Optical Communications (1), Chinese Optics Letters (1),
