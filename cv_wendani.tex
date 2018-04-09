@@ -118,6 +118,15 @@ Canada & E: wonda.ni@gmail.com\\
 \setlength{\itemindent}{-0.075in}
 
 \item
+  \ressubheading{Microsoft Corporation}{Vancouver, BC, Canada}
+  {Software engineer 2}{Dec. 2017 - present}
+  \begin{itemize}
+  \resitem{Topics: white-box data center switches}
+  \resitem{Characterized the DSCP mapping, ingress admission control (flow control XOFF/XON threshold, pool size), egress admission control (drop state, pool size),
+  and WRED dropping behavior of memory management unit (MMU) on Broadcom BCM56850 and BCM56970 switch chips}
+  \end{itemize}
+
+\item
   \ressubheading{Pleora Technologies Inc.}{Ottawa, ON, Canada}
   {Senior embedded software designer}{Jan. 2017 - Dec. 2017}
   \begin{itemize}
@@ -292,21 +301,29 @@ Canada & E: wonda.ni@gmail.com\\
 \setlength{\itemindent}{-0.1in}
 
 \item[Programming Languages:] C ({\tt const}, {\tt volatile}), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM), inline assembly (gcc), C in C++, Java,
-C++ ({\tt explicit}, {\tt cast}, squential container, associative container, implicit interface, virtual function \& default argument), Objective-C, Python, XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Verilog, VHDL, SQL %
+C++ ({\tt explicit}, {\tt cast}, squential container, associative container, implicit interface, virtual function \& default argument), Objective-C,
+Python (sequence type (list)), XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Verilog, VHDL, SQL %
 
 \item[Operating Systems:] Linux (CentOS, Fedora, Red Hat, Ubuntu, Debian), FreeRTOS, Windows, Mac OS X
 
-\item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control, LAG, IEEE 802.1, bridge, VLAN, PFC, Q-in-Q, GRE, VXLAN,
+\item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control (802.3x), LAG,
+IEEE 802.1, bridge, VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN,
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
-network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927),
+network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED marking/dropping,
 TCP, BGP, UDP, DHCP (RFC 2131), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
 NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming, InfiniBand, RoCEv1, RoCEv2,
 iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2,
 GigE Vision (WRITEREG, READREG, WRITEMEM, READMEM, EVENTDATA, DISCOVERY, PENDING\_ACK, FORCEIP, heartbeat)
 
+\item[Switching:] ingress admission control, virtual output queuing, egress admission control,
+scheduling (strict priority (preemptive, non-preemptive),
+round robin (work-conserving, native (packet), weighted (packet), deficit (byte), weighted deficit (byte)),
+policing/traffic shaping (average rate (packet, byte), average rate + burst size (packet, byte), average rate + burst size + peak rate (packet, byte)),
+output-queued shared memory, input-output-queued
+
 \item[Linux kernel:] kernel architecture, interrupt context, interrupt \& interrupt handler, softirq, tasklet, kernel synchronization,
 RCU, memory barrier, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
-char driver, network traffic control (TC), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
+char driver, network traffic control (TC) (token bucket filter), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
 
 \item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling, software timer,
 heap memory management, stack overflow checking
@@ -327,31 +344,40 @@ bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, 
 multithreading (POSIX), synchronization \& condition synchronization, file access, {\tt select}, iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge, singleton)
 
-\item[Tools:] Makefile (expansion (recursive, simple, secondary), {\tt eval}, phony target), gdb, crash, gprof, OProfile, strace, ftrace, SystemTap, Wireshark, autoconf, cygwin, cross toolchain (OpenWrt),
-Jira, JTAG, SnmpB,
-LFTP, SFTP, SecureCRT (SSH, SFTP), PuTTY,
-CodeFlow
+\item[Tools:] Makefile (expansion (recursive, simple, secondary), {\tt eval}, phony target), gdb, crash, gprof, OProfile, {\tt iperf},
+strace, ftrace, SystemTap,
+Wireshark, autoconf (./autogen.sh, ./configure, make, make install), cygwin, cross toolchain (OpenWrt, Altera),
+JTAG, SnmpB,
+{\tt lftp}, {\tt ssh} (localhost), {\tt sftp}, SecureCRT (SSH, SFTP), PuTTY,
+Jira, CodeFlow
 
-\item[Linux command line:] {\tt fdisk},
+\item[Linux command line:] {\tt fdisk}, {\tt df}, {\tt du},
 {\tt ps},
-{\tt mkfs}, {\tt grep}, {\tt find}, {\tt mount}, /etc/fstab,
-{\tt wget},
-{\tt chown}
+{\tt mkfs}, {\tt grep} \& regular expression, {\tt find}, {\tt less}, {\tt ln}, {\tt mount}, /etc/fstab, {\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz),
+{\tt ifconfig}, {\tt ethtool}, {\tt arp}, {\tt tcpdump}, {\tt ip route}, {\tt ip addr}, {\tt wget},
+{\tt chown}, {\tt chmod}, {\tt adduser}, {\tt usermod},
+{\tt dpkg},
+{\tt which}
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
-switch (Arista 7124SX, 7050QX-32S, Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
+switch (Arista 7124SX, 7050QX-32S, 7260CX3-64, Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
 computer, microcontroller, and SoC architecture (Nios II, Cortex-M3/M4, MicroBlaze, ARM926EJ-S),
+switch chip (Broadcom BCM56850 (Trident2), BCM56970 (Tomahawk2), buffer management, cross-point (XP) architecture, PFC, ECN, WRED),
 MAC core (MorethanIP 10/100/1000Mbps, Xilinx 10G),
 PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512, Microsemi VSC8541), Camera Link interface, sensor (Maxim Integrated LM75,
 Altera Arria 10 internal temperature sensing diode \& IP core), LED,
 FireWire card (SYBA)
 
-\item[Version Control:] Git (local and remote), Bitbucket, CVS, TortoiseCVS, SVN, TortoiseSVN, GitHub, Source Depot
+\item[Virtualization:] hypervisor (VirtualBox, VMware, Hyper-V, Xen), container
+
+\item[Automation:]
+
+\item[Version Control:] Git (local and remote), GitHub workflow, Bitbucket, Visual Studio Team Services, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
 
 \item[IDE:] Eclipse, Xcode
 
-\item[Text and Graphs:] Vim, GVim, Emacs, Confluence, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2, JSON
+\item[Text and Graphs:] Vim, GVim, Emacs, Confluence, OneNote, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2, JSON
 
 \end{description}
 
@@ -364,6 +390,7 @@ FireWire card (SYBA)
 \vspace{0.1in}
 \begin{tabular*}{7.08in}{l@{\extracolsep{\fill}}r} %6.5in
 \textcolor{Red}{\textbf{O-1 Visa---Individuals with Extraordinary Ability or Achievement}} & 2016\\
+Outstanding reviewer for Elsevier Optical Switching and Networking & 2016\\
 \textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CAD\$32,500)} & 2015\\
 \textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CAD\$32,500)} & 2014\\
 Recognized reviewer for Elsevier Computer Communications & 2014\\
@@ -405,7 +432,8 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 \textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016, 2017, 2018
 
 \item
-\textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016, 2017
+\textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016, 2017,
+2018
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium
@@ -430,6 +458,9 @@ Track 3 Network Architectures, Management and Applications 2016
 
 \item
 \textbf{Organization committee member} of the 56th Canadian Operational Research Society (CORS) Annual Conference, Telecommunications Cluster 2014
+
+\item
+\textbf{Industrial membership committee member} of Asia-Pacific Signal and Information Processing Association (APSIPA) 2018-2019
 
 \item
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
