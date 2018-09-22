@@ -124,7 +124,7 @@ Canada & E: wonda.ni@gmail.com\\
   \resitem{Topics: white-box data center switches (40G, 50G, 100G)}
   \resitem{Characterized the DSCP mapping, ingress admission control (flow control XOFF/XON threshold, pool size),
   egress admission control (drop state, pool size), ECN marking, and WRED dropping behavior of memory management unit (MMU)
-  on Broadcom BCM56850 and BCM56970 switch chips
+  on Broadcom BCM56850, BCM56960, and BCM56970 switch chips
   for various traffic types (lossy, lossless, data, and CPU).}
   \end{itemize}
 
@@ -302,20 +302,24 @@ Canada & E: wonda.ni@gmail.com\\
 \begin{description}
 \setlength{\itemindent}{-0.1in}
 
-\item[Programming Languages:] C ({\tt const}, {\tt volatile}), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
+\item[Programming Languages:] C ({\tt const}, {\tt volatile}, strstr), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
 inline assembly (gcc), C in C++, Java,
-C++ ({\tt explicit}, direct initialization, copy initialization, {\tt cast}, squential container, string (NULL, rational operators, {\tt stoul}),
-associative container, implicit interface, virtual function \& default argument),
+C++ ({\tt explicit}, direct initialization, copy initialization, {\tt cast}, squential container (emplace),
+string (NULL, rational operators, {\tt empty}, {\tt substr}, {\tt stoul}),
+associative container, map (at, count), unordered\_map, implicit interface, virtual function \& default argument, shared\_ptr, unique\_ptr, lambda expression, member initializer),
 Objective-C,
-Python (sequence type (list, tuple), mappying type (dictionary), sorted, lambda, ternary, not), Jinja2 (template, custom filter), YAML (sequence, mapping, scalar),
-XML, AMPL, MATLAB, script (bash, tcsh), Fortran, Verilog, VHDL, SQL %
+Python (sequence type (list, tuple), mapping type (dictionary), sorted, map, lambda, isinstance, ternary, not, in, import, from, parameter passing,
+global, nested function, scoping, assert,
+finally, module, argparse, pickle, re, subprocess, os),
+Jinja2 (template, custom filter, macro, include), YAML (sequence, mapping, scalar),
+XML, AMPL, MATLAB, script (bash, tcsh, expansion), Fortran, Verilog, VHDL, SQL %
 
-\item[Operating Systems:] Linux (CentOS, Fedora, Red Hat, Ubuntu, Debian), FreeRTOS, Windows, Mac OS X
+\item[Operating Systems:] Linux (CentOS, Fedora, Red Hat, Ubuntu, Debian, Raspbian Lite), FreeRTOS, Windows, Windows Subsystem for Linux (WSL), Mac OS X
 
 \item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control (802.3x), LAG,
 IEEE 802.1, bridge, VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN,
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
-network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED marking/dropping,
+network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED dropping,
 ICMP (RFC 792, echo, echo reply),
 TCP, BGP, UDP, DHCP (RFC 2131), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
 NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming, InfiniBand, RoCEv1, RoCEv2,
@@ -332,7 +336,8 @@ output-queued shared memory, input-output-queued
 
 \item[Linux kernel:] kernel architecture, interrupt context, interrupt \& interrupt handler, softirq, tasklet, kernel synchronization,
 RCU, memory barrier, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
-char driver, network traffic control (TC) (token bucket filter), Tx \& Rx path below layer 3, new API (NAPI), syscall, sysfs, tracepoint, kprobe, kdump, kbuild
+char driver, network traffic control (TC) (token bucket filter), Tx \& Rx path below layer 3, new API (NAPI),
+syscall, sysfs, tracepoint, kprobe, kdump, kbuild, kallsyms
 
 \item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling, software timer,
 heap memory management, stack overflow checking
@@ -349,54 +354,66 @@ selection ($K$\textsuperscript{th} smallest/largest),
 random sampling (sorted output, random output),
 bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, minimum spanning tree, Dijkstra's algorithm
 
-\item[Applications:] Linux kernel programming, Linux system programming ({\tt select}, {\tt getenv}), interprocess communication (IPC), process scheduling,
+\item[Applications:] regular expression (basic, extended), Linux kernel programming, Linux system programming ({\tt select}, {\tt getenv}), interprocess communication (IPC), process scheduling,
 multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
-OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge, singleton)
+OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge (separate an abstraction from its implementation),
+decorator (add responsibilities incrementally \& dynamically), singleton), Kusto query,
+packet test framework (PTF) (dataplane)
 
 \item[Tools:] Makefile (expansion (recursive, simple, secondary), {\tt eval}, phony target), gdb, crash, gprof, OProfile, {\tt iperf},
 strace, ftrace, SystemTap,
 Scapy (ether, dot1q, ip, arp, icmp), Wireshark, autoconf (./autogen.sh, ./configure, make, make install), cygwin, cross toolchain (OpenWrt, Altera),
 JTAG, SnmpB,
-{\tt lftp}, {\tt ssh} (localhost), {\tt sftp}, SecureCRT (SSH, SFTP), PuTTY,
+{\tt lftp}, {\tt ssh} (localhost), {\tt sftp}, {\tt scp}, SecureCRT (SSH, SFTP), PuTTY,
 Jira, CodeFlow,
 jumpbox, Dnsmasq, syslog
 
-\item[Linux command line:] {\tt fdisk}, {\tt df}, {\tt du},
+\item[Linux command line:] {\tt lsblk}, {\tt fdisk}, {\tt df}, {\tt du},
 {\tt ps},
-{\tt mkfs}, {\tt grep} \& regular expression, {\tt find}, {\tt less}, {\tt tail}, {\tt ln}, {\tt mount}, /etc/fstab, {\tt file}, {\tt chmod},
-{\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz), {\tt zcat},
-{\tt ifconfig}, {\tt ip addr}, {\tt ip link}, {\tt ethtool}, {\tt arp}, {\tt ip neigh}, {\tt ip link}, {\tt tcpdump}, {\tt ip route}, {\tt wget},
+{\tt mkfs}, {\tt grep}, {\tt find}, {\tt less}, {\tt tail}, {\tt ln}, {\tt mount}, {\tt unmount}, /etc/fstab, {\tt file}, {\tt chmod},
+{\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz), {\tt zcat}, {\tt zgrep},
+{\tt ifconfig}, {\tt ip addr}, {\tt ip link}, {\tt ethtool}, {\tt arp}, {\tt ip neigh}, {\tt ip link}, {\tt tcpdump}, {\tt ip route}, {\tt wget}, {\tt curl},
 {\tt chown}, {\tt adduser}, {\tt usermod}, {\tt passwd}, {\tt id},
 {\tt dpkg},
-{\tt which}
+{\tt which},
+{\tt lsusb},
+{\tt virsh}
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
-switch (Arista 7124SX, 7050QX-32S, 7260CX3-64, Dell S6100-ON, Mellanox SN2700, Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
+switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6100-ON, Mellanox SN2700,
+Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
 computer, microcontroller, and SoC architecture (Nios II, Cortex-M3/M4, MicroBlaze, ARM926EJ-S),
 switch chip (Broadcom BCM56850 (Trident2), BCM56970 (Tomahawk2), BCM56960 (Tomahawk), memory management unit, buffer management, buffer statistics tracking,
-cross-point (XP) architecture, PFC, ECN, WRED),
+cross-point (XP) architecture, PFC, ECN, WRED, BCM88670 (Jericho), packet processor architecture),
 MAC core (MorethanIP 10/100/1000Mbps, Xilinx 10G),
 PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512, Microsemi VSC8541), Camera Link interface, sensor (Maxim Integrated LM75,
 Altera Arria 10 internal temperature sensing diode \& IP core), LED,
 FireWire card (SYBA)
 
 \item[Virtualization:] hypervisor (VirtualBox, VMware, Hyper-V, Xen), container, Docker (info,
-build context, Dockerfile (FROM, RUN, COPY; WORKDIR, EXPOSE, ENTRYPOINT),
-load, images, tag, image (ls, history, inspect, build),
-ps, run, exec, stop, start, attach,
+build context, login, pull, push,
+Dockerfile (FROM, RUN, COPY; WORKDIR, EXPOSE, ENTRYPOINT),
+load, images, tag, rmi, image (ls, history, inspect, build, tag),
+ps, run, exec, stop, start, attach, rm,
 cp)
 
-\item[Automation:] Ansible (ansible-playbook)
+\item[Automation:] Ansible (ansible-playbook, name, with\_items, when, include\_vars, register, become, connection,
+module (set\_fact, debug, fail, copy, template, command, shell, script, supervisorctl, lineinfile), custom module),
+Jenkins (template, pipeline)
 
-\item[Version Control:] Git (local, remote, apply, cherry-pick, submodule update, git bisect), GitHub workflow, Bitbucket, Visual Studio Team Services,
-CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
+\item[Version Control:] Git (local, remote, add -{}-patch, branch -{}-contains,
+fetch -{}-tags, push -{}-force -{}-delete, show, rebase, apply, cherry-pick, submodule update -{}-recursive, bisect),
+GitHub workflow, Bitbucket, Visual Studio Team Services,
+CodeFlow, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
 
 \item[IDE:] Eclipse, Xcode
 
 \item[Text and Graphs:] Vim, GVim, Emacs, Confluence, SharePoint, OneNote, \LaTeX, PSTricks, Gnuplot, Origin, SMIv1, SMIv2, JSON
 
-\item[Garage:] 3D printing (Ultimaker 3 Extended, Cura)
+\item[Garage:] 3D printing (Ultimaker 3 Extended, Cura), laser cutting (Universal laser systems VLS4.60, LibreCAD, AutoCAD, Adobe Illustrator),
+plywood, living hinge, safe box, piano, treasure box, ring box, phone stand, drink coaster, anodized aluminum, dog tag,
+vinyl cutting (Silhouette Cameo), Raspberry Pi Zero W, Arduino Uno (button, LED, potentiometer, speaker)
 
 \end{description}
 
@@ -456,18 +473,18 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium
-2012, 2013, 2014, 2015, 2016, 2017
+2012, 2013, 2014, 2015, 2016, 2017, 2019
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM) 2013, 2014, 2015, 2016, 2017, 2018
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC),
-Optical and Grid Computing Symposium 2014, 2015, 2016, 2017, 2018
+Optical and Grid Computing Symposium 2014, 2015, 2016, 2017, 2018, 2019
 
 \item
 \textbf{Technical program committee member} of OSA Asia Communications and Photonics Conference (ACP),
-Track 3 Network Architectures, Management and Applications 2016
+Track 3 Network Architectures, Management and Applications 2016, 2018
 
 \item
 \textbf{Technical program committee member} of IEEE Asia-Pacific Conference on Communications (APCC) 2016
@@ -505,6 +522,8 @@ and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DR
 \leftskip 0.2in %
 
 Permanent resident of Canada, landed on 8 April, 2014
+
+Citizen of Canada, 3 August, 2018
 
 \leftskip 0.0in
 
