@@ -19,6 +19,7 @@
 \usepackage{enumitem}
 \usepackage{multirow}
 \usepackage{url}
+\usepackage{romannum}
 %\usepackage{path}
 %\usepackage{hyperref}
 %\usepackage{textcomp}
@@ -118,8 +119,15 @@ Canada & E: wonda.ni@gmail.com\\
 \setlength{\itemindent}{-0.075in}
 
 \item
+  \ressubheading{Microsoft Corporation}{Redmond, WA, USA}
+  {Software engineer \Romannum{2}}{Jan. 2019 - present}
+  \begin{itemize}
+  \resitem{Topics: white-box data center switches (40G, 50G, 100G)}
+  \end{itemize}
+
+\item
   \ressubheading{Microsoft Corporation}{Vancouver, BC, Canada}
-  {Software engineer 2}{Dec. 2017 - present}
+  {Software engineer 2}{Dec. 2017 - Jan. 2019}
   \begin{itemize}
   \resitem{Topics: white-box data center switches (40G, 50G, 100G)}
   \resitem{Characterized the DSCP mapping, ingress admission control (flow control XOFF/XON threshold, pool size),
@@ -304,19 +312,30 @@ Canada & E: wonda.ni@gmail.com\\
 
 \item[Programming Languages:] C ({\tt const}, {\tt volatile}, strstr), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
 inline assembly (gcc), C in C++, Java,
-C++ ({\tt explicit}, direct initialization, copy initialization, {\tt cast}, squential container (emplace),
-string (NULL, rational operators, {\tt empty}, {\tt substr}, {\tt stoul}),
-associative container, map (at, count), unordered\_map, implicit interface, virtual function \& default argument, shared\_ptr, unique\_ptr, lambda expression, member initializer),
+C++ ({\tt mutable}, {\tt struct}, constructor (top-down, inside out), member initializer list, {\tt explicit}, direct initialization, copy initialization,
+destructor (bottom-up, outside in),
+cast ({\tt dynamic\_cast}), {\tt swap},
+squential container ({\tt empty}, {\tt emplace\_back}, {\tt front}, {\tt pop\_back}, {\tt erase}, {\tt clear}),
+string ({\tt NULL}, rational operators, {\tt find}, {\tt substr}, {\tt stoul}, {\tt npos}),
+vector ({\tt data}, {\tt reserve}),
+associative container ({\tt find}, {\tt count}, {\tt emplace}, {\tt empty}), map ({\tt at}), unordered\_map, set,
+implicit interface, virtual function \& default argument, {\tt initializer\_list},
+shared\_ptr ({\tt make\_shared}, {\tt get}, {\tt reset}, {\tt swap}), unique\_ptr,
+lambda expression, {\tt strtol}, {\tt getline},
+std (thread, mutex, unique\_lock, lock\_guard, condition\_variable),
+{\tt nullptr}, {\tt noexcept}, {\tt override},
+lvalue, rvalue, rvalue reference,
+postponement, RAII, exception-safe (copy and swap)),
 Objective-C,
-Python (sequence type (list, tuple), mapping type (dictionary), sorted, map, lambda, isinstance, ternary, not, in, import, from, parameter passing,
-global, nested function, scoping, assert,
-finally, module, argparse, pickle, re, subprocess, os),
-Jinja2 (template, custom filter, macro, include), YAML (sequence, mapping, scalar),
+Python (sequence type (list, tuple), mapping type (dictionary), natsorted, sorted, map, lambda, isinstance, ternary, not, in, import, from, parameter passing,
+global, nested function, scoping, assert, hex, format,
+finally, module, argparse, pickle, re, subprocess, binascii),
+Jinja2 (template, custom filter, macro, include, filter (combine)), YAML (sequence, mapping, scalar),
 XML, AMPL, MATLAB, script (bash, tcsh, expansion), Fortran, Verilog, VHDL, SQL %
 
 \item[Operating Systems:] Linux (CentOS, Fedora, Red Hat, Ubuntu, Debian, Raspbian Lite), FreeRTOS, Windows, Windows Subsystem for Linux (WSL), Mac OS X
 
-\item[Networking:] IEEE 802.3, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control (802.3x), LAG,
+\item[Networking:] IEEE 802.3, global pause, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control (802.3x), LAG (802.3ad),
 IEEE 802.1, bridge, VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN,
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
 network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED dropping,
@@ -325,7 +344,12 @@ TCP, BGP, UDP, DHCP (RFC 2131), SNMP (agent, ASN.1 encoding/decoding, trap, mib)
 NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming, InfiniBand, RoCEv1, RoCEv2,
 iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2,
 GigE Vision (WRITEREG, READREG, WRITEMEM, READMEM, EVENTDATA, DISCOVERY, PENDING\_ACK, FORCEIP, heartbeat),
-Software for Open Networking in the Cloud (SONiC), OCP switch abstration interface (SAI),
+Software for Open Networking in the Cloud (SONiC) (SubscriberStateTable, CONFIG\_DB,
+ProducerTable, ConsumerTable, FLEX\_COUNTER\_DB,
+Table, COUNTERS\_DB,
+NotificationConsumer, APPL\_DB, COUNTERS\_DB, SelectableTimer,
+flex counter architecture, PFC watchdog, watermark, ACL, swss warm-reboot),
+OCP switch abstraction interface (SAI),
 FEC (Reed-Solomon)
 
 \item[Switching:] ingress admission control, virtual output queuing, egress admission control,
@@ -354,15 +378,16 @@ selection ($K$\textsuperscript{th} smallest/largest),
 random sampling (sorted output, random output),
 bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, minimum spanning tree, Dijkstra's algorithm
 
-\item[Applications:] regular expression (basic, extended), Linux kernel programming, Linux system programming ({\tt select}, {\tt getenv}), interprocess communication (IPC), process scheduling,
+\item[Applications:] regular expression (basic, extended, [:space]), Linux kernel programming, Linux system programming ({\tt select}, {\tt poll}, {\tt epoll}, {\tt getenv}, timerfd), interprocess communication (IPC), process scheduling,
 multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge (separate an abstraction from its implementation),
-decorator (add responsibilities incrementally \& dynamically), singleton), Kusto query,
-packet test framework (PTF) (dataplane)
+decorator (add responsibilities incrementally \& dynamically), singleton, publish-subscribe), Kusto query,
+packet test framework (PTF) (dataplane),
+redis ({\tt get}, {\tt hget}, {\tt set}, {\tt hset}, {\tt del}, {\tt hdel} (multiple fields)), Broadcom SDK (BST, KNET, QoS mapping, FP, LAG, hashing), OpenNSL
 
 \item[Tools:] Makefile (expansion (recursive, simple, secondary), {\tt eval}, phony target), gdb, crash, gprof, OProfile, {\tt iperf},
 strace, ftrace, SystemTap,
-Scapy (ether, dot1q, ip, arp, icmp), Wireshark, autoconf (./autogen.sh, ./configure, make, make install), cygwin, cross toolchain (OpenWrt, Altera),
+Scapy (ether, dot1q, ip, arp, icmp), Wireshark, autoconf (./autogen.sh, ./configure, make, make install, fakeroot), cygwin, cross toolchain (OpenWrt, Altera),
 JTAG, SnmpB,
 {\tt lftp}, {\tt ssh} (localhost), {\tt sftp}, {\tt scp}, SecureCRT (SSH, SFTP), PuTTY,
 Jira, CodeFlow,
@@ -377,15 +402,20 @@ jumpbox, Dnsmasq, syslog
 {\tt dpkg},
 {\tt which},
 {\tt lsusb},
-{\tt virsh}
+{\tt virsh},
+{\tt cat} (-A, ctrl-D, << token), {\tt awk}, {\tt cut} (-c, -f, -d), {\tt sort} (-k, -n), {\tt uniq}, {\tt sed} (-n)
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
 switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6100-ON, Mellanox SN2700,
 Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
 computer, microcontroller, and SoC architecture (Nios II, Cortex-M3/M4, MicroBlaze, ARM926EJ-S),
-switch chip (Broadcom BCM56850 (Trident2), BCM56970 (Tomahawk2), BCM56960 (Tomahawk), memory management unit, buffer management, buffer statistics tracking,
-cross-point (XP) architecture, PFC, ECN, WRED, BCM88670 (Jericho), packet processor architecture),
+switch chip (Broadcom XGS devices, BCM56850 (Trident2), BCM56960 (Tomahawk), BCM56970 (Tomahawk2),
+ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
+memory management unit, buffer management, buffer statistics tracking, scheduler,
+cross-point (XP) architecture, PFC, ECN, WRED, mirroring, field processor (legacy, new), VRF, VXLAN, hashing (flex, resilient), ECMP (weighted, hierarchical),
+user defined field (FP, hashing, flex hashing, flexible counter), flexible counters,
+BCM88670 (Jericho), packet processor architecture),
 MAC core (MorethanIP 10/100/1000Mbps, Xilinx 10G),
 PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512, Microsemi VSC8541), Camera Link interface, sensor (Maxim Integrated LM75,
 Altera Arria 10 internal temperature sensing diode \& IP core), LED,
@@ -398,9 +428,12 @@ load, images, tag, rmi, image (ls, history, inspect, build, tag),
 ps, run, exec, stop, start, attach, rm,
 cp)
 
-\item[Automation:] Ansible (ansible-playbook, name, with\_items, when, include\_vars, register, become, connection,
+\item[Automation:] Ansible (ansible-playbook, name, with\_items, with\_dict, loop, when, rescue, include, include\_vars, register, become, connection,
+async, poll, async\_status, action plugin,
 module (set\_fact, debug, fail, copy, template, command, shell, script, supervisorctl, lineinfile), custom module),
 Jenkins (template, pipeline)
+
+\item[Test:] pytest, Google test
 
 \item[Version Control:] Git (local, remote, add -{}-patch, branch -{}-contains,
 fetch -{}-tags, push -{}-force -{}-delete, show, rebase, apply, cherry-pick, submodule update -{}-recursive, bisect),
@@ -413,7 +446,7 @@ CodeFlow, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
 
 \item[Garage:] 3D printing (Ultimaker 3 Extended, Cura), laser cutting (Universal laser systems VLS4.60, LibreCAD, AutoCAD, Adobe Illustrator),
 plywood, living hinge, safe box, piano, treasure box, ring box, phone stand, drink coaster, anodized aluminum, dog tag,
-vinyl cutting (Silhouette Cameo), Raspberry Pi Zero W, Arduino Uno (button, LED, potentiometer, speaker)
+vinyl cutting (Silhouette Cameo), Raspberry Pi Zero W, Arduino Uno (button, LED, potentiometer, speaker), sewing machine (Brother SE-400)
 
 \end{description}
 
@@ -465,18 +498,18 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
 Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - December 2013
 
 \item
-\textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016, 2017, 2018
+\textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016, 2017, 2018, 2019
 
 \item
 \textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016, 2017,
-2018
+2018, 2019
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium
 2012, 2013, 2014, 2015, 2016, 2017, 2019
 
 \item
-\textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM) 2013, 2014, 2015, 2016, 2017, 2018
+\textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM) 2013, 2014, 2015, 2016, 2017, 2018, 2019
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC),
@@ -502,7 +535,7 @@ Track 3 Network Architectures, Management and Applications 2016, 2018
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 
 \item
-\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (4),
+\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (5),
 IEEE/OSA Journal of Optical Communications and Networking (14), IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (13),
 Springer Photonic Network Communications (7), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
