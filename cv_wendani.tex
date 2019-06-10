@@ -20,9 +20,10 @@
 \usepackage{multirow}
 \usepackage{url}
 \usepackage{romannum}
+%\usepackage[T1]{fontenc}
 %\usepackage{path}
 %\usepackage{hyperref}
-%\usepackage{textcomp}
+\usepackage{textcomp}
 \definecolor{mygrey}{gray}{0.80}
 \textheight=9.0in
 %\raggedbottom
@@ -71,9 +72,9 @@
 %
 %\begin{minipage}[]{0.35\linewidth}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-5488 Oakland Street&  \\
-Burnaby, BC, V5H 1R8  & M: +1 (778) 751 2850\\
-Canada & E: wonda.ni@gmail.com\\
+9839 NE 138th PL&  \\
+Kirkland, WA, 98034  & M: +1 (425) 984 9332\\
+United States & E: wonda.ni@gmail.com\\
 \end{tabular*}
 %\end{minipage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%\hspace{0.5ex} %
@@ -120,20 +121,36 @@ Canada & E: wonda.ni@gmail.com\\
 
 \item
   \ressubheading{Microsoft Corporation}{Redmond, WA, USA}
-  {Software engineer \Romannum{2}}{Jan. 2019 - present}
+  {Software engineer \Romannum{2}, Azure Networking}{Jan. 2019 - present}
   \begin{itemize}
-  \resitem{Topics: white-box data center switches (40G, 50G, 100G)}
+  \resitem{Topics: SONiC network operating system over world's bleeding-edge datacenter switching chips and switches (40G, 50G, 100G);
+  RDMA over SONiC with full engineering responsbility of all RDMA-related components---PFC (DSCP-based and DOT1P-based), PFC storm watchdog,
+  memory management unit (MMU), buffer watermark, ECN marking,
+  WRED dropping, QoS mapping, and PFC storm watchdog warm-reboot}
+  \resitem{Designed, implemented, and test automated PFC watchdog warm-reboot feature, with ramp-up on the
+  warm-reboot architecture from scratch.
+  Resolved the issue of PFC watchdog not started after reboot by fixing the initialization dependancy.}
+  \resitem{Executed full development cycle of buffer pool watermark feature.
+  Improved the scalability of flex counter polling infrastructure with full sleep wait.
+  Established synchronous counter clear path all the way down to ASIC to probe the hardware capability.}
   \end{itemize}
 
 \item
   \ressubheading{Microsoft Corporation}{Vancouver, BC, Canada}
-  {Software engineer 2}{Dec. 2017 - Jan. 2019}
+  {Software engineer 2, Azure Networking}{Dec. 2017 - Jan. 2019}
   \begin{itemize}
-  \resitem{Topics: white-box data center switches (40G, 50G, 100G)}
-  \resitem{Characterized the DSCP mapping, ingress admission control (flow control XOFF/XON threshold, pool size),
-  egress admission control (drop state, pool size), ECN marking, and WRED dropping behavior of memory management unit (MMU)
-  on Broadcom BCM56850, BCM56960, and BCM56970 switch chips
-  for various traffic types (lossy, lossless, data, and CPU).}
+  \resitem{Topics: white-box datacenter switches (40G, 50G, 100G)}
+  \resitem{Developed fundamental insights into the memory management, scheduler, QoS, and flow control units of Broadcom XGS devices
+  through theory of operation study and hand-on experiements with various chips.}
+  \resitem{Characterized and test automated the DSCP mapping, ingress admission control (flow control XOFF/XON threshold, pool size),
+  egress admission control (drop state, pool size), ECN marking, and WRED dropping of MMU
+  on Broadcom BCM56850, BCM56960, BCM56970, and Mellanox Spectrum switch chips
+  for various traffic types (lossy, lossless, data, and CPU).
+  While being open-source, this part of the codes remains proprietary due to its intensity in design and methodology innovation.}
+  \resitem{Designed, implemented, and validated WRED/ECN on/off feature within two weeks to elminate the production rollout blocker.
+  Started from zero coverage of the SONiC code base, got to the heart of the codes, and got the feature done within a stringent timeline.}
+  \resitem{Built a solid foundation on Broadcom XGS switch chip pipeline from a exhaustive study of Broadcom University training materials
+  and hand-on practice.}
   \end{itemize}
 
 \item
@@ -145,8 +162,8 @@ Canada & E: wonda.ni@gmail.com\\
     Accomplished (passed product verification) five features in C++ with design pattern application in the first month of joining the core project.}
     \resitem{Improved the USRT (serial port communication) latency performance by over six times through batch data push and bug fixing.
     Identified architectural bottleneck that prohibits further performance improvements.}
-    \resitem{Grasped the agent-side SNMP implementation in depth by learning the basics of SNMP from scratch
-    and leading through the code base. Pinpointed and fixed the bug within one week.}
+    \resitem{Grasped the agent-side SNMP implementation in depth by learning the SNMP fundamentals from scratch
+    and leading through the code base. Pinpointed and fixed the bug within a week.}
     \resitem{Ported third-party SNTPv4 module into our network stack and interfaced it with our embedded software for configuration, control, and application.
     Spotted bug (confirmed by third party) in code reading on the third day of taking over the source code.}
     \resitem{Proposed a lazy address conflict resolution method to reduce device boot-up time by $\sim$7 seconds.
@@ -159,7 +176,7 @@ Canada & E: wonda.ni@gmail.com\\
 
 \item
   \ressubheading{Viscore Technologies Inc. (defunct)}{Ottawa, ON, Canada}
-  {Lead R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - Dec. 2016}
+  {Principal R\&D engineer on network architecture, software, and hardware}{Sept. 2014 - Dec. 2016}
   \begin{itemize}
     \resitem{Topics: reliable data replication over optical broadcast medium (optical coupler); prototype of HEDA protocol on NetFPGA-10G board,
     funded in part by OCE TalentEdge fellowship; low-latency data communication over RDMA}
@@ -231,7 +248,7 @@ Canada & E: wonda.ni@gmail.com\\
 
 \item
     \ressubheading{Carleton University}{Ottawa, ON, Canada} %
-    {Researcher, Dept. of Systems and Computer Engineering}{Jun. 2011 - Aug. 2014} %Postdoctoral fellow
+    {Senior researcher, Dept. of Systems and Computer Engineering}{Jun. 2011 - Aug. 2014} %Postdoctoral fellow
     \begin{itemize}
         \resitem{Topics: 1) Datacenter networking; 2) Optical datacenters; 3) Protocol design; 4) Survivable telecom network design and analysis;
         5) Decomposition methods, in particular, Lagrangian relaxation and column generation, for solving network optimization problems; 6) Software-defined networks;
@@ -310,28 +327,38 @@ Canada & E: wonda.ni@gmail.com\\
 \begin{description}
 \setlength{\itemindent}{-0.1in}
 
-\item[Programming Languages:] C ({\tt const}, {\tt volatile}, strstr), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
+\item[Programming Languages:] C ({\tt const}, {\tt volatile}, strstr, \%z), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
 inline assembly (gcc), C in C++, Java,
+%
 C++ ({\tt mutable}, {\tt struct}, constructor (top-down, inside out), member initializer list, {\tt explicit}, direct initialization, copy initialization,
-destructor (bottom-up, outside in),
+destructor (bottom-up, outside in), address of reference, operator(), operator type,
 cast ({\tt dynamic\_cast}), {\tt swap},
-squential container ({\tt empty}, {\tt emplace\_back}, {\tt front}, {\tt pop\_back}, {\tt erase}, {\tt clear}),
+sequential container ({\tt empty}, {\tt size}, operator[ ], operator=, {\tt front}, {\tt emplace\_back},
+{\tt push\_back}, {\tt pop\_back}, {\tt erase}, {\tt clear}),
 string ({\tt NULL}, rational operators, {\tt find}, {\tt substr}, {\tt stoul}, {\tt npos}),
-vector ({\tt data}, {\tt reserve}),
-associative container ({\tt find}, {\tt count}, {\tt emplace}, {\tt empty}), map ({\tt at}), unordered\_map, set,
+vector ({\tt data}, {\tt capacity}, {\tt reserve}),
+associative container ({\tt size}, {\tt find}, {\tt count}, {\tt emplace}, {\tt empty}, {\tt insert}, {\tt erase}),
+pair, map ({\tt at}), unordered\_map, set ({\tt clear}),
 implicit interface, virtual function \& default argument, {\tt initializer\_list},
 shared\_ptr ({\tt make\_shared}, {\tt get}, {\tt reset}, {\tt swap}), unique\_ptr,
-lambda expression, {\tt strtol}, {\tt getline},
-std (thread, mutex, unique\_lock, lock\_guard, condition\_variable),
+lvalue, rvalue, rvalue reference, {\tt move}, {\tt ref}, move constructor, move assignment operator,
+lambda expression, std::function, {\tt strtol}, {\tt getline},
+typename,
 {\tt nullptr}, {\tt noexcept}, {\tt override},
-lvalue, rvalue, rvalue reference,
+thread (join, detach),
+mutex, unique\_lock, condition\_variable, lock\_guard,
+atomic operations (atomic\_bool (load, operator=), atomic\_flag), memory ordering, modification order, happens-before, synchronizes-with,
 postponement, RAII, exception-safe (copy and swap)),
+%
 Objective-C,
-Python (sequence type (list, tuple), mapping type (dictionary), natsorted, sorted, map, lambda, isinstance, ternary, not, in, import, from, parameter passing,
+Python (sequence type ({\tt len}), list ({\tt remove}), tuple, mapping type, dictionary ({\tt items}),
+enumerate, natsorted, sorted, map, filter, lambda, isinstance, ternary, not, in, import, from, parameter passing,
 global, nested function, scoping, assert, hex, format,
-finally, module, argparse, pickle, re, subprocess, binascii),
+except, finally, module, argparse, pickle, re, subprocess, binascii, click),
 Jinja2 (template, custom filter, macro, include, filter (combine)), YAML (sequence, mapping, scalar),
-XML, AMPL, MATLAB, script (bash, tcsh, expansion), Fortran, Verilog, VHDL, SQL %
+XML, AMPL, MATLAB, script (bash, tcsh, expansion (variable, arithmetic), command substitution, subshell, process substitution \textless(), {\tt read},
+lua (and, or, ternary operator)),
+Fortran, Verilog, VHDL, SQL %
 
 \item[Operating Systems:] Linux (CentOS, Fedora, Red Hat, Ubuntu, Debian, Raspbian Lite), FreeRTOS, Windows, Windows Subsystem for Linux (WSL), Mac OS X
 
@@ -340,16 +367,18 @@ IEEE 802.1, bridge, VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN,
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
 network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED dropping,
 ICMP (RFC 792, echo, echo reply),
-TCP, BGP, UDP, DHCP (RFC 2131), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
+TCP, BGP (quagga, frr), UDP, DHCP (RFC 2131), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
 NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming, InfiniBand, RoCEv1, RoCEv2,
 iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2,
 GigE Vision (WRITEREG, READREG, WRITEMEM, READMEM, EVENTDATA, DISCOVERY, PENDING\_ACK, FORCEIP, heartbeat),
-Software for Open Networking in the Cloud (SONiC) (SubscriberStateTable, CONFIG\_DB,
-ProducerTable, ConsumerTable, FLEX\_COUNTER\_DB,
+Software for Open Networking in the Cloud (SONiC) (SubscriberStateTable, CONFIG\_DB, APPL\_DB,
+ProducerTable, ConsumerTable, FLEX\_COUNTER\_DB, ASIC\_DB,
 Table, COUNTERS\_DB,
-NotificationConsumer, APPL\_DB, COUNTERS\_DB, SelectableTimer,
-flex counter architecture, PFC watchdog, watermark, ACL, swss warm-reboot),
-OCP switch abstraction interface (SAI),
+NotificationConsumer, APPL\_DB, COUNTERS\_DB, NotificationProducer, ASIC\_DB,
+SelectableTimer,
+flex counter architecture, sairedis, synchronous SAI api call, PFC storm watchdog,
+buffer watermark, buffer config manager, ACL, warm-reboot, scheduler, QoS mapping),
+OCP switch abstraction interface (SAI) (Broadcom, python-saithrift rpc library)
 FEC (Reed-Solomon)
 
 \item[Switching:] ingress admission control, virtual output queuing, egress admission control,
@@ -378,12 +407,16 @@ selection ($K$\textsuperscript{th} smallest/largest),
 random sampling (sorted output, random output),
 bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, minimum spanning tree, Dijkstra's algorithm
 
-\item[Applications:] regular expression (basic, extended, [:space]), Linux kernel programming, Linux system programming ({\tt select}, {\tt poll}, {\tt epoll}, {\tt getenv}, timerfd), interprocess communication (IPC), process scheduling,
-multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
+\item[Applications:] regular expression (basic, extended, [:space]), system debugging, Linux kernel programming,
+Linux system programming ({\tt select}, {\tt poll}, {\tt epoll}, {\tt getenv}, timerfd), netlink,
+interprocess communication (IPC), process scheduling,
+concurrency, multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge (separate an abstraction from its implementation),
 decorator (add responsibilities incrementally \& dynamically), singleton, publish-subscribe), Kusto query,
-packet test framework (PTF) (dataplane),
-redis ({\tt get}, {\tt hget}, {\tt set}, {\tt hset}, {\tt del}, {\tt hdel} (multiple fields)), Broadcom SDK (BST, KNET, QoS mapping, FP, LAG, hashing), OpenNSL
+P4 packet test framework (PTF) (dataplane),
+redis ({\tt get}, {\tt hget}, {\tt set}, {\tt hset}, {\tt del}, {\tt hdel} (multiple fields), dump, load),
+Broadcom SDK (BST, KNET, QoS mapping, FP, flex counters, scheduler, LAG, hashing), OpenNSL,
+Azure ExpressRoute
 
 \item[Tools:] Makefile (expansion (recursive, simple, secondary), {\tt eval}, phony target), gdb, crash, gprof, OProfile, {\tt iperf},
 strace, ftrace, SystemTap,
@@ -391,31 +424,38 @@ Scapy (ether, dot1q, ip, arp, icmp), Wireshark, autoconf (./autogen.sh, ./config
 JTAG, SnmpB,
 {\tt lftp}, {\tt ssh} (localhost), {\tt sftp}, {\tt scp}, SecureCRT (SSH, SFTP), PuTTY,
 Jira, CodeFlow,
-jumpbox, Dnsmasq, syslog
+jumpbox, Dnsmasq, syslog, log analyzer
 
 \item[Linux command line:] {\tt lsblk}, {\tt fdisk}, {\tt df}, {\tt du},
 {\tt ps},
-{\tt mkfs}, {\tt grep}, {\tt find}, {\tt less}, {\tt tail}, {\tt ln}, {\tt mount}, {\tt unmount}, /etc/fstab, {\tt file}, {\tt chmod},
+{\tt mkfs}, {\tt less}, {\tt tail}, {\tt grep} (-r, -i, -n, -v, -{}-color), {\tt find} (-type), {\tt xargs}, {\tt ln}, {\tt mount}, {\tt unmount}, /etc/fstab,
+{\tt file}, {\tt chmod}, {\tt nm},
 {\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz), {\tt zcat}, {\tt zgrep},
-{\tt ifconfig}, {\tt ip addr}, {\tt ip link}, {\tt ethtool}, {\tt arp}, {\tt ip neigh}, {\tt ip link}, {\tt tcpdump}, {\tt ip route}, {\tt wget}, {\tt curl},
-{\tt chown}, {\tt adduser}, {\tt usermod}, {\tt passwd}, {\tt id},
+{\tt ifconfig}, {\tt ip addr}, {\tt ip link}, {\tt ethtool}, {\tt arp}, {\tt ip neigh}, {\tt ip link}, {\tt tcpdump}, {\tt ip route}, {\tt wget}, {\tt curl} (-o),
+{\tt chown}, {\tt disown}, {\tt adduser}, {\tt usermod}, {\tt passwd}, {\tt id},
 {\tt dpkg},
 {\tt which},
 {\tt lsusb},
 {\tt virsh},
-{\tt cat} (-A, ctrl-D, << token), {\tt awk}, {\tt cut} (-c, -f, -d), {\tt sort} (-k, -n), {\tt uniq}, {\tt sed} (-n)
+{\tt diff}, {\tt comm},
+{\tt cat} (-A, ctrl-D, \textless\textless token), {\tt awk} (/pattern/action), {\tt cut} (-d, -f, -c),
+{\tt sort} (-t, -k, -nr, -u), {\tt uniq} (-u, -d, -c), {\tt sed} (-n),
+{\tt date}, {\tt time} (-f)
+{\tt top}
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
-switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6100-ON, Mellanox SN2700,
+switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6000, S6100-ON, Mellanox SN2700,
 Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
 computer, microcontroller, and SoC architecture (Nios II, Cortex-M3/M4, MicroBlaze, ARM926EJ-S),
+exclusive access, memory barrier, write buffer,
 switch chip (Broadcom XGS devices, BCM56850 (Trident2), BCM56960 (Tomahawk), BCM56970 (Tomahawk2),
 ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
 memory management unit, buffer management, buffer statistics tracking, scheduler,
-cross-point (XP) architecture, PFC, ECN, WRED, mirroring, field processor (legacy, new), VRF, VXLAN, hashing (flex, resilient), ECMP (weighted, hierarchical),
+cross-point (XP) architecture, PFC, ECN, WRED, mirroring (ERSPAN), field processor (legacy, new),
+VRF, VXLAN, hashing (flex, resilient), ECMP (weighted, hierarchical),
 user defined field (FP, hashing, flex hashing, flexible counter), flexible counters,
-BCM88670 (Jericho), packet processor architecture),
+BCM88670 (Jericho), BCM88690 (Jericho2), packet processor architecture, traffic management architecture),
 MAC core (MorethanIP 10/100/1000Mbps, Xilinx 10G),
 PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512, Microsemi VSC8541), Camera Link interface, sensor (Maxim Integrated LM75,
 Altera Arria 10 internal temperature sensing diode \& IP core), LED,
@@ -436,7 +476,7 @@ Jenkins (template, pipeline)
 \item[Test:] pytest, Google test
 
 \item[Version Control:] Git (local, remote, add -{}-patch, branch -{}-contains,
-fetch -{}-tags, push -{}-force -{}-delete, show, rebase, apply, cherry-pick, submodule update -{}-recursive, bisect),
+fetch -{}-tags, push -{}-force -{}-delete, show, rebase, apply, cherry-pick, submodule update -{}-recursive, bisect, blame -{}-line-porcelain),
 GitHub workflow, Bitbucket, Visual Studio Team Services,
 CodeFlow, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
 
@@ -509,11 +549,12 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 2012, 2013, 2014, 2015, 2016, 2017, 2019
 
 \item
-\textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM) 2013, 2014, 2015, 2016, 2017, 2018, 2019
+\textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM)
+2013, 2014, 2015, 2016, 2017, 2018, 2019
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC),
-Optical and Grid Computing Symposium 2014, 2015, 2016, 2017, 2018, 2019
+Optical and Grid Computing Symposium 2014, 2015, 2016, 2017, 2018, 2019, 2020
 
 \item
 \textbf{Technical program committee member} of OSA Asia Communications and Photonics Conference (ACP),
@@ -535,7 +576,7 @@ Track 3 Network Architectures, Management and Applications 2016, 2018
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 
 \item
-\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (5),
+\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (6),
 IEEE/OSA Journal of Optical Communications and Networking (14), IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (13),
 Springer Photonic Network Communications (7), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
