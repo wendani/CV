@@ -129,7 +129,7 @@ United States & E: wonda.ni@gmail.com\\
   WRED dropping, QoS mapping, and PFC storm watchdog warm-reboot}
   \resitem{Designed, implemented, and test automated PFC watchdog warm-reboot feature, with ramp-up on the
   warm-reboot architecture from scratch.
-  Resolved the issue of PFC watchdog not started after reboot by fixing the initialization dependancy.}
+  Resolved the issue of PFC watchdog not started after (both cold- and warm-) reboot by fixing the initialization dependancy.}
   \resitem{Executed full development cycle of buffer pool watermark feature.
   Improved the scalability of flex counter polling infrastructure with full sleep wait.
   Established synchronous counter clear path all the way down to ASIC to probe the hardware capability.}
@@ -149,7 +149,7 @@ United States & E: wonda.ni@gmail.com\\
   While being open-source, this part of the codes remains proprietary due to its intensity in design and methodology innovation.}
   \resitem{Designed, implemented, and validated WRED/ECN on/off feature within two weeks to elminate the production rollout blocker.
   Started from zero coverage of the SONiC code base, got to the heart of the codes, and got the feature done within a stringent timeline.}
-  \resitem{Built a solid foundation on Broadcom XGS switch chip pipeline from a exhaustive study of Broadcom University training materials
+  \resitem{Built a solid foundation on Broadcom XGS switch chip pipeline from an exhaustive study of Broadcom University training materials
   and hand-on practice.}
   \end{itemize}
 
@@ -328,57 +328,79 @@ United States & E: wonda.ni@gmail.com\\
 \setlength{\itemindent}{-0.1in}
 
 \item[Programming Languages:] C ({\tt const}, {\tt volatile}, strstr, \%z), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
-inline assembly (gcc), C in C++, Java,
+inline assembly (gcc), C in C++,
 %
 C++ ({\tt mutable}, {\tt struct}, constructor (top-down, inside out), member initializer list, {\tt explicit}, direct initialization, copy initialization,
 destructor (bottom-up, outside in), address of reference, operator(), operator type,
 cast ({\tt dynamic\_cast}), {\tt swap},
-sequential container ({\tt empty}, {\tt size}, operator[ ], operator=, {\tt front}, {\tt emplace\_back},
-{\tt push\_back}, {\tt pop\_back}, {\tt erase}, {\tt clear}),
-string ({\tt NULL}, rational operators, {\tt find}, {\tt substr}, {\tt stoul}, {\tt npos}),
-vector ({\tt data}, {\tt capacity}, {\tt reserve}),
-associative container ({\tt size}, {\tt find}, {\tt count}, {\tt emplace}, {\tt empty}, {\tt insert}, {\tt erase}),
-pair, map ({\tt at}), unordered\_map, set ({\tt clear}),
 implicit interface, virtual function \& default argument, {\tt initializer\_list},
+%
+sequential container (iterator, {\tt emplace}, {\tt insert}, const\_iterator,
+{\tt empty}, {\tt size}, operator[ ], {\tt at}, operator=, {\tt front}, {\tt emplace\_back},
+{\tt push\_back}, {\tt pop\_back}, {\tt erase}, {\tt clear}),
+%
+string ({\tt NULL}, rational operators, {\tt find}, {\tt substr}, {\tt stoul}, {\tt npos}),
+vector ({\tt data}, {\tt capacity}, {\tt reserve}), vector\textless bool\textgreater,
+queue ({\tt push}, {\tt pop}), stack ({\tt top}, {\tt push}, {\tt pop}),
+%
+associative container ({\tt empty}, {\tt size}, {\tt find}, {\tt count}, {\tt emplace}, {\tt insert}, {\tt erase}, {\tt clear}),
+pair, map (piecewise\_construct, operator[ ], {\tt at} ({\tt const})), unordered\_map, set, unordered\_set,
+%
+bitset,
+%
 shared\_ptr ({\tt make\_shared}, {\tt get}, {\tt reset}, {\tt swap}), unique\_ptr,
 lvalue, rvalue, rvalue reference, {\tt move}, {\tt ref}, move constructor, move assignment operator,
+%
 lambda expression, std::function, {\tt strtol}, {\tt getline},
-typename,
-{\tt nullptr}, {\tt noexcept}, {\tt override},
+typename, {\tt nullptr}, {\tt noexcept}, {\tt override},
+%
 thread (join, detach),
 mutex, unique\_lock, condition\_variable, lock\_guard,
 atomic operations (atomic\_bool (load, operator=), atomic\_flag), memory ordering, modification order, happens-before, synchronizes-with,
+%
 postponement, RAII, exception-safe (copy and swap)),
 %
-Objective-C,
+Java, Objective-C,
+%
 Python (sequence type ({\tt len}), list ({\tt remove}), tuple, mapping type, dictionary ({\tt items}),
 enumerate, natsorted, sorted, map, filter, lambda, isinstance, ternary, not, in, import, from, parameter passing,
 global, nested function, scoping, assert, hex, format,
 except, finally, module, argparse, pickle, re, subprocess, binascii, click),
+%
 Jinja2 (template, custom filter, macro, include, filter (combine)), YAML (sequence, mapping, scalar),
-XML, AMPL, MATLAB, script (bash, tcsh, expansion (variable, arithmetic), command substitution, subshell, process substitution \textless(), {\tt read},
+XML, AMPL, MATLAB,
+%
+script (bash, tcsh, expansion (variable, arithmetic), command substitution, subshell, process substitution \textless(), {\tt read},
 lua (and, or, ternary operator)),
 Fortran, Verilog, VHDL, SQL %
 
 \item[Operating Systems:] Linux (CentOS, Fedora, Red Hat, Ubuntu, Debian, Raspbian Lite), FreeRTOS, Windows, Windows Subsystem for Linux (WSL), Mac OS X
 
 \item[Networking:] IEEE 802.3, global pause, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control (802.3x), LAG (802.3ad),
-IEEE 802.1, bridge, VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN,
+IEEE 802.1, bridge (.1D, .1Q), VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN,
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
 network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED dropping,
 ICMP (RFC 792, echo, echo reply),
 TCP, BGP (quagga, frr), UDP, DHCP (RFC 2131), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
-NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming, InfiniBand, RoCEv1, RoCEv2,
-iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming, 1588v2,
+NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4), socket programming,
+%
+InfiniBand, RoCEv1, RoCEv2,
+iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming,
+%
+1588v2,
 GigE Vision (WRITEREG, READREG, WRITEMEM, READMEM, EVENTDATA, DISCOVERY, PENDING\_ACK, FORCEIP, heartbeat),
+%
 Software for Open Networking in the Cloud (SONiC) (SubscriberStateTable, CONFIG\_DB, APPL\_DB,
 ProducerTable, ConsumerTable, FLEX\_COUNTER\_DB, ASIC\_DB,
 Table, COUNTERS\_DB,
+ProducerStateTable, APPL\_DB, ConsumerStateTable, APPL\_DB,
+%
 NotificationConsumer, APPL\_DB, COUNTERS\_DB, NotificationProducer, ASIC\_DB,
 SelectableTimer,
 flex counter architecture, sairedis, synchronous SAI api call, PFC storm watchdog,
-buffer watermark, buffer config manager, ACL, warm-reboot, scheduler, QoS mapping),
-OCP switch abstraction interface (SAI) (Broadcom, python-saithrift rpc library)
+buffer watermark, buffer config manager, ACL, warm-reboot, scheduler, QoS mapping, neighbor, route),
+%
+OCP switch abstraction interface (SAI) (pipeline, buffer, Broadcom implementation, python-saithrift rpc library),
 FEC (Reed-Solomon)
 
 \item[Switching:] ingress admission control, virtual output queuing, egress admission control,
@@ -396,27 +418,29 @@ syscall, sysfs, tracepoint, kprobe, kdump, kbuild, kallsyms
 heap memory management, stack overflow checking
 
 \item[Data structures (program):] array, vector, linked list (singly, doubly), queue, priority queue, stack,
-hash table, lookup table/map/dictionary/associative array, C++ multimap,
+hash table (3sum), lookup table/map/dictionary/associative array, C++ multimap,
 tree, binary tree, heap, binary search tree, AVL tree, prefix tree/trie,
 bitmap/bit vector/bitset, set (bitmap, array, linked list, hash table, binary search tree),
 suffix array
 
-\item[Algorithms:] searching (linear/sequential search, binary search, breadth-first search), iteration, recursion,
+\item[Algorithms:] searching (linear/sequential search, binary search, breadth-first search, depth-first search), iteration, recursion,
 sorting (bubble sort, selection sort, insertion sort, shell sort, quick sort, merge sort, radix sort, heap sort),
 selection ($K$\textsuperscript{th} smallest/largest),
 random sampling (sorted output, random output),
-bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, minimum spanning tree, Dijkstra's algorithm
+bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, invariant, minimum spanning tree, Dijkstra's algorithm
 
-\item[Applications:] regular expression (basic, extended, [:space]), system debugging, Linux kernel programming,
-Linux system programming ({\tt select}, {\tt poll}, {\tt epoll}, {\tt getenv}, timerfd), netlink,
+\item[Applications:] code reading, regular expression (basic, extended, [:space:]), system debugging, Linux kernel programming,
+Linux system programming ({\tt select}, {\tt poll}, {\tt epoll}, {\tt getenv}, timerfd), netlink (rt, neigh),
 interprocess communication (IPC), process scheduling,
 concurrency, multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
-OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, design patterns (observer, bridge (separate an abstraction from its implementation),
-decorator (add responsibilities incrementally \& dynamically), singleton, publish-subscribe), Kusto query,
+OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, Kusto query,
 P4 packet test framework (PTF) (dataplane),
 redis ({\tt get}, {\tt hget}, {\tt set}, {\tt hset}, {\tt del}, {\tt hdel} (multiple fields), dump, load),
 Broadcom SDK (BST, KNET, QoS mapping, FP, flex counters, scheduler, LAG, hashing), OpenNSL,
 Azure ExpressRoute
+
+\item[Design patterns:] observer (one to many), bridge (separate an abstraction from its implementation),
+decorator (add responsibilities incrementally \& dynamically), singleton, publish-subscribe, composite (composition of objects in tree structure)
 
 \item[Tools:] Makefile (expansion (recursive, simple, secondary), {\tt eval}, phony target), gdb, crash, gprof, OProfile, {\tt iperf},
 strace, ftrace, SystemTap,
@@ -455,7 +479,8 @@ memory management unit, buffer management, buffer statistics tracking, scheduler
 cross-point (XP) architecture, PFC, ECN, WRED, mirroring (ERSPAN), field processor (legacy, new),
 VRF, VXLAN, hashing (flex, resilient), ECMP (weighted, hierarchical),
 user defined field (FP, hashing, flex hashing, flexible counter), flexible counters,
-BCM88670 (Jericho), BCM88690 (Jericho2), packet processor architecture, traffic management architecture),
+BCM88670 (Jericho), BCM88690 (Jericho2), packet processor architecture, traffic management architecture,
+Cisco Lacrosse),
 MAC core (MorethanIP 10/100/1000Mbps, Xilinx 10G),
 PHY (Broadcom AEL2005, Marvell 88X3310, 88E1512, Microsemi VSC8541), Camera Link interface, sensor (Maxim Integrated LM75,
 Altera Arria 10 internal temperature sensing diode \& IP core), LED,
