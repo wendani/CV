@@ -126,13 +126,25 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{Topics: SONiC network operating system over world's bleeding-edge datacenter switching chips and switches (40G, 50G, 100G);
   RDMA over SONiC with full engineering responsbility of all RDMA-related components---PFC (DSCP-based and DOT1P-based), PFC storm watchdog,
   memory management unit (MMU), buffer watermark, ECN marking,
-  WRED dropping, QoS mapping, and PFC storm watchdog warm-reboot}
+  WRED dropping, QoS mapping (DSCP to TC, DOT1P to TC, TC to PG, TC to queue), scheduling (WRR, DWRR, SP), and PFC storm watchdog warm-reboot;
+  sub port interfaces}
+  \resitem{Lead the high-level design and the ground implementation of sub port interfaces.}
   \resitem{Designed, implemented, and test automated PFC watchdog warm-reboot feature, with ramp-up on the
   warm-reboot architecture from scratch.
   Resolved the issue of PFC watchdog not started after (both cold- and warm-) reboot by fixing the initialization dependancy.}
-  \resitem{Executed full development cycle of buffer pool watermark feature.
+  \resitem{Executed full development cycle of buffer pool watermark feature (design, implementation, test automation, and validation on various ASIC platforms).
   Improved the scalability of flex counter polling infrastructure with full sleep wait.
   Established synchronous counter clear path all the way down to ASIC to probe the hardware capability.}
+  \resitem{Designed and implemented DOT1P to TC mapping support to the QoS mapping subsystem.
+  Automated the feature test covering both control plane test (by using virtual switch and adding to the virtual switch test suite) and data plane
+  test (by running on real ASIC platforms).}
+  \resitem{Designed and implemented runtime DWRR weight change test.
+  Captured and fixed (approved by Broadcom) weight change bug in Broadcom SAI 3.3 QoS scheduler codes.
+  Developed a solid understanding of the scheduling hierarchies in both Trident2 and Tomahawk/Tomahawk2 architectures,
+  together with the corresponding SONiC modeling and handling method.}
+  \resitem{Gained an in-depth understanding of SONiC architecture and SAI switch pipeline model
+  through feature developement, code reading, SAI specification study, device play, and live site investigation.
+  Study note can be found at https://github.com/wendani/sonic-architecture}
   \end{itemize}
 
 \item
@@ -151,6 +163,8 @@ United States & E: wonda.ni@gmail.com\\
   Started from zero coverage of the SONiC code base, got to the heart of the codes, and got the feature done within a stringent timeline.}
   \resitem{Built a solid foundation on Broadcom XGS switch chip pipeline from an exhaustive study of Broadcom University training materials
   and hand-on practice.}
+  \resitem{One-year performance highlight from Manager---``I am fortunate to have you to manage this part''
+  (``this part'' refers to buffer, ``the most esoteric feature in the ASIC'' in his view).}
   \end{itemize}
 
 \item
@@ -339,12 +353,16 @@ sequential container (iterator, {\tt emplace}, {\tt insert}, const\_iterator,
 {\tt empty}, {\tt size}, operator[ ], {\tt at}, operator=, {\tt front}, {\tt emplace\_back},
 {\tt push\_back}, {\tt pop\_back}, {\tt erase}, {\tt clear}),
 %
-string ({\tt NULL}, rational operators, {\tt find}, {\tt substr}, {\tt stoul}, {\tt npos}),
-vector ({\tt data}, {\tt capacity}, {\tt reserve}), vector\textless bool\textgreater,
+string ({\tt NULL}, rational operators, {\tt length}, {\tt find}, {\tt substr}, {\tt stoul}, {\tt npos}),
+vector ({\tt data}, {\tt capacity}, {\tt reserve}, {\tt resize}), vector\textless bool\textgreater,
+list ({\tt splice}),
 queue ({\tt push}, {\tt pop}), stack ({\tt top}, {\tt push}, {\tt pop}),
+priority queue ({\tt top}, {\tt push}, {\tt pop}), std::greater,
 %
-associative container ({\tt empty}, {\tt size}, {\tt find}, {\tt lower\_bound}, {\tt upper\_bound},
-{\tt count}, {\tt emplace}, {\tt insert}, {\tt erase}, {\tt clear}),
+associative container (iterator, {\tt emplace}, {\tt insert}, {\tt empty}, {\tt size},
+{\tt find}, {\tt lower\_bound}, {\tt upper\_bound},
+{\tt count}, {\tt erase}, {\tt clear}),
+%
 pair, map (piecewise\_construct, operator[ ], {\tt at} ({\tt const})), unordered\_map, set, unordered\_set,
 %
 bitset,
@@ -352,8 +370,9 @@ bitset,
 shared\_ptr ({\tt make\_shared}, {\tt get}, {\tt reset}, {\tt swap}), unique\_ptr,
 lvalue, rvalue, rvalue reference, {\tt move}, {\tt ref}, move constructor, move assignment operator,
 %
-lambda expression, std::function, {\tt strtol}, {\tt getline},
+lambda expression, std::function, {\tt strtol}, {\tt getline}, {\tt tolower},
 typename, {\tt nullptr}, {\tt noexcept}, {\tt override},
+sort,
 %
 thread (join, detach),
 mutex, unique\_lock, condition\_variable, lock\_guard,
@@ -399,7 +418,7 @@ ProducerStateTable, APPL\_DB, ConsumerStateTable, APPL\_DB,
 NotificationConsumer, APPL\_DB, COUNTERS\_DB, NotificationProducer, ASIC\_DB,
 SelectableTimer,
 flex counter architecture, sairedis, synchronous SAI api call, PFC storm watchdog,
-buffer watermark, buffer config manager, ACL, warm-reboot, scheduler, QoS mapping, neighbor, route),
+buffer watermark, buffer config manager, ACL, warm-reboot, scheduler, QoS mapping, neighbor, route, virtual switch (vs)),
 %
 OCP switch abstraction interface (SAI) (pipeline, buffer, Broadcom implementation, python-saithrift rpc library),
 FEC (Reed-Solomon)
@@ -418,7 +437,7 @@ syscall, sysfs, tracepoint, kprobe, kdump, kbuild, kallsyms
 \item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling, software timer,
 heap memory management, stack overflow checking
 
-\item[Data structures (program):] array, vector, linked list (singly, doubly), queue, priority queue, stack,
+\item[Data structures (program):] array, vector, linked list (singly, doubly), queue, stack,
 hash table (3sum), lookup table/map/dictionary/associative array, C++ multimap,
 tree, binary tree, heap, binary search tree, AVL tree, prefix tree/trie,
 bitmap/bit vector/bitset, set (bitmap, array, linked list, hash table, binary search tree),
