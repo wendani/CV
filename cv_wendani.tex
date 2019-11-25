@@ -129,7 +129,8 @@ United States & E: wonda.ni@gmail.com\\
   WRED dropping, QoS mapping (DSCP to TC, DOT1P to TC, TC to PG, TC to queue), scheduling (WRR, DWRR, SP), and PFC storm watchdog warm-reboot;
   sub port router interfaces}
   \resitem{Lead the high-level design and the ground implementation of sub port router interfaces.
-  Presented the high-level design at the OCP SONiC community meeting. Revised SAI specification on sub port router interface creation.}
+  Presented the high-level design at the OCP SONiC community meeting. Revised SAI specification on sub port router interface creation.
+  \url{https://github.com/wendani/SONiC/blob/sub_port_master/doc/sonic-sub-port-intf-hld.md}}
   \resitem{Designed, implemented, and test automated PFC watchdog warm-reboot feature, with ramp-up on the
   warm-reboot architecture from scratch.
   Resolved the issue of PFC watchdog not started after (both cold- and warm-) reboot by fixing the initialization dependancy.
@@ -356,13 +357,19 @@ implicit interface, virtual function \& default argument, {\tt initializer\_list
 %
 sequential container (iterator, {\tt emplace}, {\tt insert}, const\_iterator,
 {\tt empty}, {\tt size}, operator[ ], {\tt at}, operator=, {\tt front}, {\tt emplace\_back},
-{\tt push\_back}, {\tt pop\_back}, {\tt erase}, {\tt clear}),
+{\tt push\_back}, {\tt pop\_back}, {\tt erase}, {\tt clear}), std::reverse, std::remove,
 %
-string ({\tt NULL}, rational operators, {\tt length}, {\tt find}, {\tt substr}, {\tt stoul}, {\tt npos}), stringstream,
+{\tt isdigit}, {\tt tolower},
+{\tt strtol},
+string ({\tt NULL}, rational operators, {\tt length}, {\tt find}, {\tt substr}, {\tt npos}), {\tt getline}, stringstream,
+{\tt stoul},
 %
 vector ({\tt data}, {\tt capacity}, {\tt reserve}, {\tt resize}), vector\textless bool\textgreater,
+%
 list ({\tt splice}),
+%
 queue ({\tt push}, {\tt pop}), stack ({\tt top}, {\tt push}, {\tt pop}),
+%
 priority queue ({\tt top}, {\tt push}, {\tt pop}), std::greater,
 %
 associative container (iterator, {\tt emplace}, {\tt insert}, {\tt empty}, {\tt size},
@@ -376,7 +383,7 @@ bitset,
 shared\_ptr ({\tt make\_shared}, {\tt get}, {\tt reset}, {\tt swap}), unique\_ptr,
 lvalue, rvalue, rvalue reference, {\tt move}, {\tt ref}, move constructor, move assignment operator,
 %
-lambda expression, std::function, {\tt strtol}, {\tt getline}, {\tt tolower},
+lambda expression, std::function,
 typename, {\tt nullptr}, {\tt noexcept}, {\tt override},
 sort,
 %
@@ -388,7 +395,10 @@ postponement, RAII, exception-safe (copy and swap)),
 %
 Java, Objective-C,
 %
-Python (sequence type ({\tt len}), list ({\tt remove}), tuple, mapping type, dictionary ({\tt items}),
+Python (sequence type ({\tt len}), list ({\tt remove}), tuple,
+mapping type, dictionary ({\tt items}),
+set type, set ({\tt update}),
+%
 enumerate, natsorted, sorted, map, filter, lambda, isinstance, ternary, not, in, import, from, parameter passing,
 global, nested function, scoping, assert, hex, format,
 except, finally, module, argparse, pickle, re, subprocess, binascii, click),
@@ -589,7 +599,7 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
 Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - December 2013
 
 \item
-\textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016, 2017, 2018, 2019
+\textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
 
 \item
 \textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016, 2017,
@@ -601,7 +611,7 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM)
-2013, 2014, 2015, 2016, 2017, 2018, 2019
+2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC),
