@@ -376,7 +376,7 @@ bitset,
 shared\_ptr ({\tt make\_shared}, {\tt get}, {\tt reset}, {\tt swap}), unique\_ptr,
 lvalue, rvalue, rvalue reference, {\tt move}, {\tt ref}, move constructor, move assignment operator,
 %
-lambda expression, std::function, {\tt strtol}, {\tt getline}, {\tt tolower},
+std::find_if, lambda expression, std::function, {\tt strtol}, {\tt getline}, {\tt tolower},
 typename, {\tt nullptr}, {\tt noexcept}, {\tt override},
 sort,
 %
@@ -427,7 +427,7 @@ flex counter architecture, sairedis, synchronous SAI api call, PFC storm watchdo
 buffer watermark, buffer config manager, ACL, warm-reboot, scheduler, QoS mapping, neighbor, route, virtual switch (vs)),
 %
 OCP switch abstraction interface (SAI) (pipeline, buffer, Broadcom implementation, python-saithrift rpc library),
-FEC (Reed-Solomon)
+FEC (Reed-Solomon, FireCode)
 
 \item[Switching:] ingress admission control, virtual output queuing, egress admission control,
 scheduling (strict priority (preemptive, non-preemptive),
@@ -495,11 +495,12 @@ jumpbox, Dnsmasq, syslog, log analyzer
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
 switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6000, S6100-ON, Mellanox SN2700,
+Quanta IX8C-56X, Ruijie RG-B6510-48VS8CQ,
 Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
 computer, microcontroller, and SoC architecture (Nios II, Cortex-M3/M4, MicroBlaze, ARM926EJ-S),
 exclusive access, memory barrier, write buffer,
-switch chip (Broadcom XGS devices, BCM56850 (Trident2), BCM56960 (Tomahawk), BCM56970 (Tomahawk2),
+switch chip (Broadcom XGS devices, BCM56850 (Trident2), BCM56873 (Trident3), BCM56960 (Tomahawk), BCM56970 (Tomahawk2),
 ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
 memory management unit, buffer management, buffer statistics tracking, scheduler,
 cross-point (XP) architecture, PFC, ECN, WRED, mirroring (ERSPAN), field processor (legacy, new),
@@ -528,7 +529,7 @@ Jenkins (template, pipeline)
 
 \item[Version Control:] Git (local, remote, add -{}-patch, branch -{}-contains,
 fetch -{}-tags, push -{}-force -{}-delete, show, rebase, apply, cherry-pick, submodule update -{}-recursive, bisect, blame -{}-line-porcelain),
-GitHub workflow, Bitbucket, Visual Studio Team Services,
+GitHub workflow, GitLab, Bitbucket, Visual Studio Team Services,
 CodeFlow, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
 
 \item[IDE:] Eclipse, Xcode
