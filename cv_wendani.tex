@@ -132,20 +132,28 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{Brought up Celestica Questone platform; Develop fan control and monitoring script}
   \resitem{Brought up Quanta IX8E-56X, Ruijie B6510-48VS8CQ platforms; save the system from kernel panic and oops}
   \resitem{Developed standard workflow to code submission and to embrace community code updates;
-  Pioneered and accomplished the first code updates to synchronize with the community 201911 branch, filling a total gap of around 180 commits behind}
-  \resitem{Broadcom SAI 3.6.7.1 (OCP SAI 1.4.1, Broadcom SDK 6.5.16) running on SONiC 201911 branch image
-  (Broadcom SAI 3.7.3.3-2, OCP SAI 1.5.1, Broadcom SDK 6.5.16):
+  Pioneered and accomplished the first code updates to synchronize with the community 201911 branch, filling a total gap of around 180 commits behind.}
+  \resitem{Broadcom SAI v3.6.7.1 (OCP SAI v1.4.1, Broadcom SDK v6.5.16) running on SONiC 201911 branch image
+  (Broadcom SAI v3.7.3.3-2, OCP SAI v1.5.1, Broadcom SDK v6.5.16):
   Hacked Makefile to enable incremental SAI-only build to avoid rebuilding the underlying SDK codes;
   Developed workaround to SAI package build failue on Debian 9 Stretch (Broadcom SAI package has to be built against Stretch
-  as its running environment relies on the libprotobuf10 library (3.0.0-9), which is not available on earlier Debian 8 release---Jessie);
+  as its running environment relies on the libprotobuf10 library (v3.0.0-9), which is not available on earlier Debian 8 release---Jessie);
   Debugged syncd crash on original Broadcom SAI release, and fixed SAI codes.}
-  \resitem{Upgraded OCP SAI header to v1.5.1, v1.5.2, and enabled image build against Broadcom SAI 3.6.7.1}
-  \resitem{SAI change without support from Broadcom: Suppressed global pause ability advertisement on Trident3 server-facing ports;
-  Implemented host interface ICMP and ICMPv6 trap, rate limiting, and counter attachment.}
+  \resitem{Upgraded OCP SAI header to v1.5.1, v1.5.2, and enabled image build against Broadcom SAI v3.6.7.1}
+  \resitem{SAI change without support from Broadcom: Suppressed global pause ability advertisement on Trident3 server-facing ports (23 line additions);
+  Implemented host interface ICMP and ICMPv6 trap, rate limiting, and stat counter attachment (171 line additions);
+  Enabled ingress priority group (PG) packet and dropped packet accounting for generic traffic class (TC) to PG mapping (127 line additions, 12 line deletions).}
   \resitem{Designed and implemented VLAN bind point support for egress ACL table, from command line interface (CLI) down to Broadcom SAI;
   Optimized hardware resource in binding ingress ACL table to VLAN;
-  Extended critical resource management (CRM) to support per ingress/egress per bind point type ACL resource warning messaging and message accounting.}
+  Extended critical resource management (CRM) to support per ingress/egress per bind point type ACL resource warning messaging and message accounting.
+  Contributed design practices to community as pull request review comments \url{https://github.com/Azure/sonic-swss/pull/1218}}
   \resitem{Added ICMP and ICMPv6 packet type support to control plane policing (CoPP).}
+  \resitem{Customized zero touch provisioning (ZTP) with a thorough grasp of its internal execution flow and state machine
+  transition (849 line additions, 594 line deletions).
+  Developed configuration changes to Kea DHCP server to offer options 66 and 67 for ZTP support.
+  Enabled robust switch configuration update scenario with and without image upgrade.
+  Unveiled the significance of management VRF in our unique test setup.
+  Contributed some of the code changes to community as review feedback \url{https://github.com/Azure/sonic-ztp/pull/12}}
   \end{itemize}
 
 \item
@@ -428,7 +436,8 @@ atomic operations (atomic\_bool (load, operator=), atomic\_flag), memory orderin
 %
 postponement, RAII, exception-safe (copy and swap)
 
-\item[Python:] sequence type ({\tt len}), list ({\tt remove}), tuple, mapping type, dictionary ({\tt items}, {\tt get}, {\tt setdefault}, {\tt pop}),
+\item[Python:] sequence type ({\tt len}), list ({\tt remove}), tuple, mapping type,
+dictionary ({\tt items}, {\tt get}, {\tt setdefault}, {\tt update}, {\tt pop}),
 enumerate, natsorted, sorted, map, filter, lambda, isinstance, ternary, not, in, import, from, parameter passing,
 global, nested function, scoping, assert, hex, format,
 except, finally, module, argparse, pickle, re ({\tt compile}, {\tt match}), subprocess, binascii, click
@@ -447,7 +456,7 @@ control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
 network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED dropping,
 ICMP (RFC 792, echo, echo reply),
 TCP, BGP (quagga, frr, eBGP, route-map),
-UDP, DHCP (RFC 2131), ISC DHCP, SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
+UDP, DHCP (RFC 2131, 2132), ISC DHCP, Kea DHCP (option-data), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
 socket programming, NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4),
 %
 InfiniBand, RoCEv1, RoCEv2,
@@ -464,7 +473,8 @@ ProducerStateTable, APPL\_DB, ConsumerStateTable, APPL\_DB,
 NotificationConsumer, APPL\_DB, COUNTERS\_DB, NotificationProducer, ASIC\_DB,
 SelectableTimer,
 flex counter architecture, sairedis, synchronous SAI api call, PFC storm watchdog,
-buffer watermark, buffer config manager, ACL, warm-reboot, scheduler, QoS mapping, neighbor, route, copp, critical resource management (CRM),
+buffer watermark, buffer config manager, ACL, warm-reboot/in-service software upgrade (ISSU), scheduler, QoS mapping,
+neighbor, route, copp, critical resource management (CRM),
 virtual switch (vs)),
 %
 OCP switch abstraction interface (SAI) (pipeline, buffer, host interface, Broadcom implementation, python-saithrift rpc library),
@@ -527,7 +537,7 @@ jumpbox, Dnsmasq, syslog, log analyzer
 {\tt export}, {\tt source}/.,
 {\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz), {\tt zcat}, {\tt zgrep},
 {\tt ifconfig}, {\tt ifupdown2}, {\tt ip addr}, {\tt ip link}, {\tt ethtool}, {\tt arp}, {\tt ip neigh}, {\tt ip link},
-{\tt tcpdump}, {\tt ip route}, {\tt ip rule},
+{\tt tcpdump} (-ni, -vxe, -w, -r), {\tt ip route}, {\tt ip rule},
 {\tt wget}, {\tt curl} (-o), {\tt md5sum},
 {\tt chown}, {\tt disown}, {\tt adduser}, {\tt usermod}, {\tt passwd}, {\tt id},
 {\tt dpkg}, {\tt dpkg-buildpackage} (-nc), {\tt fakeroot}, {\tt debhelper} (dh\_clean),
@@ -543,7 +553,7 @@ jumpbox, Dnsmasq, syslog, log analyzer
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
 switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6000, S6100-ON, Mellanox SN2700,
-Celestica Fishbone-48, Seastone-DX010, Questone,
+Celestica Fishbone-48, Seastone-DX010, Questone2BD,
 Quanta IX8C-56X, IX8E-56X, Ruijie RG-B6510-48VS8CQ, H3C TCS81-120F,
 Ubiquiti EdgeSwitch16, Netgear M4200, GS108PE, GS110TP), PCIe, SR-IOV, DMA,
 processor microarchitecture (Pentium, Pentium Pro, II, III, PowerPC 601, 603e, 604, 750, 7400),
@@ -579,7 +589,8 @@ Jenkins (template, pipeline)
 \item[Test:] pytest, Google test
 
 \item[Version Control:] Git (local, remote, add -{}-patch, branch -{}-contains, tag -a,
-fetch -{}-tags, push -{}-force -{}-delete, show, rebase, apply, cherry-pick, submodule update -{}-recursive, bisect, blame -{}-line-porcelain, archive),
+fetch -{}-tags, push -{}-force -{}-delete, show, rebase (-i, commit split), apply, cherry-pick, submodule update -{}-recursive,
+bisect, blame -{}-line-porcelain, archive),
 GitHub workflow, GitLab workflow, Bitbucket, Visual Studio Team Services,
 CodeFlow, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
 
