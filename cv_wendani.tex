@@ -124,36 +124,76 @@ United States & E: wonda.ni@gmail.com\\
   {Network R\&D engineer, Bytedance Networking}{Nov. 2019 - present}
   \begin{itemize}
   \resitem{Topics: Lambda network operating system over world's bleeding-edge switching chips (25G, 100G, 400G)}
-  \resitem{LAG sub port router interface}
-  \resitem{config file, default S0 (ToR) switch config auto gen}
-  \resitem{buffer \& QoS profile for RDMA and non-RDMA traffic}
-  \resitem{ntp service in default VRF over loopback interface}
-  \resitem{Proposed host interface ICMP and ICMPv6 trap types in SAI}
-  \resitem{Brought up Celestica Questone platform; Develop fan control and monitoring script}
-  \resitem{Brought up Quanta IX8E-56X, Ruijie B6510-48VS8CQ platforms; save the system from kernel panic and oops}
-  \resitem{Developed standard workflow to code submission and to embrace community code updates;
-  Pioneered and accomplished the first code updates to synchronize with the community 201911 branch, filling a total gap of around 180 commits behind.}
-  \resitem{Broadcom SAI v3.6.7.1 (OCP SAI v1.4.1, Broadcom SDK v6.5.16) running on SONiC 201911 branch image
+  \resitem{Extended sub port router interface support to link aggregation group (LAG) parent port,
+  and developed virtual switch (vs) unit test \url{https://github.com/Azure/sonic-swss/pull/1235}}
+  \resitem{Translated production Top-of-Rack (ToR) switch configuration of various vendors into Lambda configuration schema.
+  Developed the first config file for Lambda with control-plane protocols, BGP, LLDP, NTP, etc., up and running.
+  Implemented script to auto-generate default S0 (ToR) switch config.}
+  \resitem{Designed and developed buffer \& QoS profile for RDMA and non-RDMA traffic forwarded over Trident3 chip.}
+  \resitem{Customized NTP service config to run NTP service in default virtual route and forward (VRF) instance and over loopback interface.}
+  \resitem{Proposed host interface ICMP and ICMPv6 trap types in OCP switch abstraction interface (SAI). \url{https://github.com/opencomputeproject/SAI/pull/1044}}
+  \resitem{Brought up Lambda OS over Celestica Questone platform. Developed fan control and monitoring script to remedy fand daemon crash.}
+  \resitem{Brought up Lambda OS over Quanta IX8E-56X and Ruijie B6510-48VS8CQ platforms; Save the system from kernel panic and oops.}
+  \resitem{Developed standard workflow to code submission and to embrace community code updates.
+  Pioneered and accomplished the first code updates to synchronize with community 201911 branch, filling a total gap of around 180 commits behind.}
+  \resitem{Ported Broadcom SAI v3.6.7.1 (OCP SAI v1.4.1, Broadcom SDK v6.5.16) to run on SONiC 201911 branch image
   (Broadcom SAI v3.7.3.3-2, OCP SAI v1.5.1, Broadcom SDK v6.5.16):
   Hacked Makefile to enable incremental SAI-only build to avoid rebuilding the underlying SDK codes;
   Developed workaround to SAI package build failue on Debian 9 Stretch (Broadcom SAI package has to be built against Stretch
   as its running environment relies on the libprotobuf10 library (v3.0.0-9), which is not available on earlier Debian 8 release---Jessie);
   Debugged syncd crash on original Broadcom SAI release, and fixed SAI codes.}
-  \resitem{Upgraded OCP SAI header to v1.5.1, v1.5.2, and enabled image build against Broadcom SAI v3.6.7.1}
-  \resitem{SAI change without support from Broadcom: Suppressed global pause ability advertisement on Trident3 server-facing ports (23 line additions);
-  Implemented host interface ICMP and ICMPv6 trap, rate limiting, and stat counter attachment (171 line additions);
-  Enabled ingress priority group (PG) packet and dropped packet accounting for generic traffic class (TC) to PG mapping (127 line additions, 12 line deletions).}
-  \resitem{Designed and implemented VLAN bind point support for egress ACL table, from command line interface (CLI) down to Broadcom SAI;
-  Optimized hardware resource in binding ingress ACL table to VLAN;
+  \resitem{Upgraded OCP SAI header to v1.5.1, v1.5.2, and enabled Lambda image build against Broadcom SAI v3.6.7.1}
+  \resitem{SAI change without support from Broadcom: Suppressed global pause ability advertisement on Trident3 server-facing ports (23 insertions);
+  Implemented host interface ICMP and ICMPv6 trap, rate limiting, and stat counter attachment (171 insertions);
+  Enabled ingress priority group (PG) packet and dropped packet accounting for generic traffic class (TC) to PG mapping (127 insertions, 12 deletions);
+  Fixed incorrect queue to TC reverse mapping cache content in a TC to queue mapping update;
+  Fixed potential PFC counter value mismatch in a get port stats API call;
+  Restricted flex-counter-based egress TC packet accounting to unicast packets only (62 insertions, 22 deletions);
+  Implemented EFP-based queue IPv6 stats (1645 insertions, 597 deletions);
+  Fixed uninitialized multicast queue entry (MCQE) pool for lossy traffic (189 insertions, 90 deletions);
+  Fixed incorrect PG to service pool mapping in a PG to pool mapping set operation;
+  Implemented ingress packet sampling slow-path (packet samples destined to CPU) pipeline (1183 insertions, 276 deletions);
+  Implemented egress packet sampling slow-path (packet samples destined only to CPU on Trident3) pipeline (411 insertions, 263 deletions).}
+  \resitem{Designed and implemented VLAN bind point support for egress ACL table, from command line interface (CLI) down to Broadcom SAI.
+  Optimized hardware resource in binding ingress ACL table to VLAN.
   Extended critical resource management (CRM) to support per ingress/egress per bind point type ACL resource warning messaging and message accounting.
   Contributed design practices to community as pull request review comments \url{https://github.com/Azure/sonic-swss/pull/1218}}
   \resitem{Added ICMP and ICMPv6 packet type support to control plane policing (CoPP).}
   \resitem{Customized zero touch provisioning (ZTP) with a thorough grasp of its internal execution flow and state machine
-  transition (849 line additions, 594 line deletions).
+  transition (849 insertions, 594 deletions).
   Developed configuration changes to Kea DHCP server to offer options 66 and 67 for ZTP support.
   Enabled robust switch configuration update scenario with and without image upgrade.
   Unveiled the significance of management VRF in our unique test setup.
   Contributed some of the code changes to community as review feedback \url{https://github.com/Azure/sonic-ztp/pull/12}}
+  \resitem{Proposed custom port and queue IPv6 stats in SAI. Gained deep insights into Broadcom Trident3 stat counter capability
+  as well as SAI stat counter implementation architecture, which leverages chip native statistics, flexible counters, and field processor (FP).
+  Concluded from Broadcom document study (further confirmed by Broadcom) that egress flexible counters cannot resolve IPv6 packets
+  and does not support user defined fields.
+  Proved Trident3 egress field processor (EFP) does not support TCAM slice sharing among field groups through code implementation and platform test.}
+  \resitem{Designed and implemented EFP-based queue IPv6 stats in Broadcom SAI, syncd, swss, and up to show CLI.
+  Designed mechanism to enable EFP TCAM slice sharing between user egress ACL tables (L3, L3v6, PFC watchdog drop action)
+  and port \& queue IPv6 stats.}
+  \resitem{Enabled separate buffer pools for CPU traffic at both ingress and egress. Expanded XGS-device memory management unit (MMU)
+  knowledge and understanding to
+  non-unicast traffic in terms of packet flow, resource accounting, and admission control.
+  Identified and fixed the issue of uninitialized MCQE pool for lossy traffic (pool shared limit being zero) in SAI MMU setting.
+  Identified and fixed incorrect PG to service pool mapping caused by SDK API misuse in original SAI.}
+  \resitem{Pioneered GitLab continuous integration (CI). Enabled GitLab CI pipeline for automated Lambda image build and Broadcom SAI v3.6.7.1 debian package build
+  at merge request creation and updates.}
+  \resitem{Enabled and customized sFlow with a full grasp of community design and implementation,
+  which, however, only support ingress sFlow (ingress packet sampling slow path and ingress sFlow v5 encapsulation).
+  Identified the code gap in Broadcom SAI v3.6.7.1 to enable ingress packet sampling slow-path pipeline.
+  Filled the gap by implementing SAI logic of genetlink host interface creation, knet rx filter creation, samplepacket host interface trap creation,
+  CPU COS MAP table entry creation (to direct packet samples to a specific CPU queue), host table entry creation for samplepacket trap id,
+  and packet sampling enable/disable on port.}
+  % Customized input and output interface index in sFlow v5 header to align with interface name-index mapping used by SNMP.
+  \resitem{Extended sFlow functionality from ingress only to egress: Designed and implemented egress packet sampling slow-path pipeline in SAI;
+  Designed and implemented egress-sampled packet processing in knet rx filter;
+  Designed and implemented egress sFlow v5 encapsulation in host sflow daemon (hsflowd).
+  Designed and implemented CONFIG\_DB schema to configure egress sFlow and allow sFlow enable/disable at per port per direction level.
+  Contributed bug fixes and design improvements to community as pull request review comments \url{https://github.com/Azure/sonic-swss/pull/1012},
+  \url{https://github.com/Azure/sonic-swss/pull/1224}, \url{https://github.com/Azure/sonic-swss/pull/1427},
+  \url{https://github.com/Azure/sonic-utilities/pull/592}}
   \end{itemize}
 
 \item
@@ -166,7 +206,7 @@ United States & E: wonda.ni@gmail.com\\
   WRED dropping, QoS mapping (DSCP to TC, DOT1P to TC, TC to PG, TC to queue), scheduling (WRR, DWRR, SP), and PFC storm watchdog warm-reboot;
   sub port router interfaces}
   \resitem{Lead the high-level design and the ground implementation of sub port router interfaces.
-  Presented the high-level design at the OCP SONiC community meeting. Revised SAI specification on sub port router interface creation.}
+  Presented the high-level design at OCP SONiC community meeting. Revised SAI specification on sub port router interface creation.}
   \resitem{Designed, implemented, and test automated PFC watchdog warm-reboot feature, with ramp-up on the
   warm-reboot architecture from scratch.
   Resolved the issue of PFC watchdog not started after (both cold- and warm-) reboot by fixing the initialization dependancy.
@@ -383,7 +423,8 @@ United States & E: wonda.ni@gmail.com\\
 \begin{description}
 \setlength{\itemindent}{-0.1in}
 
-\item[Programming Languages:] C ({\tt const}, {\tt volatile}, strstr, \%z), C++ in C, assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
+\item[Programming Languages:] C ({\tt const}, {\tt volatile}, {\tt strncpy}, {\tt strchar}, {\tt strstr}, \%z), C++ in C,
+assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
 inline assembly (gcc), C in C++,
 %
 C++,
@@ -440,11 +481,12 @@ postponement, RAII, exception-safe (copy and swap)
 dictionary ({\tt items}, {\tt get}, {\tt setdefault}, {\tt update}, {\tt pop}),
 enumerate, natsorted, sorted, map, filter, lambda, isinstance, ternary, not, in, import, from, parameter passing,
 global, nested function, scoping, assert, hex, format,
-except, finally, module, argparse, pickle, re ({\tt compile}, {\tt match}), subprocess, binascii, click
+except, finally, module, argparse, pickle, re ({\tt compile}, {\tt match}), subprocess, binascii, click (argument, option)
 
 \item[Scripts:] bash, tcsh, expansion (variable, arithmetic), command substitution, subshell, process substitution \textless(), {\tt read},
-{\tt eval}/` `,
+{\tt eval}/\`{} \`{}, {\tt source}/.,
 {\tt if then}, {\tt for do}, {\tt while do}, {\tt case in} (;;), {\tt test}/[ ], [[ ]], \&\&, $||$, \$?, \$\#, \$!, set (-x, +x, -{}-),
+\$\{ : : \}, \$\{ :? \},
 lua (and, or, ternary operator)
 
 \item[Operating Systems:] Linux (CentOS, Fedora, Red Hat, Ubuntu, Debian, Raspbian Lite), FreeRTOS, Windows, Windows Subsystem for Linux (WSL), Mac OS X
@@ -457,15 +499,16 @@ network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), I
 ICMP (RFC 792, echo, echo reply),
 TCP, BGP (quagga, frr, eBGP, route-map),
 UDP, DHCP (RFC 2131, 2132), ISC DHCP, Kea DHCP (option-data), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
-socket programming, NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4),
+sFlow (InMon v5), host sflow daemon (hsflowd),
+NicheStack\textsuperscript{TM} IPv4 (arp, udp, snmpv2c, sntpv4),
 %
 InfiniBand, RoCEv1, RoCEv2,
 iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming,
 %
 1588v2,
 GigE Vision (WRITEREG, READREG, WRITEMEM, READMEM, EVENTDATA, DISCOVERY, PENDING\_ACK, FORCEIP, heartbeat),
-%
-Software for Open Networking in the Cloud (SONiC) (SubscriberStateTable, CONFIG\_DB, APPL\_DB,
+
+\item[Software for Open Networking in the Cloud (SONiC):] SubscriberStateTable, CONFIG\_DB, APPL\_DB,
 ProducerTable, ConsumerTable, FLEX\_COUNTER\_DB, ASIC\_DB,
 Table, COUNTERS\_DB,
 ProducerStateTable, APPL\_DB, ConsumerStateTable, APPL\_DB,
@@ -474,10 +517,11 @@ NotificationConsumer, APPL\_DB, COUNTERS\_DB, NotificationProducer, ASIC\_DB,
 SelectableTimer,
 flex counter architecture, sairedis, synchronous SAI api call, PFC storm watchdog,
 buffer watermark, buffer config manager, ACL, warm-reboot/in-service software upgrade (ISSU), scheduler, QoS mapping,
-neighbor, route, copp, critical resource management (CRM),
-virtual switch (vs)),
-%
-OCP switch abstraction interface (SAI) (pipeline, buffer, host interface, Broadcom implementation, python-saithrift rpc library),
+neighbor, route, copp, critical resource management (CRM), sFlow,
+virtual switch (vs), ZTP
+
+\item[OCP switch abstraction interface (SAI):] pipeline, buffer, host interface, ACL, sFlow,
+Broadcom implementation, python-saithrift rpc library
 
 \item[Switching:] ingress admission control, virtual output queuing, egress admission control,
 scheduling (strict priority (preemptive, non-preemptive),
@@ -487,7 +531,7 @@ output-queued shared memory, input-output-queued
 
 \item[Linux kernel:] kernel architecture, interrupt context, interrupt \& interrupt handler, softirq, tasklet, kernel synchronization,
 RCU, memory barrier, process context, work queue, kernel thread and sleep (wait queue), kernel preemption, hrtimer, memory management,
-char driver, network traffic control (TC) (token bucket filter), Tx \& Rx path below layer 3, new API (NAPI),
+char driver, network traffic control (TC) (token bucket filter), Tx \& Rx path below layer 3, new API (NAPI), l3mdev, psample,
 syscall, sysfs, tracepoint, kprobe, kdump, kbuild, kallsyms
 
 \item[FreeRTOS kernel:] interrupt service routine (ISR), binary semaphore, mutex, queue, event group, task management \& scheduling, software timer,
@@ -508,11 +552,13 @@ bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, 
 \item[Applications:] code reading, regular expression (basic, extended, [:space:], [:alnum:]), system debugging, Linux kernel programming,
 Linux system programming ({\tt select}, {\tt poll}, {\tt epoll}, {\tt getenv}, timerfd), netlink (rt, neigh),
 interprocess communication (IPC), process scheduling,
-concurrency, multithreading (POSIX), synchronization \& condition synchronization, file access, iOS programming, Android programming,
+concurrency, multithreading (POSIX), synchronization \& condition synchronization,
+file access, socket programming, generic netlink,
+iOS programming, Android programming,
 OPNET simulator, AMPL/lp\_solve, AMPL/CPLEX, Kusto query,
 P4 packet test framework (PTF) (dataplane),
 redis (-n, -{}-scan, -{}-pattern, {\tt get}, {\tt hget}, {\tt set}, {\tt hset}, {\tt del}, {\tt hdel} (multiple fields), dump (-d, -k, -y), load),
-Broadcom SDK (BST, KNET, QoS mapping, FP, flex counters, scheduler, LAG, hashing), Cancun, flex flow APIs, OpenNSL,
+Broadcom SDK (BST, KNET, rx filter, QoS mapping, FP, flex counters, scheduler, LAG, hashing), Cancun, flex flow APIs, OpenNSL,
 Azure ExpressRoute
 
 \item[Design patterns:] observer (one to many), bridge (separate an abstraction from its implementation),
@@ -530,9 +576,10 @@ jumpbox, Dnsmasq, syslog, log analyzer
 
 \item[Linux command line:] {\tt lsblk}, {\tt fdisk}, {\tt df}, {\tt du},
 {\tt ps},
-{\tt mkfs}, {\tt less}, {\tt tail} (-n), {\tt grep} (-r, -i, -n, -v, -q, -{}-color), {\tt find} (-type), {\tt xargs}, {\tt ln}, {\tt augtool} (-r, set),
+{\tt mkfs}, {\tt rsync}, {\tt less}, {\tt head} (-n), {\tt tail} (-n), {\tt grep} (-r, -i, -n, -v, -q, -{}-color),
+{\tt find} (-type), {\tt xargs}, {\tt ln}, {\tt augtool} (-r, set),
 {\tt mount}, {\tt unmount}, /etc/fstab,
-{\tt file}, {\tt chmod} (+x), {\tt nm}, {\tt tree},
+{\tt file}, {\tt chmod} (+x), {\tt nm}, {\tt tree} (-L),
 {\tt exec}, {\tt wait}, {\tt trap},
 {\tt export}, {\tt source}/.,
 {\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz), {\tt zcat}, {\tt zgrep},
@@ -540,16 +587,17 @@ jumpbox, Dnsmasq, syslog, log analyzer
 {\tt tcpdump} (-ni, -vxe, -w, -r), {\tt ip route}, {\tt ip rule},
 {\tt wget}, {\tt curl} (-o), {\tt md5sum},
 {\tt chown}, {\tt disown}, {\tt adduser}, {\tt usermod}, {\tt passwd}, {\tt id},
-{\tt dpkg}, {\tt dpkg-buildpackage} (-nc), {\tt fakeroot}, {\tt debhelper} (dh\_clean),
+{\tt pkg-config}, {\tt dpkg}, {\tt dpkg-buildpackage} (-rfakeroot, -b, -us, -uc, -j, -nc), {\tt fakeroot}, {\tt debhelper} (dh\_clean),
 {\tt which},
 {\tt lsusb},
 {\tt virsh},
 {\tt diff}, {\tt comm},
-{\tt echo} (-n), {\tt tee}, {\tt cat} (-A, ctrl-D, \textless\textless token), {\tt awk} (/pattern/action), {\tt cut} (-d, -f, -c),
-{\tt sort} (-t, -k, -nr, -u), {\tt uniq} (-u, -d, -c), {\tt sed} (-n, -e, -i), {\tt tr} (-s),
+{\tt echo} (-n), {\tt tee}, {\tt cat} (-A, ctrl-D, \textless\textless token), {\tt awk} (/pattern/action, -F, -f, print \$1), {\tt cut} (-d, -f, -c),
+{\tt sort} (-t, -k, -nr, -u), {\tt uniq} (-u, -d, -c), {\tt sed} (-n, -e, -i, ,), {\tt tr} (-s),
 {\tt date}, {\tt time} (-f),
 {\tt top},
-{\tt bc}, {\tt expr}
+{\tt bc}, {\tt expr},
+{\tt systemctl} (timer)
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
 switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6000, S6100-ON, Mellanox SN2700,
@@ -566,11 +614,13 @@ FireWire card (SYBA)
 
 \item[Switch chips:] Broadcom XGS devices, BCM56850 (Trident2), BCM56873 (Trident3), BCM56960 (Tomahawk), BCM56970 (Tomahawk2),
 ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
-flexible pipeline, memory management unit, buffer management, buffer statistics tracking, oversubscription buffer,
+flexible pipeline, memory management unit (mmu) (resource accounting for unicast \& non-unicast packets), replication and queueing engine (RQE),
+buffer management, buffer statistics tracking, oversubscription buffer,
 cross-point (XP) architecture, scheduler, shaper, QoS mapping, PFC, ECN, WRED, mirroring (ERSPAN),
 field processor (legacy, new, logical table selection, range checker, compression, hint),
 VRF, VXLAN (initiation, termination, bridging, riot), hashing (static, robust, flex, consistent, resilient), ECMP (weighted, hierarchical), LAG,
 user defined field (FP, hashing, flex hashing, flexible counter), flexible counters,
+packet sampling (ingress, egress), sFlow,
 Broadcom DNX devices, BCM88670 (Jericho), BCM88690 (Jericho2), packet processor architecture, traffic management architecture,
 Cisco Lacrosse
 
@@ -584,14 +634,19 @@ cp)
 \item[Automation:] Ansible (ansible-playbook, name, with\_items, with\_dict, loop, when, rescue, include, include\_vars, register, become, connection,
 async, poll, async\_status, action plugin,
 module (set\_fact, debug, fail, copy, template, command, shell, script, supervisorctl, lineinfile), custom module),
-Jenkins (template, pipeline)
+Jenkins (template, pipeline), GitLab Continuous Integration (CI) (gitlab-runner, {\tt .gitlab-ci.yml}, {\tt stages}, {\tt stage},
+{\tt when}, {\tt only}, {\tt variables} (GIT\_SUBMODULE\_STRATEGY), {\tt cache}, {\tt allow\_failure}, {\tt artifacts}, {\tt tags}, {\tt script})
 
 \item[Test:] pytest, Google test
 
-\item[Version Control:] Git (local, remote, add -{}-patch, branch -{}-contains, tag -a,
-fetch -{}-tags, push -{}-force -{}-delete, show, rebase (-i, commit split), apply, cherry-pick, submodule update -{}-recursive,
-bisect, blame -{}-line-porcelain, archive),
-GitHub workflow, GitLab workflow, Bitbucket, Visual Studio Team Services,
+\item[Version Control:] Git (local, remote, {\tt add} -{}-patch, {\tt branch} -{}-contains, {\tt tag} -a,
+{\tt fetch} -{}-tags, {\tt push} (-{}-force, -{}-delete, -{}-tags), {\tt show}, {\tt rebase} (-i, -{}-preserve-merges, commit split),
+{\tt format-patch}, {\tt apply}, {\tt am}, {\tt cherry-pick}, {\tt submodule update} -{}-recursive,
+{\tt bisect}, {\tt blame} -{}-line-porcelain, {\tt archive}),
+%
+stg ({\tt series}, {\tt show}, {\tt diff}, {\tt refresh} (-p, -d), {\tt uncommit}, {\tt commit}),
+%
+GitHub workflow, GitLab workflow (rebase), Bitbucket, Visual Studio Team Services,
 CodeFlow, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
 
 \item[IDE:] Eclipse, Xcode
@@ -660,7 +715,7 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium
-2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020
+2012, 2013, 2014, 2015, 2016, 2017, 2019, 2020, 2021
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM)
@@ -672,7 +727,7 @@ Optical and Grid Computing Symposium 2014, 2015, 2016, 2017, 2018, 2019, 2020
 
 \item
 \textbf{Technical program committee member} of OSA Asia Communications and Photonics Conference (ACP),
-Track 3 Network Architectures, Management and Applications 2016, 2018
+Track 3 Network Architectures, Management and Applications 2016, 2018, 2020
 
 \item
 \textbf{Technical program committee member} of IEEE Asia-Pacific Conference on Communications (APCC) 2016
