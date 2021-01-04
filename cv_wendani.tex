@@ -146,19 +146,39 @@ United States & E: wonda.ni@gmail.com\\
   Debugged syncd crash on original Broadcom SAI release, and fixed SAI codes.}
   \resitem{Upgraded OCP SAI header to v1.5.1, v1.5.2, and enabled Lambda image build against Broadcom SAI v3.6.7.1}
   \resitem{SAI change without support from Broadcom: Suppressed global pause ability advertisement on Trident3 server-facing ports (23 insertions);
+  %
   Implemented host interface ICMP and ICMPv6 trap, rate limiting, and stat counter attachment (171 insertions);
+  %
   Enabled ingress priority group (PG) packet and dropped packet accounting for generic traffic class (TC) to PG mapping (127 insertions, 12 deletions);
-  Fixed incorrect queue to TC reverse mapping cache content in a TC to queue mapping update;
-  Fixed potential PFC counter value mismatch in a get port stats API call;
+  Identified through code reading and fixed incorrect queue to TC reverse mapping cache content in a TC to queue mapping update;
+  %
+  Identified through code reading and fixed potential PFC counter value mismatch in a get port stats API call;
   Restricted flex-counter-based egress TC packet accounting to unicast packets only (62 insertions, 22 deletions);
-  Implemented EFP-based queue IPv6 stats (1645 insertions, 597 deletions);
+  Implemented EFP-based queue IPv6 stats (1703 insertions, 630 deletions);
+  %
   Fixed uninitialized multicast queue entry (MCQE) pool for lossy traffic (189 insertions, 90 deletions);
   Fixed incorrect PG to service pool mapping in a PG to pool mapping set operation;
+  %
   Implemented ingress packet sampling slow-path (packet samples destined to CPU) pipeline (1183 insertions, 276 deletions);
-  Implemented egress packet sampling slow-path (packet samples destined only to CPU on Trident3) pipeline (411 insertions, 263 deletions).}
-  \resitem{Designed and implemented egress ACL table VLAN binding, from command line interface (CLI) down to Broadcom SAI.
-  Optimized hardware resource in binding ingress ACL table to VLAN.
-  Extended critical resource management (CRM) to support per ingress/egress per bind point type ACL resource warning messaging and message accounting.
+  Implemented egress packet sampling slow-path (packet samples destined only to CPU on Trident3) pipeline (436 insertions, 263 deletions);
+  %
+  Identified from diag shell that field entry active in PFC storm mistakenly matches and drops packets
+  mapped on a particular TC and destined to CPU (e.g., RDMA packet sampling destined to CPU) post PFC storm restoration,
+  and fixed field entry status at PFC storm restoration event;
+  %
+  Designed and implemented ACL table VLAN egress binding, whose hardware behavior was incorrect
+  with regard to SAI specification in original Broadcom SAI implementation (888 insertions, 254 deletions).
+  }
+  \resitem{Designed and implemented ACL table VLAN egress binding, from command line interface (CLI) down to Broadcom SAI.
+  Optimized hardware resource in binding ACL table to VLAN ingress.
+  Extended critical resource management (CRM) to support per stage (ingress/egress) per bind point type
+  ACL resource warning messaging and message accounting.
+  Designed and implemented ACL table VLAN egress binding in Broadcom SAI, whose original implementation was incorrect.
+  The uniqueness as well as the challenge of this feature is that when binding an ACL table to VLAN egress, an ACL entry in it
+  cannot be functionality-wise fullfiled by only one field entry, but requires more than one field entry to accommodate.
+  Identified and confirmed by vendor the same issue on commercial switches in production, which triggered fixes by network engineers
+  in a timely manner.
+  %
   Contributed design practices to community as pull request review comments \url{https://github.com/Azure/sonic-swss/pull/1218}}
   \resitem{Added ICMP and ICMPv6 packet type support to control plane policing (CoPP).}
   \resitem{Customized zero touch provisioning (ZTP) with a thorough grasp of its internal execution flow and state machine
@@ -173,8 +193,8 @@ United States & E: wonda.ni@gmail.com\\
   and does not support user defined fields.
   Proved Trident3 egress field processor (EFP) does not support TCAM slice sharing among field groups through code implementation and platform test.}
   \resitem{Designed and implemented EFP-based queue IPv6 stats in Broadcom SAI, syncd, swss, and up to show CLI.
-  Designed mechanism to enable EFP TCAM slice sharing between user egress ACL tables (L3, L3v6, PFC watchdog drop action)
-  and port \& queue IPv6 stats.}
+  Designed mechanism to enable EFP TCAM slice sharing between user egress ACL tables (L3, L3v6, PFC watchdog drop action, sFlow rate limiting)
+  and queue IPv6 stats.}
   \resitem{Enabled separate buffer pools for CPU traffic at both ingress and egress. Expanded XGS-device memory management unit (MMU)
   knowledge and understanding to
   non-unicast traffic in terms of packet flow, resource accounting, and admission control.
@@ -182,13 +202,15 @@ United States & E: wonda.ni@gmail.com\\
   Identified and fixed incorrect PG to service pool mapping caused by SDK API misuse in original SAI.}
   \resitem{Pioneered GitLab continuous integration (CI). Enabled GitLab CI pipeline for automated Lambda image build and Broadcom SAI v3.6.7.1 debian package build
   at merge request creation and updates.}
-  \resitem{Enabled and customized sFlow with a full grasp of community design and implementation,
+  \resitem{Enabled and customized sFlow with a full grasp of original community design and implementation,
   which, however, only support ingress sFlow (ingress packet sampling slow path and ingress sFlow v5 encapsulation).
-  Identified the code gap in Broadcom SAI v3.6.7.1 to enable ingress packet sampling slow-path pipeline.
+  Identified code gap in Broadcom SAI v3.6.7.1 to enable ingress packet sampling slow-path pipeline.
   Filled the gap by implementing SAI logic of genetlink host interface creation, knet rx filter creation, samplepacket host interface trap creation,
   CPU COS MAP table entry creation (to direct packet samples to a specific CPU queue), host table entry creation for samplepacket trap id,
-  and packet sampling enable/disable on port.
-  Customized input and output interface indices in sFlow v5 header to align with interface-name-to-index mapping used by SNMP.}
+  and packet sampling enable/disable on physical port.
+  Customized input and output interface indices in sFlow v5 header by hacking hsflowd source codes
+  to align with interface-name-to-index mapping used by SNMP
+  (Our approach is simpler than and compatible with the community one in \url{https://github.com/Azure/sonic-buildimage/pull/4794}).}
   \resitem{Extended sFlow functionality from ingress only to egress: Designed and implemented egress packet sampling slow-path pipeline in SAI;
   Designed and implemented egress-sampled packet processing in knet rx filter;
   Designed and implemented egress sFlow v5 encapsulation in host sflow daemon (hsflowd).
@@ -198,7 +220,7 @@ United States & E: wonda.ni@gmail.com\\
   \url{https://github.com/Azure/sonic-utilities/pull/592}).}
   \resitem{Brought up virtual switch (vs) tests in swss and frr GitLab CI pipelines.
   Fixed vs tests on speed buffer set, portchannel oper status down, ACL rule redirect action,
-  ingress \& egress ACL mirror table creation in separated v4 \& v6 mirror table mode, and sFlow default global, global all, and config deletion.
+  ACL mirror table ingress \& egress creation in separated v4 \& v6 mirror table mode, and sFlow default global, global all, and config deletion.
   Contributed fixes to community as code commmits (\url{https://github.com/Azure/sonic-swss/pull/1452}) and review comments
   (\url{https://github.com/Azure/sonic-swss/pull/1030}, \url{1397}, \url{1095}).
   Reduced vs docker image build time by half ({\tt $\sim$}10 minutes) through incremental docker image build at CI pipeline build stage.
@@ -447,7 +469,7 @@ United States & E: wonda.ni@gmail.com\\
 \begin{description}
 \setlength{\itemindent}{-0.1in}
 
-\item[Programming Languages:] C ({\tt const}, {\tt volatile}, {\tt strncpy}, {\tt strchar}, {\tt strstr}, \%z), C++ in C,
+\item[Programming Languages:] C ({\tt const}, {\tt volatile}, {\tt strncpy}, {\tt strchar}, {\tt strstr}, {\tt strtoul}, \%z), C++ in C,
 assembly (Nios II, x86 \& x64 (Intel \& AT\&T syntaxes), MicroBlaze, ARM),
 inline assembly (gcc), C in C++,
 %
@@ -505,7 +527,7 @@ postponement, RAII, exception-safe (copy and swap)
 \item[Python:] sequence type ({\tt len}), list ({\tt remove}), tuple, mapping type,
 dictionary ({\tt items}, {\tt get}, {\tt setdefault}, {\tt update}, {\tt pop}),
 all,
-enumerate, natsorted, sorted, map, filter, lambda, isinstance, ternary, not, in, import, from, parameter passing,
+enumerate, natsorted, sorted, {\tt map}, filter, lambda, isinstance, ternary, not, in, import, from, parameter passing,
 global, nested function, scoping, assert, hex, format,
 except, finally, module, argparse, pickle, re ({\tt compile}, {\tt match}), subprocess, binascii, click (argument, option)
 
@@ -529,11 +551,17 @@ conditional directive ({\tt ifeq}), conditional expansion {\tt \$(if )}, {\tt \$
 
 \item[Networking:] IEEE 802.3, global pause, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control (802.3x), LAG (802.3ad),
 FEC (Reed-Solomon, FireCode),
-IEEE 802.1, bridge (.1D, .1Q), VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN,
+IEEE 802.1, bridge (.1D, .1Q), VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN (bridging, asymmetric routing, symmetric routing,
+distributed routing (gateway), centralized routing (gateway)),
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
 network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED dropping,
 ICMP (RFC 792, echo, echo reply),
-TCP, BGP (quagga, frr, eBGP, route-map),
+TCP, BGP (quagga, free range routing (frr), peering, per-VRF peering, {\tt remote-as} ({\tt internal}, {\tt external}), eBGP,
+AS\_PATH loop detection, AS\_PATH replacement, AS\_PATH prepend,
+{\tt maximum-paths}, best path selection,
+{\tt bestpath as-path multipath-relax}, {\tt neighbor}, peer group, {\tt route-map},
+{\tt address family},
+{\tt redistribute connected}, {\tt network}, EVPN),
 UDP, DHCP (RFC 2131, 2132), ISC DHCP, Kea DHCP (option-data), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
 sFlow (InMon v5), host sflow daemon (hsflowd),
 %
@@ -603,7 +631,7 @@ P4 packet test framework (PTF) (dataplane),
 Broadcom SDK (BST, KNET, rx filter, QoS mapping, FP, flex counters, scheduler, LAG, hashing), Cancun, flex flow APIs, OpenNSL,
 Azure ExpressRoute,
 %
-KLISH (Kommand Line Interface Shell) 2.1.4, 2.2.0 (PTYPE, SUBCOMMAND (value, switch), COMMAND (lock, interrupt, hidden), PARAM (test),
+KLISH (Kommand Line Interface Shell) 2.1.4, 2.2.0 (PTYPE, SUBCOMMAND (value, switch), COMMAND (lock, interrupt, hidden), PARAM (test, hidden),
 ACTION (builtin),
 CONFIG (operation, pattern, sequence),
 VAR, MACRO, VIEW, NAMESPACE, STARTUP)
@@ -692,10 +720,11 @@ Jenkins (template, pipeline), GitLab Continuous Integration (CI) (gitlab-runner,
 
 \item[Version Control:] Git (local, remote, {\tt add} -{}-patch, {\tt branch} -{}-contains, {\tt tag} -a,
 {\tt fetch} -{}-tags, {\tt push} (-{}-force, -{}-delete, -{}-tags, tag), {\tt show}, {\tt rebase} (-i, -{}-preserve-merges, commit split),
-{\tt format-patch}, {\tt apply}, {\tt am}, {\tt cherry-pick}, {\tt submodule} (update -{}-recursive, sync, add)
+{\tt format-patch}, {\tt apply} (-3), {\tt am}, {\tt cherry-pick}, {\tt submodule} (update -{}-recursive, sync, add)
 {\tt bisect}, {\tt blame} -{}-line-porcelain, {\tt archive}),
 %
-stg ({\tt series}, {\tt show}, {\tt diff}, {\tt refresh} (-p, -d), {\tt uncommit}, {\tt commit}),
+StGit ({\tt series}, {\tt show}, {\tt diff}, {\tt refresh} (-p), {\tt pop}, {\tt push},
+{\tt import}, {\tt export}, {\tt uncommit}, {\tt commit}),
 %
 GitHub workflow, GitLab workflow (rebase), Bitbucket, Visual Studio Team Services,
 CodeFlow, CVS, TortoiseCVS, SVN, TortoiseSVN, Source Depot
