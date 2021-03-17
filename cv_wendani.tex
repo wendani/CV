@@ -167,7 +167,16 @@ United States & E: wonda.ni@gmail.com\\
   and fixed field entry status at PFC storm restoration event;
   %
   Designed and implemented ACL table VLAN egress binding, whose hardware behavior was incorrect
-  with regard to SAI specification in original Broadcom SAI implementation (888 insertions, 254 deletions).
+  with regard to SAI specification in original Broadcom SAI implementation (888 insertions, 254 deletions);
+  %
+  Developed generic control flow for buffer profile attribute set,
+  and implemented set operation for PG/queue min, PG headroom, PG XON offset (195 insertions, 89 deletions);
+  %
+  Implemented runtime buffer pool headroom resizing (82 insertions, 40 deletions);
+  %
+  Removed unnecessary DSCP to TC map entry reset when binding the map to a port (29 insertions, 8 deletions);
+  %
+  Implemented runtime PG or queue buffer profile migration (252 insertions, 48 deletions).
   }
   \resitem{Designed and implemented ACL table VLAN egress binding, from command line interface (CLI) down to Broadcom SAI.
   Optimized hardware resource in binding ACL table to VLAN ingress.
@@ -213,33 +222,60 @@ United States & E: wonda.ni@gmail.com\\
   (Our approach is simpler than and compatible with the community one in \url{https://github.com/Azure/sonic-buildimage/pull/4794}).}
   \resitem{Extended sFlow functionality from ingress only to egress: Designed and implemented egress packet sampling slow-path pipeline in SAI;
   Designed and implemented egress-sampled packet processing in knet rx filter;
-  Designed and implemented egress sFlow v5 encapsulation in host sflow daemon (hsflowd).
-  Designed and implemented CONFIG\_DB schema to configure egress sFlow and allow sFlow enable/disable at per port per direction level.
+  Designed and implemented egress sFlow v5 encapsulation in host sflow daemon (hsflowd);
+  Designed and implemented CONFIG\_DB schema to configure egress sFlow and allow sFlow enable/disable at per port per direction level;
   Contributed bug fixes and design improvements to community as pull request review comments (\url{https://github.com/Azure/sonic-swss/pull/1012},
   \url{1224}, \url{1427},
   \url{https://github.com/Azure/sonic-utilities/pull/592}).}
   \resitem{Brought up virtual switch (vs) tests in swss and frr GitLab CI pipelines.
   Fixed vs tests on speed buffer set, portchannel oper status down, ACL rule redirect action,
   ACL mirror table ingress \& egress creation in separated v4 \& v6 mirror table mode, and sFlow default global, global all, and config deletion.
-  Contributed fixes to community as code commmits (\url{https://github.com/Azure/sonic-swss/pull/1452}) and review comments
+  Contributed fixes to community as code commmit (\url{https://github.com/Azure/sonic-swss/pull/1452}) and review comments
   (\url{https://github.com/Azure/sonic-swss/pull/1030}, \url{1397}, \url{1095}).
   Reduced vs docker image build time by half ({\tt $\sim$}10 minutes) through incremental docker image build at CI pipeline build stage.
   Reduced vs test run time from over 120 minutes to {\tt $\sim$}28 minutes through test parallelization,
   which breaks and classifies vs tests into 6 parallel pipelines, at CI pipeline test stage.}
   \resitem{Brought up utility unit tests in utilities GitLab CI pipeline.
   Fixed drop counter test failure at more than 1 test run in persistent docker container.}
-  \resitem{Performance}
+  \resitem{\textcolor{Red}{2020 mid-year performance: E (exceed expectations)---``Often exceeds requirements in terms of efficiency and quality of work
+  with significant contributions. Gains positive feedback from most internal and external clients.''}}
   \resitem{Enhanced sub port router interface: Inherited parent port MTU changes, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1479});
   Accelerated ECMP hardware convergence at parent port oper status changes, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1492});
   Enabled linking interface ingress (i.e., enslaving interface) to a non-default VRF, and developed vs unit test
-  (\url{https://github.com/Azure/sonic-swss/pull/1521})}
-  \resitem{Implemented KLISH CLI XML on QoS (mapping, scheduler, ECN), MMU, ACL, counters (port, queue, PFC, IPv6), and ZTP.
-  Developed or customized underlying utility scripts to support KLISH CLI usage.}
+  (\url{https://github.com/Azure/sonic-swss/pull/1521});
+  Developed vs unit tests to validate physical port host interface VLAN tag attribute 
+  (\url{https://github.com/Azure/sonic-swss/pull/1634}),
+  sub port interface ingress to a VNET (\url{https://github.com/Azure/sonic-swss/pull/1642}),
+  and APPL\_DB processing sequence of sub port interface keys (\url{https://github.com/Azure/sonic-swss/pull/1663}).}
+  \resitem{Designed KLISH CLI on QoS (mapping, scheduler, WRED/ECN), MMU, and PFC watchdog config commands, and watermark show \& clear commands. 
+  Implemented KLISH CLI XML on QoS (show, WRED/ECN config), MMU (show), ACL (show \& config),
+  counters (port, queue, PFC, IPv6) (show \& clear), watermark (PG, buffer pool) (show \& clear), and ZTP (show \& config).
+  Developed or customized underlying utility scripts to support KLISH CLI usage, most notably,
+  runtime buffer profile update on PG min, PG XON offset, and PG headroom,
+  runtime PG/queue buffer profile migration,
+  runtime buffer pool headroom resizing,
+  runtime scheduler type and/or weight change,
+  runtime PFC enable/disable on TC,
+  and runtime DSCP to TC remapping.}
   \resitem{Designed and implemented ACL table port and/or vlan binding and unbinding on the fly to accommodate KLISH ACL CLI behavior.
   Introduced ACL rule id to priority mapping to flip rule priority ranking.
   This is to conform to vendor CLI convention that smaller rule id is of higher rule priority.}
+  \resitem{Designed and Implemented PFC watchdog self-adaptation to PFC enable status change on TC.
+  This removes the need to toggle PFC watchdog stop and start by user at the occurrence of such a change. Contributed to community
+  \url{https://github.com/Azure/sonic-swss/pull/1612}}
+  \resitem{Backported Broadcom SAI DSCP to TC map set operation from v3.7.5.2 to v3.6.7.1 to enable DSCP to TC runtime remapping.}
+  \resitem{Designed and implemented runtime PG or queue buffer profile migration (from lossy to lossless, and vice versa).}
+  \resitem{Designed control flow to enable resource availability check at KLISH CLI ACL table creation and ACL table binding
+  to protect against orchagent crash arising from resource insufficiency.}
+  \resitem{%Enhanced sFlow to production strength: 
+  Fixed kernel call trace on enabling sFlow---``WARNING: CPU: 2 PID: 22 at /sonic/src/sonic-linux-kernel/linux-4.9.189/net/core/skbuff.c:658 skb\_release\_head\_state+0x98/0xa0''---caused by original Broadcom knet driver implementation.}
+  \resitem{Customized host sflow daemon by hacking source codes:
+  Designed and implemented control flow to enable configurable source IP address by user in assembling a sFlow v5 datagram;
+  Enabled IPv6 agent address population in sFlow v5 header, and contributed code change to community as review comment
+  (\url{https://github.com/sflow/host-sflow/pull/43});
+  Enabled flexible raw packet header size, determined by user-configurable sample truncation size, for a flow sample.}
   \end{itemize}
 
 \item
@@ -487,7 +523,7 @@ scripts,
 Fortran, Verilog, VHDL, SQL %
 
 \item[C++:] {\tt mutable}, nested class,
-{\tt struct}, constructor (top-down, inside out), member initializer list, {\tt explicit}, direct initialization, copy initialization,
+{\tt struct}, constructor (top-down, inside out), {\tt default}, member initializer list, {\tt explicit}, direct initialization, copy initialization,
 destructor (bottom-up, outside in), address of reference, pointer to member function, operator(), operator type,
 cast ({\tt dynamic\_cast}), {\tt swap},
 implicit interface, virtual function \& default argument, {\tt initializer\_list},
@@ -551,17 +587,18 @@ conditional directive ({\tt ifeq}), conditional expansion {\tt \$(if )}, {\tt \$
 
 \item[Networking:] IEEE 802.3, global pause, auto-negotiation, EEE, EPON (802.3ah), 10GEPON (802.3av), flow control (802.3x), LAG (802.3ad),
 FEC (Reed-Solomon, FireCode),
-IEEE 802.1, bridge (.1D, .1Q), VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN (bridging, asymmetric routing, symmetric routing,
-distributed routing (gateway), centralized routing (gateway)),
+IEEE 802.1, bridge (.1D, .1Q), VLAN, PFC (802.1Qbb), Q-in-Q, GRE, VXLAN (bridging, centralized routing (gateway),
+distributed routing (gateway), asymmetric routing, symmetric routing),
 control plane (ioctl, AXI4-Lite, Avalon-MM, MDIO (802.3 Clause 22, 45), I$^2$C),
-network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), IPv4, LLA (RFC 3927), DSCP, ECN marking (RFC 3168), WRED dropping,
+network device driver, ARP (probe, announcement, gratuitous, proxy, RFC 5227), NDP, IPv4, private address space (RFC 1918), LLA (RFC 3927),
+DSCP, ECN marking (RFC 3168), WRED dropping,
 ICMP (RFC 792, echo, echo reply),
-TCP, BGP (quagga, free range routing (frr), peering, per-VRF peering, {\tt remote-as} ({\tt internal}, {\tt external}), eBGP,
+TCP, BGP (quagga, free range routing (FRR), peering, per-VRF peering, {\tt remote-as} ({\tt internal}, {\tt external}), eBGP,
 AS\_PATH loop detection, AS\_PATH replacement, AS\_PATH prepend,
 {\tt maximum-paths}, best path selection,
 {\tt bestpath as-path multipath-relax}, {\tt neighbor}, peer group, {\tt route-map},
 {\tt address family},
-{\tt redistribute connected}, {\tt network}, EVPN),
+{\tt redistribute connected}, {\tt network}, EVPN, RT-2, ARP/NDP suppression, RT-3, RT-5),
 UDP, DHCP (RFC 2131, 2132), ISC DHCP, Kea DHCP (option-data), SNMP (agent, ASN.1 encoding/decoding, trap, mib), SNTPv4 (RFC 4330), NTPv4 (RFC 5905),
 sFlow (InMon v5), host sflow daemon (hsflowd),
 %
@@ -691,13 +728,16 @@ Altera Arria 10 internal temperature sensing diode \& IP core), LED,
 FireWire card (SYBA)
 
 \item[Switch chips:] Broadcom XGS devices, BCM56850 (Trident2), BCM56873 (Trident3), BCM56960 (Tomahawk), BCM56970 (Tomahawk2),
-ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
-flexible pipeline, memory management unit (mmu) (resource accounting for unicast \& non-unicast packets), replication and queueing engine (RQE),
-buffer management, buffer statistics tracking, oversubscription buffer,
-cross-point (XP) architecture, scheduler, shaper, QoS mapping, PFC, ECN, WRED, mirroring (ERSPAN),
+BCM56788 (Trident4-X9), ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
+flexible pipeline, memory management unit (MMU) (resource accounting for unicast \& non-unicast packets), replication and queueing engine (RQE),
+buffer management, buffer statistics tracking (BST), oversubscription buffer,
+cross-point (XP) architecture, ingress traffic management (ITM), scheduler, shaper, QoS mapping, PFC, ECN, WRED, flex QoS,
+mirroring (ERSPAN), mirror on drop (MOD),
 field processor (legacy, new, logical table selection, range checker, compression, hint),
-VRF, VXLAN (initiation, termination, bridging, riot), hashing (static, robust, flex, consistent, resilient), ECMP (weighted, hierarchical), LAG,
-user defined field (FP, hashing, flex hashing, flexible counter), flexible counters,
+VRF, VXLAN (initiation, termination, bridging, riot),
+hashing (static, robust, flex, consistent, resilient), flex digest, ECMP (weighted, hierarchical), LAG,
+user defined field (FP, hashing, flex hashing, flexible counter), flexible counters, flex monitoring,
+trace event, drop event,
 packet sampling (ingress, egress), sFlow,
 Broadcom DNX devices, BCM88670 (Jericho), BCM88690 (Jericho2), packet processor architecture, traffic management architecture,
 Cisco Lacrosse
