@@ -72,8 +72,8 @@
 %
 %\begin{minipage}[]{0.35\linewidth}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-9839 NE 138th PL&  \\
-Kirkland, WA, 98034  & M: +1 (425) 984 9332\\
+13804 174th PL NE&  \\
+Redmond, WA 98052  & M: +1 (425) 984 9332\\
 United States & E: wonda.ni@gmail.com\\
 \end{tabular*}
 %\end{minipage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -172,7 +172,7 @@ United States & E: wonda.ni@gmail.com\\
   Developed generic control flow for buffer profile attribute set,
   and implemented set operation for PG/queue min, PG headroom, PG XON offset (195 insertions, 89 deletions);
   %
-  Implemented runtime buffer pool headroom resizing (82 insertions, 40 deletions);
+  Implemented runtime buffer headroom pool resizing (82 insertions, 40 deletions);
   %
   Removed unnecessary DSCP to TC map entry reset when binding the map to a port (29 insertions, 8 deletions);
   %
@@ -183,7 +183,7 @@ United States & E: wonda.ni@gmail.com\\
   Extended critical resource management (CRM) to support per stage (ingress/egress) per bind point type
   ACL resource warning messaging and message accounting.
   Designed and implemented ACL table VLAN egress binding in Broadcom SAI, whose original implementation was incorrect.
-  The uniqueness as well as the challenge of this feature is that when binding an ACL table to VLAN egress, an ACL entry in it
+  The uniqueness as well as the challenge of this feature is that when binding an ACL table to VLAN egress, an ACL rule in it
   cannot be functionality-wise fullfiled by only one field entry, but requires more than one field entry to accommodate.
   Identified and confirmed by vendor the same issue on commercial switches in production, which triggered fixes by network engineers
   in a timely manner.
@@ -217,9 +217,8 @@ United States & E: wonda.ni@gmail.com\\
   Filled the gap by implementing SAI logic of genetlink host interface creation, knet rx filter creation, samplepacket host interface trap creation,
   CPU COS MAP table entry creation (to direct packet samples to a specific CPU queue), host table entry creation for samplepacket trap id,
   and packet sampling enable/disable on physical port.
-  Customized input and output interface indices in sFlow v5 header by hacking hsflowd source codes
-  to align with interface-name-to-index mapping used by SNMP
-  (Our approach is simpler than and compatible with the community one in \url{https://github.com/Azure/sonic-buildimage/pull/4794}).}
+  Enabled configurable sample truncation size by user at knet rx filter level.
+  }
   \resitem{Extended sFlow functionality from ingress only to egress: Designed and implemented egress packet sampling slow-path pipeline in SAI;
   Designed and implemented egress-sampled packet processing in knet rx filter;
   Designed and implemented egress sFlow v5 encapsulation in host sflow daemon (hsflowd);
@@ -239,12 +238,16 @@ United States & E: wonda.ni@gmail.com\\
   Fixed drop counter test failure at more than 1 test run in persistent docker container.}
   \resitem{\textcolor{Red}{2020 mid-year performance: E (exceed expectations)---``Often exceeds requirements in terms of efficiency and quality of work
   with significant contributions. Gains positive feedback from most internal and external clients.''}}
-  \resitem{Enhanced sub port router interface: Inherited parent port MTU changes, and developed vs unit test
+  \resitem{Enhanced sub port router interface: Inherited parent port MTU changes at both SAI and kernel levels, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1479});
   Accelerated ECMP hardware convergence at parent port oper status changes, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1492});
   Enabled linking interface ingress (i.e., enslaving interface) to a non-default VRF, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1521});
+  Updated Port object reference count, and developed vs unit test
+  (\url{https://github.com/Azure/sonic-swss/pull/1712}, \url{1767});
+  Enabled mirror monitor port via a local sub port router interface, and developed vs unit test
+  (\url{https://github.com/Azure/sonic-swss/pull/1727, 1725});
   Developed vs unit tests to validate physical port host interface VLAN tag attribute 
   (\url{https://github.com/Azure/sonic-swss/pull/1634}),
   sub port interface ingress to a VNET (\url{https://github.com/Azure/sonic-swss/pull/1642}),
@@ -264,18 +267,68 @@ United States & E: wonda.ni@gmail.com\\
   This is to conform to vendor CLI convention that smaller rule id is of higher rule priority.}
   \resitem{Designed and Implemented PFC watchdog self-adaptation to PFC enable status change on TC.
   This removes the need to toggle PFC watchdog stop and start by user at the occurrence of such a change. Contributed to community
-  \url{https://github.com/Azure/sonic-swss/pull/1612}}
-  \resitem{Backported Broadcom SAI DSCP to TC map set operation from v3.7.5.2 to v3.6.7.1 to enable DSCP to TC runtime remapping.}
+  \url{https://github.com/Azure/sonic-swss/pull/1612}, \url{1691}, \url{1696}, \url{1697}, \url{https://github.com/Azure/sonic-sairedis/pull/814}}
+  \resitem{Backported Broadcom SAI DSCP to TC map set operation from v3.7.5.2 to v3.6.7.1 to enable DSCP to TC runtime remapping.
+  Backported host interface trap action from v3.7.5.2 to v3.6.7.1 to refactor SAI trap action implementation from
+  \{copy to CPU, drop\} combination to unmodified packet redirect port.
+  Identified PFC back pressure remaining in effect during PFC storm in Broadcom SAI v3.6.7.1 to cause lossless packets not drained from buffer,
+  and backported fix from v3.7.5.2}
   \resitem{Designed and implemented runtime PG or queue buffer profile migration (from lossy to lossless, and vice versa).}
+  \resitem{Co-designed link flap error-disable, and conducted intensive review on code implementation.}
   \resitem{Designed control flow to enable resource availability check at KLISH CLI ACL table creation and ACL table binding
   to protect against orchagent crash arising from resource insufficiency.}
-  \resitem{%Enhanced sFlow to production strength: 
+  \resitem{
+  %Enhanced sFlow to production strength:
+  %Stablized sFlow:
   Fixed kernel call trace on enabling sFlow---``WARNING: CPU: 2 PID: 22 at /sonic/src/sonic-linux-kernel/linux-4.9.189/net/core/skbuff.c:658 skb\_release\_head\_state+0x98/0xa0''---caused by original Broadcom knet driver implementation.}
+  \resitem{
+  Identified via core dump analysis stack overflow caused by recursive calls to nonblocking {\tt write} characterized by {\tt EAGAIN} error return
+  in the original hsflowd implementation of Redis async command, and fixed by introducing {\tt sleep} when such a call to {\tt write} is captured.
+  }
   \resitem{Customized host sflow daemon by hacking source codes:
+  Aligned input and output interface indices in sFlow v5 header with interface-name-to-index mapping used by SNMP
+  (Our approach is simpler than and compatible with the community one in \url{https://github.com/Azure/sonic-buildimage/pull/4794});
   Designed and implemented control flow to enable configurable source IP address by user in assembling a sFlow v5 datagram;
+  Designed and implemented control flow to enable user-configurable source interface to automatically derive source IP address
+  in assembling a sFlow v5 datagram;
   Enabled IPv6 agent address population in sFlow v5 header, and contributed code change to community as review comment
   (\url{https://github.com/sflow/host-sflow/pull/43});
   Enabled flexible raw packet header size, determined by user-configurable sample truncation size, for a flow sample.}
+  \resitem{Delegated hsflowd process control and monitor to supervisord for automatic restart at process exit.}
+  \resitem{\textcolor{Red}{2020 annual performance: ByteStyle E (exceed expectations)---``An excellent role model for team and company'';
+  Engagement E (exceed expectations)---``Highly engaged; has strong ownership as a role model''.}}
+  \resitem{Enhanced ACL:
+  Proposed custom attribute, priority, to SAI ACL table object as a hint for TCAM slice sharing, designed swss processing schema \& flow,
+  and implemented attribute handling in Broadcom SAI.
+  Enabled TCAM slice sharing among orthogonal ACL table types (e.g., between L3 and L3v6 tables)
+  via the notion of logical tables on Trident3 to double the number of ACL tables user can create at ingress that
+  need not satisfy mutual exclusion requirement among them.
+  Reduced TCAM usage from triple-wide to double-wide mode for host interface application.
+  Enabled stage migration and ACL rule add/removal in a previously-bound, currently-unbound ACL table.}
+  \resitem{SAI change without support from Broadcom:
+  Enabled logical tables on Trident3 for TCAM slice sharing among mutually exclusive field groups (74 insertions, 7 deletions);
+  Created but not installed ACL entry in an unbound ACL table (75 insertions, 36 deletions);
+  Designed and implemented ACL rule packet sampling action to a mirror session (433 insertions, 97 deletions);
+  Loaded CANCUN v6.1.3, which is upgraded from v5.3.3 with the corresponding SDK patch, at SAI initializtion (115,415 insertions, 56,146 deletions).}
+  \resitem{Enabled truncation of mirrored packet (fixed truncation size on Trident3).
+  Contributed to community fixes to mirror orch \url{https://github.com/Azure/sonic-swss/pull/1761, 1800}}
+  \resitem{Designed and implemented ACL rule packet sampling action to a mirror session starting from orchagent down to Broadcom SAI and up to KLISH CLI.}
+  \resitem{Designed software architectural change to enable packet mirror and/or packet sampling action installation
+  to ACL rules of all ACL table types (e.g., L3 and L3v6), and conducted intensive code review.}
+  \resitem{Unlocked ERSPAN IPv6 underlay capability on Trident3 SDK 6.5.16, which requires CANCUN upgrade from v5.3.3 to v6.1.3, together with SDK patch.
+  Enabled user to configure DSCP value in underlay IPv6 header by fixing SDK. Contributed to community \url{https://github.com/Azure/sonic-swss/pull/1817}}
+  \resitem{Enhanced mirroring: Observed LAG member status change at runtime to update mirror monitor port selection.
+  Contributed to community \url{https://github.com/Azure/sonic-swss/pull/1827, 1846}}
+  \resitem{Enhanced sub port router interface: Fix kernel admin status, and developed vs unit test
+  (\url{https://github.com/Azure/sonic-swss/pull/1873});
+  Fix kernel MTU inheritance from parent port, and developed vs unit test
+  (\url{https://github.com/Azure/sonic-swss/pull/1874}).}
+  \resitem{Hacked SDK to enable fine-grained TCAM slice sharing among ACL tables of the same type (e.g., among mutually exclusive L3 tables).
+  Fixed 3 SDK bugs on ACL logical tables.
+  Hacked SDK to bypass hardware limitation on the number of ACL tables user can create (32 on Trident3)
+  via logical table select TCAM entry sharing among ACL tables of the same type and priorty.
+  With this hack, the number of ACL tables user can create goes unlimited (set limit to 1024 in software),
+  no longer constrained by the number of physical entries in logical table select TCAM.}
   \end{itemize}
 
 \item
@@ -547,15 +600,20 @@ pair, map (piecewise\_construct, operator[ ], {\tt at} ({\tt const})), unordered
 %
 bitset,
 %
-shared\_ptr ({\tt make\_shared}, {\tt get}, {\tt reset}, {\tt swap}), unique\_ptr,
+std::make\_reverse\_iterator, std::next, std::base,
+%
+shared\_ptr ({\tt make\_shared}, {\tt get}, {\tt reset}, {\tt swap}), unique\_ptr, dynamic\_pointer\_cast, weak\_ptr,
+%
 lvalue, rvalue, rvalue reference, {\tt move}, {\tt ref}, move constructor, move assignment operator,
 %
-std::find, std::find\_if, lambda expression, std::function, {\tt strtol}, {\tt getline}, {\tt tolower},
-typename, {\tt nullptr}, {\tt noexcept}, {\tt override},
+std::find, std::find\_if, lambda expression, std::function, std::bind, {\tt strtol}, {\tt getline}, {\tt tolower},
+{\tt nullptr}, {\tt noexcept}, {\tt override},
 sort,
 %
-thread (join, detach),
-mutex, unique\_lock, condition\_variable, lock\_guard,
+typename, parameter pack, pack expansion,
+%
+std::thread (join, detach),
+std::mutex, std::unique\_lock, std::condition\_variable, std::lock\_guard,
 atomic operations (atomic\_bool (load, operator=), atomic\_flag), memory ordering, modification order, happens-before, synchronizes-with,
 %
 postponement, RAII, exception-safe (copy and swap)
@@ -567,10 +625,11 @@ enumerate, natsorted, sorted, {\tt map}, filter, lambda, isinstance, ternary, no
 global, nested function, scoping, assert, hex, format,
 except, finally, module, argparse, pickle, re ({\tt compile}, {\tt match}), subprocess, binascii, click (argument, option)
 
-\item[Scripts:] bash, tcsh, expansion (variable, arithmetic), command substitution, subshell, process substitution \textless(), {\tt read},
+\item[Scripts:] bash (-e, -x), tcsh, expansion (variable, arithmetic), command substitution, subshell, process substitution \textless(), {\tt read},
 {\tt eval}/\`{} \`{}, {\tt source}/.,
-{\tt if then}, {\tt for do}, {\tt while do}, {\tt until do}, {\tt case in} (;;), {\tt test}/[ ], [[ ]], \&\&, $||$, \$?, \$\#, \$!, \$*, \$@,
-set (-x, +x, -{}-),
+{\tt if then}, {\tt for do}, {\tt while do}, {\tt until do}, {\tt continue} (n), {\tt break}, {\tt case in} (;;), {\tt test}/[ ], [[ ]], \&\&, $||$, \$?, \$\#, \$!, \$*, \$@,
+{\tt shift}, {\tt getopt}, {\tt getopts},
+{\tt set} (-x, +x, -{}-, -e),
 \$\{ : : \}, \$\{ :? \},
 Lua (and, or, ternary operator)
 
@@ -610,20 +669,21 @@ iWARP (RDMAP/DDP/MPA, RFC 5040, 5041, 5044), RDMA, Verbs programming,
 1588v2,
 GigE Vision (WRITEREG, READREG, WRITEMEM, READMEM, EVENTDATA, DISCOVERY, PENDING\_ACK, FORCEIP, heartbeat)
 
-\item[Software for Open Networking in the Cloud (SONiC):] SubscriberStateTable, CONFIG\_DB, APPL\_DB,
-ProducerTable, ConsumerTable, FLEX\_COUNTER\_DB, ASIC\_DB,
-Table, COUNTERS\_DB,
-ProducerStateTable, APPL\_DB, ConsumerStateTable, APPL\_DB,
+\item[Software for Open Networking in the Cloud (SONiC):] Table (COUNTERS\_DB), SubscriberStateTable (CONFIG\_DB, APPL\_DB, STATE\_DB),
+ProducerTable (ASIC\_DB, FLEX\_COUNTER\_DB), ConsumerTable (ASIC\_DB, FLEX\_COUNTER\_DB),
 %
-NotificationConsumer, APPL\_DB, COUNTERS\_DB, NotificationProducer, ASIC\_DB,
+ConsumerStateTable (APPL\_DB), ProducerStateTable (APPL\_DB),
+%
+NotificationConsumer (APPL\_DB, COUNTERS\_DB, ASIC\_DB), NotificationProducer (ASIC\_DB),
 SelectableTimer,
-flex counter architecture, sairedis, synchronous SAI api call, PFC storm watchdog,
+%
+flex counter architecture, sairedis, synchronous SAI API call, PFC storm watchdog,
 buffer watermark, buffer config manager, ACL, warm-reboot/in-service software upgrade (ISSU), scheduler, QoS mapping,
-neighbor, route, copp, critical resource management (CRM), sFlow, fdb, port, LAG, intfs,
-virtual switch (vs), proxy ARP, ZTP
+neighbor, route, COPP, critical resource management (CRM), sFlow, FDB, port, LAG, router interfaces, mirror,
+virtual switch (vs), proxy ARP, ZTP, C++ unit test on Orches
 
 \item[OCP switch abstraction interface (SAI):] pipeline, buffer, host interface, ACL, sFlow,
-Broadcom implementation, python-saithrift rpc library
+Broadcom implementation, python-saithrift RPC library
 
 \item[Switching:] ingress admission control, virtual output queuing, egress admission control,
 scheduling (strict priority (preemptive, non-preemptive),
@@ -653,7 +713,7 @@ bit manipulation, divide and conquer (quick sort), dynamic programming, greedy, 
 
 \item[Applications:] code reading, regular expression (basic, extended, [:space:], [:alnum:]),
 supervisord, systemd, system debugging, Linux kernel programming,
-Linux system programming ({\tt select}, {\tt poll}, {\tt epoll}, {\tt getenv}, timerfd), netlink (rt, link, neigh), generic netlink,
+Linux system programming ({\tt select}, {\tt poll}, {\tt epoll}, {\tt getenv}, timerfd, {\tt fcntl}), netlink (rt, link, neigh), generic netlink,
 interprocess communication (IPC), process scheduling,
 concurrency, multithreading (POSIX), synchronization \& condition synchronization,
 file access, socket programming,
@@ -668,15 +728,15 @@ P4 packet test framework (PTF) (dataplane),
 Broadcom SDK (BST, KNET, rx filter, QoS mapping, FP, flex counters, scheduler, LAG, hashing), Cancun, flex flow APIs, OpenNSL,
 Azure ExpressRoute,
 %
-KLISH (Kommand Line Interface Shell) 2.1.4, 2.2.0 (PTYPE, SUBCOMMAND (value, switch), COMMAND (lock, interrupt, hidden), PARAM (test, hidden),
-ACTION (builtin),
+KLISH (Kommand Line Interface Shell) 2.1.4, 2.2.0 (PTYPE, SUBCOMMAND (value, mode (switch)), COMMAND (lock, interrupt, hidden), PARAM (test, hidden),
+ACTION (builtin, shebang),
 CONFIG (operation, pattern, sequence),
-VAR, MACRO, VIEW, NAMESPACE, STARTUP)
+VAR, MACRO, VIEW, NAMESPACE, STARTUP (default\_shebang))
 
 \item[Design patterns:] observer (one to many), bridge (separate an abstraction from its implementation),
 decorator (add responsibilities incrementally \& dynamically), singleton, publish-subscribe, composite (composition of objects in tree structure)
 
-\item[Tools:] gdb, crash, gprof, OProfile, {\tt iperf},
+\item[Tools:] gdb (bt, f, p, x, info (f, registers)), crash (vmlinux), gprof, OProfile, {\tt iperf},
 strace, ftrace, SystemTap,
 Scapy (ether, dot1q, ip, arp, icmp), Wireshark, autoconf (./autogen.sh,
 ./configure (-{}-{\tt bindir}, -{}-{\tt libdir}, -{}-{\tt includedir}, -{}-{\tt enable-static}, -{}-{\tt enable-debug}),
@@ -712,7 +772,8 @@ jumpbox, Dnsmasq, syslog, log analyzer
 {\tt top},
 {\tt bc}, {\tt expr}, {\tt seq},
 {\tt systemctl} (timer), {\tt sysctl} (-w),
-{\tt nsenter}, {\tt cgexec}
+{\tt nsenter}, {\tt cgexec},
+{\tt xxd}
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
 switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6000, S6100-ON, Mellanox SN2700,
@@ -742,7 +803,7 @@ packet sampling (ingress, egress), sFlow,
 Broadcom DNX devices, BCM88670 (Jericho), BCM88690 (Jericho2), packet processor architecture, traffic management architecture,
 Cisco Lacrosse
 
-\item[Virtualization:] veth, macvlan, netns, hypervisor (VirtualBox, VMware, Hyper-V, Xen), container, Docker ({\tt info},
+\item[Virtualization:] veth, macvlan, netns, tap, hypervisor (VirtualBox, VMware, Hyper-V, Xen), container, Docker ({\tt info},
 build context, {\tt login}, {\tt pull}, {\tt push},
 Dockerfile (FROM, RUN, COPY; WORKDIR, EXPOSE, ENTRYPOINT), {\tt build} (-t, -f),
 {\tt load}, {\tt images}, {\tt tag}, {\tt rmi}, {\tt inspect} (-{}-type, -{}-format),
@@ -787,6 +848,7 @@ vinyl cutting (Silhouette Cameo), Raspberry Pi Zero W, Arduino Uno (button, LED,
 \leftskip 0.04in %0.27
 \vspace{0.1in}
 \begin{tabular*}{7.08in}{l@{\extracolsep{\fill}}r} %6.5in
+Recognized reviewer (completing two or more scientific paper reviews) by OSA Publishing & 2020\\
 \textcolor{Red}{\textbf{O-1 Visa---Individuals with Extraordinary Ability or Achievement}} & 2016\\
 Outstanding reviewer for Elsevier Optical Switching and Networking & 2016\\
 \textcolor{Red}{OCE (Ontario Centres of Excellence) TalentEdge Fellowship for industry R\&D (CAD\$32,500)} & 2015\\
@@ -831,7 +893,7 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 
 \item
 \textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016, 2017,
-2018, 2019, 2020
+2018, 2019, 2020, 2021
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium
@@ -865,7 +927,7 @@ Track 3 Network Architectures, Management and Applications 2016, 2018, 2020
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 
 \item
-\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (7), IEEE Journal on Selected Areas in Communications (1),
+\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (8), IEEE Journal on Selected Areas in Communications (1),
 IEEE/OSA Journal of Optical Communications and Networking (14), IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (14),
 Springer Photonic Network Communications (7), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
