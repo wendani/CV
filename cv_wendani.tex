@@ -24,6 +24,8 @@
 %\usepackage{path}
 %\usepackage{hyperref}
 \usepackage{textcomp}
+\usepackage{CJK}
+
 \definecolor{mygrey}{gray}{0.80}
 \textheight=9.0in
 %\raggedbottom
@@ -53,12 +55,14 @@
 }
 
 \newcommand{\resitem}[1]{\item #1 \vspace{-2pt}}
+\newcommand{\zh}[1]{\begin{CJK}{UTF8}{gbsn}#1\end{CJK}}
 
 
 
 
 
 \begin{document}
+\begin{CJK}{UTF8}{gbsn}
 
 
 \textbf{\large Wenda Ni, Ph.D.}\\
@@ -323,12 +327,20 @@ United States & E: wonda.ni@gmail.com\\
   (\url{https://github.com/Azure/sonic-swss/pull/1873});
   Fix kernel MTU inheritance from parent port, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1874}).}
-  \resitem{Hacked SDK to enable fine-grained TCAM slice sharing among ACL tables of the same type (e.g., among mutually exclusive L3 tables).
-  Fixed 3 SDK bugs on ACL logical tables.
-  Hacked SDK to bypass hardware limitation on the number of ACL tables user can create (32 on Trident3)
-  via logical table select TCAM entry sharing among ACL tables of the same type and priorty.
+  \resitem{Hacked SDK (200 insertions, 31 deletions) to enable fine-grained TCAM slice sharing
+  among ACL tables of the same type (e.g., among mutually exclusive L3 tables).
+  Identified 4 SDK bugs on ACL logical tables, and fixed 3 of them.
+  Hacked SDK (221 insertions, 21 deletions) to bypass hardware limitation on the number of ACL tables user can create (32 on Trident3)
+  via logical table select TCAM entry sharing among ACL tables of the same type and priority.
   With this hack, the number of ACL tables user can create goes unlimited (set limit to 1024 in software),
   no longer constrained by the number of physical entries in logical table select TCAM.}
+  \resitem{\textcolor{Red}{Earned July-August 2021 ByteStyle Award---Aim for the highest (最有字节范奖之追求极致奖)}:
+  Raise the bar; Find the best solutions by widening one's perspective; Distill ideas down to their fundamental truths;
+  Keep learning and growing.
+  \textcolor{Red}{Earned Outstanding Team Award (优秀团队奖) as a team member.}}
+  \resitem{Fixed Broadcom SAI 3.6.7.1 on binding ACL table to physical port and VLAN at the same time,
+  in which case the original Broadcom SAI incorrectly implements a logical AND operation to match both physical port and outer VLAN ID in one single entry,
+  defining a hardware behavior not compliant with SAI specification (263 insertions, 233 deletions).}
   \end{itemize}
 
 \item
@@ -848,6 +860,7 @@ vinyl cutting (Silhouette Cameo), Raspberry Pi Zero W, Arduino Uno (button, LED,
 \leftskip 0.04in %0.27
 \vspace{0.1in}
 \begin{tabular*}{7.08in}{l@{\extracolsep{\fill}}r} %6.5in
+July-August 2021 ByteStyle Award---Aim for the highest (最有字节范奖之追求极致奖) & 2021\\
 Recognized reviewer (completing two or more scientific paper reviews) by OSA Publishing & 2020\\
 \textcolor{Red}{\textbf{O-1 Visa---Individuals with Extraordinary Ability or Achievement}} & 2016\\
 Outstanding reviewer for Elsevier Optical Switching and Networking & 2016\\
@@ -1437,5 +1450,5 @@ E-mail: robert.liu@srctek.com\\
 %\end{description}
 
 
-
+\end{CJK}
 \end{document}
