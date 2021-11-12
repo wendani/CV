@@ -240,8 +240,9 @@ United States & E: wonda.ni@gmail.com\\
   which breaks and classifies vs tests into 6 parallel pipelines, at CI pipeline test stage.}
   \resitem{Brought up utility unit tests in utilities GitLab CI pipeline.
   Fixed drop counter test failure at more than 1 test run in persistent docker container.}
-  \resitem{\textcolor{Red}{2020 mid-year performance: E (exceed expectations)---``Often exceeds requirements in terms of efficiency and quality of work
-  with significant contributions. Gains positive feedback from most internal and external clients.''}}
+  \resitem{2020 mid-year performance review: \textcolor{Red}{Performance E (exceed expectations)}---``Often exceeds requirements: Often exceeds requirements
+  in terms of efficiency and quality of work with significant contributions. Gains positive feedback from most internal and external clients'';
+  \textcolor{Red}{Engagement E (exceed expectations)}---``Highly engaged; has strong ownership as a role model''.}
   \resitem{Enhanced sub port router interface: Inherited parent port MTU changes at both SAI and kernel levels, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1479});
   Accelerated ECMP hardware convergence at parent port oper status changes, and developed vs unit test
@@ -299,8 +300,9 @@ United States & E: wonda.ni@gmail.com\\
   (\url{https://github.com/sflow/host-sflow/pull/43});
   Enabled flexible raw packet header size, determined by user-configurable sample truncation size, for a flow sample.}
   \resitem{Delegated hsflowd process control and monitor to supervisord for automatic restart at process exit.}
-  \resitem{\textcolor{Red}{2020 annual performance: ByteStyle E (exceed expectations)---``An excellent role model for team and company'';
-  Engagement E (exceed expectations)---``Highly engaged; has strong ownership as a role model''.}}
+  \resitem{2020 annual performance review: \textcolor{Red}{ByteStyle E (exceed expectations)}---``Always practices ByteStyle
+  and has a positive influence as a role model'';
+  \textcolor{Red}{Engagement E (exceed expectations)}.}
   \resitem{Enhanced ACL:
   Proposed custom attribute, priority, to SAI ACL table object as a hint for TCAM slice sharing, designed swss processing schema \& flow,
   and implemented attribute handling in Broadcom SAI.
@@ -335,12 +337,23 @@ United States & E: wonda.ni@gmail.com\\
   With this hack, the number of ACL tables user can create goes unlimited (set limit to 1024 in software),
   no longer constrained by the number of physical entries in logical table select TCAM.}
   \resitem{\textcolor{Red}{Earned July-August 2021 ByteStyle Award---Aim for the highest (最有字节范奖之追求极致奖)}:
-  Raise the bar; Find the best solutions by widening one's perspective; Distill ideas down to their fundamental truths;
+  Raise the bar; Find the best solutions by widening one's own perspective; Distill ideas down to their fundamental truths;
   Keep learning and growing.
-  \textcolor{Red}{Earned Outstanding Team Award (优秀团队奖) as a team member.}}
+  \textcolor{Red}{Earned July-August 2021 Outstanding Team Award (优秀团队奖) being a team member.}}
   \resitem{Fixed Broadcom SAI 3.6.7.1 on binding ACL table to physical port and VLAN at the same time,
   in which case the original Broadcom SAI incorrectly implements a logical AND operation to match both physical port and outer VLAN ID in one single entry,
   defining a hardware behavior not compliant with SAI specification (263 insertions, 233 deletions).}
+  \resitem{2021 mid-year performance review: \textcolor{Red}{Performance E (exceed expectations)}; \textcolor{Red}{Engagement E (exceed expectations)}.}
+  \resitem{Enabled DSCP match in L3 and L3v6 ACL tables. Enabled IP type match in user-defined ACL table.
+  Disabled ACL rule counter action by default, and enabled runtime counter attachment/detachment to ACL rules.}
+  \resitem{Hacked SDK to enable flex counter pool sharing among ACL tables that share TCAM slices. This eliminates the limit from original SDK
+  on the number of field groups with counters at ingress being upper bounded by the number of flex counter pools (92 insertions, 7 deletions).}
+  \resitem{Developed ACL table resource limit check at KLISH ACL table binding on the number of tables per priority
+  and at KLISH ACL rule creation on the number of tables with counters.}
+  \resitem{Introduced severity level NOTICE between WARN and INFO into Broadcom SDK logging (BSL) system to log SDK messages
+  to {\tt /var/log/debug} but not to {\tt /var/log/syslog} (53 insertions, 38 deletions).}
+  \resitem{Developed ACL entry resource limit check for egress ACL tables at KLISH ACL table binding and rule creation.}
+  \resitem{Identified and fixed bug in processing packet samples that are marked both ingress and egress sampled.}
   \end{itemize}
 
 \item
@@ -737,7 +750,7 @@ Redis (-n, -{}-scan, -{}-pattern, {\tt get}, {\tt hget}, {\tt set} (ex), {\tt hs
 dump (-d, -k, -y), load, {\tt ping}),
 %
 P4 packet test framework (PTF) (dataplane),
-Broadcom SDK (BST, KNET, rx filter, QoS mapping, FP, flex counters, scheduler, LAG, hashing), Cancun, flex flow APIs, OpenNSL,
+Broadcom SDK (BST, KNET, rx filter, QoS mapping, FP, flex counters, scheduler, LAG, hashing, logging (BSL)), Cancun, flex flow APIs, OpenNSL,
 Azure ExpressRoute,
 %
 KLISH (Kommand Line Interface Shell) 2.1.4, 2.2.0 (PTYPE, SUBCOMMAND (value, mode (switch)), COMMAND (lock, interrupt, hidden), PARAM (test, hidden),
@@ -801,7 +814,7 @@ Altera Arria 10 internal temperature sensing diode \& IP core), LED,
 FireWire card (SYBA)
 
 \item[Switch chips:] Broadcom XGS devices, BCM56850 (Trident2), BCM56873 (Trident3), BCM56960 (Tomahawk), BCM56970 (Tomahawk2),
-BCM56788 (Trident4-X9), ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
+BCM56788 (Trident4 X9), ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
 flexible pipeline, memory management unit (MMU) (resource accounting for unicast \& non-unicast packets), replication and queueing engine (RQE),
 buffer management, buffer statistics tracking (BST), oversubscription buffer,
 cross-point (XP) architecture, ingress traffic management (ITM), scheduler, shaper, QoS mapping, PFC, ECN, WRED, flex QoS,
@@ -914,7 +927,7 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM)
-2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021
+2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC),
