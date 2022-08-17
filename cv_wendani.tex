@@ -76,8 +76,8 @@
 %
 %\begin{minipage}[]{0.35\linewidth}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-13804 174th PL NE&  \\
-Redmond, WA 98052  & M: +1 (425) 984 9332\\
+1906 250th PL SE&  \\
+Sammamish, WA 98075  & M: +1 (425) 984 9332\\
 United States & E: wonda.ni@gmail.com\\
 \end{tabular*}
 %\end{minipage}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -133,8 +133,8 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{Translated production Top-of-Rack (ToR) switch configuration of various vendors into Lambda configuration schema.
   Developed the first config file for Lambda with control-plane protocols, BGP, LLDP, NTP, etc., up and running.
   Implemented script to auto-generate default S0 (ToR) switch config.}
-  \resitem{Designed and developed buffer \& QoS profile for RDMA and non-RDMA traffic forwarded over Trident3 chip.
-  No Trident3 buffer profile was available for reference in public community as of the design was made.}
+  \resitem{Designed and developed buffer \& QoS profile for RDMA and non-RDMA traffic forwarded over Trident3 (TD3) chip.
+  No TD3 buffer profile was available for reference in public community as of the design was made.}
   \resitem{Customized NTP service config to run NTP service in default virtual route and forward (VRF) instance and over loopback interface.}
   \resitem{Proposed host interface ICMP and ICMPv6 trap types in OCP switch abstraction interface (SAI).
   \url{https://github.com/opencomputeproject/SAI/pull/1044}}
@@ -149,7 +149,7 @@ United States & E: wonda.ni@gmail.com\\
   as its running environment relies on the libprotobuf10 library (v3.0.0-9), which is not available on earlier Debian 8 release---Jessie);
   Debugged syncd crash on original Broadcom SAI release, and fixed SAI codes.}
   \resitem{Upgraded OCP SAI header to v1.5.1, v1.5.2, and enabled Lambda image build against Broadcom SAI v3.6.7.1}
-  \resitem{SAI change without support from Broadcom: Suppressed global pause ability advertisement on Trident3 server-facing ports (23 insertions);
+  \resitem{SAI change without support from Broadcom: Suppressed global pause ability advertisement on TD3 server-facing ports (23 insertions);
   %
   Implemented host interface ICMP and ICMPv6 trap, rate limiting, and stat counter attachment (171 insertions);
   %
@@ -164,7 +164,7 @@ United States & E: wonda.ni@gmail.com\\
   Fixed incorrect PG to service pool mapping in a PG to pool mapping set operation;
   %
   Implemented ingress packet sampling slow-path (packet samples destined to CPU) pipeline (1183 insertions, 276 deletions);
-  Implemented egress packet sampling slow-path (packet samples destined only to CPU on Trident3) pipeline (436 insertions, 263 deletions);
+  Implemented egress packet sampling slow-path (packet samples destined only to CPU on TD3) pipeline (436 insertions, 263 deletions);
   %
   Identified from diag shell that field entry active in PFC storm mistakenly matches and drops packets
   mapped on a particular TC and destined to CPU (e.g., RDMA packet sampling destined to CPU) post PFC storm restoration,
@@ -200,11 +200,11 @@ United States & E: wonda.ni@gmail.com\\
   Enabled robust switch configuration update scenario with and without image upgrade.
   Unveiled the significance of management VRF in our unique test setup.
   Contributed some of the code changes to community as review feedback \url{https://github.com/Azure/sonic-ztp/pull/12}}
-  \resitem{Proposed custom port and queue IPv6 stats in SAI. Gained deep insights into Broadcom Trident3 stat counter capability
+  \resitem{Proposed custom port and queue IPv6 stats in SAI. Gained deep insights into Broadcom TD3 stat counter capability
   as well as SAI stat counter implementation architecture, which leverages chip native statistics, flexible counters, and field processor (FP).
   Concluded from Broadcom document study (further confirmed by Broadcom) that egress flexible counters cannot resolve IPv6 packets
   and does not support user defined fields.
-  Proved Trident3 egress field processor (EFP) does not support TCAM slice sharing among field groups through code implementation and platform test.}
+  Proved TD3 egress field processor (EFP) does not support TCAM slice sharing among field groups through code implementation and platform test.}
   \resitem{Designed and implemented EFP-based queue IPv6 stats in Broadcom SAI, syncd, swss, and up to show CLI.
   Designed mechanism to enable EFP TCAM slice sharing between user egress ACL tables (L3, L3v6, PFC watchdog drop action, sFlow rate limiting)
   and queue IPv6 stats.}
@@ -213,8 +213,8 @@ United States & E: wonda.ni@gmail.com\\
   non-unicast traffic in terms of packet flow, resource accounting, and admission control.
   Identified and fixed the issue of uninitialized MCQE pool for lossy traffic (pool shared limit being zero) in SAI MMU setting.
   Identified and fixed incorrect PG to service pool mapping caused by SDK API misuse in original SAI.}
-  \resitem{Pioneered GitLab continuous integration (CI). Enabled GitLab CI pipeline for automated Lambda image build and Broadcom SAI v3.6.7.1 debian package build
-  at merge request creation and updates.}
+  \resitem{Pioneered GitLab continuous integration (CI). Enabled GitLab CI pipeline for automated Lambda image build
+  and Broadcom SAI v3.6.7.1 debian package build at merge request creation and updates.}
   \resitem{Enabled and customized sFlow with a full grasp of original community design and implementation,
   which, however, only support ingress sFlow (ingress packet sampling slow path and ingress sFlow v5 encapsulation).
   Identified code gap in Broadcom SAI v3.6.7.1 to enable ingress packet sampling slow-path pipeline.
@@ -307,21 +307,21 @@ United States & E: wonda.ni@gmail.com\\
   Proposed custom attribute, priority, to SAI ACL table object as a hint for TCAM slice sharing, designed swss processing schema \& flow,
   and implemented attribute handling in Broadcom SAI.
   Enabled TCAM slice sharing among orthogonal ACL table types (e.g., between L3 and L3v6 tables)
-  via the notion of logical tables on Trident3 to double the number of ACL tables user can create at ingress that
+  via the notion of logical tables on TD3 to double the number of ACL tables user can create at ingress that
   need not satisfy mutual exclusion requirement among them.
   Reduced TCAM usage from triple-wide to double-wide mode for host interface application.
   Enabled stage migration and ACL rule add/removal in a previously-bound, currently-unbound ACL table.}
   \resitem{SAI change without support from Broadcom:
-  Enabled logical tables on Trident3 for TCAM slice sharing among mutually exclusive field groups (74 insertions, 7 deletions);
+  Enabled logical tables on TD3 for TCAM slice sharing among mutually exclusive field groups (74 insertions, 7 deletions);
   Created but not installed ACL entry in an unbound ACL table (75 insertions, 36 deletions);
   Designed and implemented ACL rule packet sampling action to a mirror session (433 insertions, 97 deletions);
   Loaded CANCUN v6.1.3, which is upgraded from v5.3.3 with the corresponding SDK patch, at SAI initializtion (115,415 insertions, 56,146 deletions).}
-  \resitem{Enabled truncation of mirrored packet (fixed truncation size on Trident3).
+  \resitem{Enabled truncation of mirrored packet (fixed truncation size on TD3).
   Contributed to community fixes to mirror orch \url{https://github.com/Azure/sonic-swss/pull/1761, 1800}}
   \resitem{Designed and implemented ACL rule packet sampling action to a mirror session starting from orchagent down to Broadcom SAI and up to KLISH CLI.}
   \resitem{Designed software architectural change to enable packet mirror and/or packet sampling action installation
   to ACL rules of all ACL table types (e.g., L3 and L3v6), and conducted intensive code review.}
-  \resitem{Unlocked ERSPAN IPv6 underlay capability on Trident3 SDK 6.5.16, which requires CANCUN upgrade from v5.3.3 to v6.1.3, together with SDK patch.
+  \resitem{Unlocked ERSPAN IPv6 underlay capability on TD3 SDK 6.5.16, which requires CANCUN upgrade from v5.3.3 to v6.1.3, together with SDK patch.
   Enabled user to configure DSCP value in underlay IPv6 header by fixing SDK. Contributed to community \url{https://github.com/Azure/sonic-swss/pull/1817}}
   \resitem{Enhanced mirroring: Observed LAG member status change at runtime to update mirror monitor port selection.
   Contributed to community \url{https://github.com/Azure/sonic-swss/pull/1827, 1846}}
@@ -332,7 +332,7 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{Hacked SDK (200 insertions, 31 deletions) to enable fine-grained TCAM slice sharing
   among ACL tables of the same type (e.g., among mutually exclusive L3 tables).
   Identified 4 SDK bugs on ACL logical tables, and fixed 3 of them.
-  Hacked SDK (221 insertions, 21 deletions) to bypass hardware limitation on the number of ACL tables user can create (32 on Trident3)
+  Hacked SDK (221 insertions, 21 deletions) to bypass hardware limitation on the number of ACL tables user can create (32 on TD3)
   via logical table select TCAM entry sharing among ACL tables of the same type and priority.
   With this hack, the number of ACL tables user can create goes unlimited (set limit to 1024 in software),
   no longer constrained by the number of physical entries in logical table select TCAM.}
@@ -348,12 +348,81 @@ United States & E: wonda.ni@gmail.com\\
   Disabled ACL rule counter action by default, and enabled runtime counter attachment/detachment to ACL rules.}
   \resitem{Hacked SDK to enable flex counter pool sharing among ACL tables that share TCAM slices. This eliminates the limit from original SDK
   on the number of field groups with counters at ingress being upper bounded by the number of flex counter pools (92 insertions, 7 deletions).}
-  \resitem{Developed ACL table resource limit check at KLISH ACL table binding on the number of tables per priority
+  \resitem{Developed ACL table resource limit check at KLISH ACL table binding on the number of tables per priority and the total number of tables
   and at KLISH ACL rule creation on the number of tables with counters.}
   \resitem{Introduced severity level NOTICE between WARN and INFO into Broadcom SDK logging (BSL) system to log SDK messages
   to {\tt /var/log/debug} but not to {\tt /var/log/syslog} (53 insertions, 38 deletions).}
   \resitem{Developed ACL entry resource limit check for egress ACL tables at KLISH ACL table binding and rule creation.}
   \resitem{Identified and fixed bug in processing packet samples that are marked both ingress and egress sampled.}
+  \resitem{Enabled configuring mirror session source interface to derive underlay source IP.}
+  \resitem{Developed vs test coverage for CRM divide by zero processing path, and contributed to commmunity
+  \url{https://github.com/Azure/sonic-swss/pull/2028, 2030}}
+  \resitem{Gained deeper insights (limitation, packet drop events inclusive to drop stats, interference) into TD3 egress counter system
+  (MMU, ACL, and flex counter) via experimenting with counter and ACL use cases put all together.
+  Redefined egress ACL rule default counter status
+  (enable counter action for drop rule and disable counter action for forward rule)
+  to leave EFP-based queue IPv6 stats to be accurate.}
+  \resitem{Released TCAM occupancy when unbinding ACL table from all bind points.
+  Issued DEL op before SET for rule update to ACL table not present in ASIC to have correct match fields to be installed to TCAM.
+  This is to accommodate {\tt Consumer::addToSync} behavior on absent field inheritance among consecutive SET ops.}
+  \resitem{Developed vs test for ACL table stage change, priority change, pending bind points, unbound ACL table,
+  rule action change, default counter action.}
+  \resitem{Enabled sending sFlow v5 datagram over IPv4 or IPv6 via management VRF.}
+  \resitem{Identified and fixed SDK 6.5.16 bug on slice reference count in the case of ACL table auto expansion to third TCAM set.}
+  \resitem{Fixed mirror session status update on destination IP change within directly connected subnet.}
+  \resitem{Developed mirror session limit check. Developed TCAM slice limit check at KLISH ACL table binding.}
+  %%
+  \resitem{On Tomahawk4 (TH4) and Trident4 (TD4), designed egress ACL table layout that hosts system usages such as PFC watchdog,
+  packet sample rate limiting, and mirror policing,
+  while accommodating user ACL applications.}
+  \resitem{Redesigned queue IPv6 counter implemention that leverages flex counter 2.0 to reduce ACL entry consumption from 896 to 2 entries on TH4,
+  and to 56 entries on TD4 (with the capability to further reduce ACL entry consumption to 1 entry on TD4).}
+  \resitem{Enabled hardware logical table for TCAM slice sharing between IPv4 and IPv6 ACL table types at TD4 egress.}
+  \resitem{Proposed the notion of user-level logical table at TD3 and TH4 egress, which does not support hardware logical table,
+  to enable TCAM slice sharing among mutually-exclusive ACL tables of the same type. This lifts the ACL table limit from 1 per table type
+  to 1024 among all table types (limit set in software) at egress.}
+  \resitem{Proposed the notion of shadow table and shadow key to enable TCAM slice sharing between IPv4 and IPv6 table types at TD3 egress.
+  This increases the IPv4 physical entry capacity from 8 entries only to up to 512 entries (64 times).
+  Implemented the feature by hacking SDK 6.5.16 as well as changes in SAI.}
+  \resitem{On TD4, proposed dynamic flex counter object reuse and flex counter action reuse among ACL tables that share the same set of TCAM slices
+  at ingress. This eliminates the limit on user ACL table creation arising from the limit on the number of flex counter objects and actions
+  available to users.
+  %%
+  At egress, fixed flex counter object allocation scheme used in Broadcom SAI that causes counter index delivery conflict
+  when a packet hits entries in both IPv4/IPv6 and L2 tables, which are installed in different TCAM sets.
+  Flex counter object represents hardware metadata bus resource that delivers counter index to flex counter modules sitting
+  at the end of ingress and egress pipelines.}
+  \resitem{Designed MMU profiles for TH4 and TD4, leveraging the feature of cooperative buffer update at ingress and egress
+  available on LTSW devices.
+  Designed and implemented near-zero heardoom pool, i.e., headroom pool recycle, for better buffer resource utilization under lossy-only traffic.}
+  \resitem{Redesigned and refactored KLISH ACL table resource limit check at new ACL table creation
+  to reduce the computation time from over 30 seconds down to 1 second when the number of ACL tables created reaches over 600.}
+  \resitem{2021 annual performance review: \textcolor{Red}{ByteStyle E (exceed expectations)}; \textcolor{Red}{Engagement E (exceed expectations)}.}
+
+  \resitem{Proposed system port class ID reuse among different packet processing pipes to overcome hardware limitation on class ID resources.}
+  \resitem{Fixed alpha set \& get in Broadcom SAI 5.0.0.8.}
+  \resitem{Initialized MMU profile for multicast packets in terms of multicast cell queue entry (MCQE) min, MCQE service pool,
+  and queue to service pool mapping.}
+  \resitem{Implemented PFC pause status get in HSDK 6.5.25 to support queue pause status query in SAI.
+  Pause status is not exposed to logical table, but is only available in physical table.}
+
+  \resitem{Observed significant behavioral changes to default ACL action resolution on TD4,
+  and restored the same behavior as TD3 and TH4 by using entry level strength based resolution at field group creation.}
+  \resitem{Designed and validated egress counter system on TH4 and TD4. Included MMU drop, pipeline drop, and ACL drop into queue drop stats,
+  which only contain MMU drop in original Broadcom SAI implementation.}
+
+  \resitem{Designed and implemented LAG stats, ingress received packets/bytes, ingress discarded packets,
+  egress transmitted packets/bytes, and egress discarded packets, using flex counter 2.0.}
+  \resitem{Designed and implemented LAG ingress ACL bind under system port bitmap on TH4.}
+  \resitem{Designed and implemented LAG egress ACL bind under the notion of interface class port bitmap on TH4 and L2 interface on TD4.}
+  \resitem{Figured out 3 methods to keep packets residing in buffer for testing purpose on LTSW devices.
+  Corrected original Broadcom SAI implementation on {\tt SAI\_PORT\_ATTR\_PKT\_TX\_ENABLE}.}
+  \resitem{Proposed and validated single buffer pool design that enables traffic-hitless buffer profile change (from lossy to lossless, and vice versa).}
+  \resitem{Changed MAC default behavior to consume pause and PFC frames on LTSW devices to prevent frame broadcast in VLAN domain.}
+  \resitem{Redesigned and rewrote PFC to queue map to ensure correct behavior under PFC storm on LTSW devices,
+  which change to profile-id-based map attachment to port.}
+  \resitem{Hardware PFC watchdog.}
+  \resitem{Fixed the blind spot of ACL entry resource limit check at the very first bind point bind for egress ACL tables.}
   \end{itemize}
 
 \item
@@ -371,7 +440,8 @@ United States & E: wonda.ni@gmail.com\\
   warm-reboot architecture from scratch.
   Resolved the issue of PFC watchdog not started after (both cold- and warm-) reboot by fixing the initialization dependency.
   Design archive can be found at \url{https://github.com/wendani/sonic-architecture/blob/master/PFC\_watchdog\_warm\_reboot.pdf}}
-  \resitem{Executed full development cycle of buffer pool watermark feature (design, implementation, test automation, and validation on various ASIC platforms).
+  \resitem{Executed full development cycle of buffer pool watermark feature (design, implementation, test automation,
+  and validation on various ASIC platforms).
   Improved the scalability of flex counter polling infrastructure with full sleep wait.
   Established synchronous counter clear path all the way down to ASIC to probe the hardware capability.}
   \resitem{Designed and implemented DOT1P to TC mapping support to the QoS mapping subsystem.
@@ -757,6 +827,8 @@ KLISH (Kommand Line Interface Shell) 2.1.4, 2.2.0 (PTYPE, SUBCOMMAND (value, mod
 ACTION (builtin, shebang),
 CONFIG (operation, pattern, sequence),
 VAR, MACRO, VIEW, NAMESPACE, STARTUP (default\_shebang))
+%
+OpenConfig YANG (ACL)
 
 \item[Design patterns:] observer (one to many), bridge (separate an abstraction from its implementation),
 decorator (add responsibilities incrementally \& dynamically), singleton, publish-subscribe, composite (composition of objects in tree structure)
@@ -814,9 +886,9 @@ Altera Arria 10 internal temperature sensing diode \& IP core), LED,
 FireWire card (SYBA)
 
 \item[Switch chips:] Broadcom XGS devices, BCM56850 (Trident2), BCM56873 (Trident3), BCM56960 (Tomahawk), BCM56970 (Tomahawk2),
-BCM56788 (Trident4 X9), ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
+BCM56788 (Trident4 X9), BCM56990 (Tomahawk4), ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipeline (L3),
 flexible pipeline, memory management unit (MMU) (resource accounting for unicast \& non-unicast packets), replication and queueing engine (RQE),
-buffer management, buffer statistics tracking (BST), oversubscription buffer,
+buffer management, buffer statistics tracking (BST), oversubscription buffer, transient capture buffer,
 cross-point (XP) architecture, ingress traffic management (ITM), scheduler, shaper, QoS mapping, PFC, ECN, WRED, flex QoS,
 mirroring (ERSPAN), mirror on drop (MOD),
 field processor (legacy, new, logical table selection, range checker, compression, hint),
@@ -919,7 +991,7 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 
 \item
 \textbf{Technical program committee member} of IEEE Global Communications Conference (Globecom), Optical Networks and Systems Symposium 2015, 2016, 2017,
-2018, 2019, 2020, 2021
+2018, 2019, 2020, 2021, 2022
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Communications (ICC), Optical Networks and Systems Symposium
@@ -927,11 +999,11 @@ Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - 
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Optical Network Design and Modeling (ONDM)
-2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022
+2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023
 
 \item
 \textbf{Technical program committee member} of IEEE International Conference on Computing, Networking and Communications (ICNC),
-Optical and Grid Computing Symposium 2014, 2015, 2016, 2017, 2018, 2019, 2020
+Optical and Grid Computing Symposium 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2023
 
 \item
 \textbf{Technical program committee member} of OSA Asia Communications and Photonics Conference (ACP),
@@ -953,11 +1025,13 @@ Track 3 Network Architectures, Management and Applications 2016, 2018, 2020
 \textbf{Volunteer} (paper curator, dispatcher, and reviewer; on-site assistant) of the Technical Conference on Linux Networking 2015 (Netdev 0.1)
 
 \item
-\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (8), IEEE Journal on Selected Areas in Communications (1),
+\textbf{Reviewer} of IEEE/ACM Transactions on Networking (1), IEEE/OSA Journal of Lightwave Technology (8),
+IEEE Journal on Selected Areas in Communications (1),
 IEEE/OSA Journal of Optical Communications and Networking (14), IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (14),
-Springer Photonic Network Communications (7), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
-Wiley Networks Journal (1), IEEE China Communications (1), De Gruyter Journal of Optical Communications (1), Chinese Optics Letters (1),
+Springer Photonic Network Communications (8), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
+Wiley Networks Journal (1), Wiley Transactions on Emerging Telecommunications Technologies (1), IEEE China Communications (1),
+De Gruyter Journal of Optical Communications (1), Chinese Optics Letters (1),
 Acta Electronica Sinica (2), Journal of Beijing University of Posts and Telecommunications (4),
 and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DRCN, IEEE ONDM, etc.
 
