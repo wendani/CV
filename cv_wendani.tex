@@ -422,7 +422,9 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{Redesigned and rewrote PFC to queue map to ensure correct behavior under PFC storm on LTSW devices,
   which change to profile-id-based map attachment to port.}
   \resitem{Hardware PFC watchdog.}
+  \resitem{Enhanced PFC watchdog with in-storm config change.}
   \resitem{Fixed the blind spot of ACL entry resource limit check at the very first bind point bind for egress ACL tables.}
+  \resitem{ACL user defined field (UDF)}
   \end{itemize}
 
 \item
@@ -854,7 +856,7 @@ jumpbox, Dnsmasq, syslog, log analyzer
 {\tt export}, {\tt source}/.,
 {\tt tar} (.tar, .tar.gz), {\tt gzip}, {\tt gunzip} (.gz), {\tt zcat}, {\tt zgrep},
 {\tt ifconfig}, {\tt ifupdown2}, {\tt ip addr}, {\tt ip link}, {\tt ethtool}, {\tt arp}, {\tt ip neigh}, {\tt ip netns} (add, exec),
-{\tt tcpdump} (-ni, -vxe, -w, -r), {\tt ip route}, {\tt ip rule},
+{\tt tcpdump} (-ni, -vxe, -w, -r), {\tt ip route}, {\tt ip rule}, {\tt ip monitor}
 {\tt wget}, {\tt curl} (-o), {\tt md5sum},
 {\tt chown}, {\tt disown}, {\tt adduser}, {\tt usermod}, {\tt passwd}, {\tt id}, {\tt chroot}, {\tt ischroot},
 {\tt pkg-config}, {\tt dpkg} (-{}-root, -{}-remove, -{}-purge),
@@ -870,7 +872,8 @@ jumpbox, Dnsmasq, syslog, log analyzer
 {\tt bc}, {\tt expr}, {\tt seq},
 {\tt systemctl} (timer), {\tt sysctl} (-w),
 {\tt nsenter}, {\tt cgexec},
-{\tt xxd}
+{\tt xxd},
+{\tt crontab}
 
 \item[Hardware:] NetFPGA-10G, Xilinx, Virtex-5, Altera UDP/IP core, network interface card (Mellanox, Chelsio, Emulex),
 switch (Arista 7124SX, 7050QX-32S, 7060CX-32S, 7260CX3-64, Dell S6000, S6100-ON, Mellanox SN2700,
