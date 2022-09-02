@@ -243,6 +243,7 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{2020 mid-year performance review: \textcolor{Red}{Performance E (exceed expectations)}---``Often exceeds requirements: Often exceeds requirements
   in terms of efficiency and quality of work with significant contributions. Gains positive feedback from most internal and external clients'';
   \textcolor{Red}{Engagement E (exceed expectations)}---``Highly engaged; has strong ownership as a role model''.}
+
   \resitem{Enhanced sub port router interface: Inherited parent port MTU changes at both SAI and kernel levels, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1479});
   Accelerated ECMP hardware convergence at parent port oper status changes, and developed vs unit test
@@ -303,6 +304,7 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{2020 annual performance review: \textcolor{Red}{ByteStyle E (exceed expectations)}---``Always practices ByteStyle
   and has a positive influence as a role model'';
   \textcolor{Red}{Engagement E (exceed expectations)}.}
+
   \resitem{Enhanced ACL:
   Proposed custom attribute, priority, to SAI ACL table object as a hint for TCAM slice sharing, designed swss processing schema \& flow,
   and implemented attribute handling in Broadcom SAI.
@@ -325,7 +327,7 @@ United States & E: wonda.ni@gmail.com\\
   Enabled user to configure DSCP value in underlay IPv6 header by fixing SDK. Contributed to community \url{https://github.com/Azure/sonic-swss/pull/1817}}
   \resitem{Enhanced mirroring: Observed LAG member status change at runtime to update mirror monitor port selection.
   Contributed to community \url{https://github.com/Azure/sonic-swss/pull/1827, 1846}}
-  \resitem{Enhanced sub port router interface: Fix kernel admin status, and developed vs unit test
+  \resitem{Enhanced sub port router interface: Fixed kernel admin status, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1873});
   Fix kernel MTU inheritance from parent port, and developed vs unit test
   (\url{https://github.com/Azure/sonic-swss/pull/1874}).}
@@ -344,6 +346,7 @@ United States & E: wonda.ni@gmail.com\\
   in which case the original Broadcom SAI incorrectly implements a logical AND operation to match both physical port and outer VLAN ID in one single entry,
   defining a hardware behavior not compliant with SAI specification (263 insertions, 233 deletions).}
   \resitem{2021 mid-year performance review: \textcolor{Red}{Performance E (exceed expectations)}; \textcolor{Red}{Engagement E (exceed expectations)}.}
+
   \resitem{Enabled DSCP match in L3 and L3v6 ACL tables. Enabled IP type match in user-defined ACL table.
   Disabled ACL rule counter action by default, and enabled runtime counter attachment/detachment to ACL rules.}
   \resitem{Hacked SDK to enable flex counter pool sharing among ACL tables that share TCAM slices. This eliminates the limit from original SDK
@@ -389,9 +392,10 @@ United States & E: wonda.ni@gmail.com\\
   available to users.
   %%
   At egress, fixed flex counter object allocation scheme used in Broadcom SAI that causes counter index delivery conflict
-  when a packet hits entries in both IPv4/IPv6 and L2 tables, which are installed in different TCAM sets.
+  when a packet hits entries in both IPv4/IPv6 and L2 tables, even if they are installed in different TCAM sets.
   Flex counter object represents hardware metadata bus resource that delivers counter index to flex counter modules sitting
   at the end of ingress and egress pipelines.}
+  %%
   \resitem{Designed MMU profiles for TH4 and TD4, leveraging the feature of cooperative buffer update at ingress and egress
   available on LTSW devices.
   Designed and implemented near-zero heardoom pool, i.e., headroom pool recycle, for better buffer resource utilization under lossy-only traffic.}
@@ -405,26 +409,40 @@ United States & E: wonda.ni@gmail.com\\
   and queue to service pool mapping.}
   \resitem{Implemented PFC pause status get in HSDK 6.5.25 to support queue pause status query in SAI.
   Pause status is not exposed to logical table, but is only available in physical table.}
-
+  \resitem{TH4/TD4 MMU \& QoS validation and fix on Broadcom SAI 5.0.0.8:
+  Applied separate PG to service pool mapping profile to CPU port under TH4/TD4 profile-id-based mapping archtecture;
+  Set lossless flag to PFC-enabled PGs;
+  Set PFC refresh time on TD4;
+  Initialized PG to PFC priority mapping in TH4 config yml to enable PG to generate PFC frames in XOFF state;
+  Set ECN marking on TH4.
+  }
   \resitem{Observed significant behavioral changes to default ACL action resolution on TD4,
   and restored the same behavior as TD3 and TH4 by using entry level strength based resolution at field group creation.}
   \resitem{Designed and validated egress counter system on TH4 and TD4. Included MMU drop, pipeline drop, and ACL drop into queue drop stats,
   which only contain MMU drop in original Broadcom SAI implementation.}
-
   \resitem{Designed and implemented LAG stats, ingress received packets/bytes, ingress discarded packets,
   egress transmitted packets/bytes, and egress discarded packets, using flex counter 2.0.}
   \resitem{Designed and implemented LAG ingress ACL bind under system port bitmap on TH4.}
-  \resitem{Designed and implemented LAG egress ACL bind under the notion of interface class port bitmap on TH4 and L2 interface on TD4.}
+  \resitem{Designed and implemented LAG egress ACL bind under the notion of interface class port on TH4/TD3 and L2 interface on TD4.}
   \resitem{Figured out 3 methods to keep packets residing in buffer for testing purpose on LTSW devices.
   Corrected original Broadcom SAI implementation on {\tt SAI\_PORT\_ATTR\_PKT\_TX\_ENABLE}.}
-  \resitem{Proposed and validated single buffer pool design that enables traffic-hitless buffer profile change (from lossy to lossless, and vice versa).}
+  \resitem{Proposed and validated single buffer pool design that enables traffic-hitless buffer profile change (from lossy to lossless).}
   \resitem{Changed MAC default behavior to consume pause and PFC frames on LTSW devices to prevent frame broadcast in VLAN domain.}
   \resitem{Redesigned and rewrote PFC to queue map to ensure correct behavior under PFC storm on LTSW devices,
-  which change to profile-id-based map attachment to port.}
-  \resitem{Hardware PFC watchdog.}
+  which employ profile-id-based map attachment to port.}
+  \resitem{Implemented user-level logical table at TD3 and TH4 egress on Broadcom SAI 7.1.0.0. This lifts ACL table limit from 1 to many, and enables
+  multiple lossless TCs with drop action under PFC storm.
+  User-level logical tables are hosted by global system ACL table of the same type, and reuse the corresponding flex counter action on TH4 to
+  eliminate ACL table limit arising from the number of flex counter actions.}
+  \resitem{Designed and implemented PFC watchdog hardware offload. Our design is backward-compatible to accommodate all hardware offloading scenarios:
+  no hardware offload, full hardware offload, and partial hardware offload (hardware detection \& software restoration,
+  and software detection \& hardware restoration).}
   \resitem{Enhanced PFC watchdog with in-storm config change.}
   \resitem{Fixed the blind spot of ACL entry resource limit check at the very first bind point bind for egress ACL tables.}
-  \resitem{ACL user defined field (UDF)}
+  \resitem{Redesigned KLISH CLI to support per-port buffer profile.}
+  \resitem{Designed and implemented ACL user defined field (UDF) from orchagent down to sairedis and up to KLISH CLI.
+  Developed vs test that enables smooth integration with Broadcom SAI.}
+  \resitem{Fixed mirroring: Removed VLAN tag if mirror packets are sent out of VLAN, and VLAN ID is monitor port native VLAN.}
   \end{itemize}
 
 \item
