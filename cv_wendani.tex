@@ -443,6 +443,15 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{Designed and implemented ACL user defined field (UDF) from orchagent down to sairedis and up to KLISH CLI.
   Developed vs test that enables smooth integration with Broadcom SAI.}
   \resitem{Fixed mirroring: Removed VLAN tag if mirror packets are sent out of VLAN, and VLAN ID is monitor port native VLAN.}
+  \resitem{Handled out of order ACL tasks: physical port ACL table bind before LAG leave; physical port LAG join before ACL table unbind.}
+
+  \resitem{Designed Inband Flow Analyzer (IFA) 2.0 transit functionality on TH4 and TD4, compliant with SAI TAM model and object definition.
+  Implemented software from orchagent down to Broadcom SAI and up to utility.}
+  \resitem{Defined new hostif trap type for mirror-to-CPU packets. Designed and implemented rate limiting on mirror-to-CPU packets in Broadcom SAI,
+  covering TD3, TH4, and TD4.}
+  \resitem{Designed and implemented CPU-side receive scheme that inhibits kernel network stack forwarding to avoid duplicate packet forwarding.
+  Employed the idea of tunneling (RSPAN) to further distinguish ingress-mirrored and egress-mirrored packets,
+  and direct them to different netif/net\_device/hostif destinations.}
   \end{itemize}
 
 \item
@@ -1008,6 +1017,9 @@ Citic Bank Scholarship for excellent students (second class) & 2002\\
 Optical Society of America (OSA) Young Professionals (YP) Program, April 2011 - December 2013
 
 \item
+\textbf{Review Editor} on the Editorial Board of Optical Communications and Networks, specialty section of Frontiers in Communications and Networks
+
+\item
 \textbf{Technical program committee member} of OSA Photonic Networks and Devices (Networks) 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020
 
 \item
@@ -1051,7 +1063,7 @@ IEEE Journal on Selected Areas in Communications (1),
 IEEE/OSA Journal of Optical Communications and Networking (14), IEEE Transactions on Communications (1), IEEE Communications Letters (1),
 Elsevier Computer Networks (3), Elsevier Computer Communications (1), Elsevier Optical Switching and Networking (14),
 Springer Photonic Network Communications (8), Springer Telecommunication Systems (3), Wiley International Journal of Communication Systems (1),
-Wiley Networks Journal (1), Wiley Transactions on Emerging Telecommunications Technologies (1), IEEE China Communications (1),
+Wiley Networks Journal (1), Wiley Transactions on Emerging Telecommunications Technologies (2), IEEE China Communications (1),
 De Gruyter Journal of Optical Communications (1), Chinese Optics Letters (1),
 Acta Electronica Sinica (2), Journal of Beijing University of Posts and Telecommunications (4),
 and many good conferences such as IEEE INFOCOM, IEEE ICC, IEEE GLOBECOM, IEEE DRCN, IEEE ONDM, etc.
