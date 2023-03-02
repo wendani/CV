@@ -407,7 +407,8 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{Fixed alpha set \& get in Broadcom SAI 5.0.0.8.}
   \resitem{Initialized MMU profile for multicast packets in terms of multicast cell queue entry (MCQE) min, MCQE service pool,
   and queue to service pool mapping.}
-  \resitem{Implemented PFC pause status get in HSDK 6.5.25 to support queue pause status query in SAI.
+  \resitem{Implemented PFC pause status get in HSDK 6.5.25 to support queue pause status query in SAI, a foundation to software PFC watchdog
+  storm detection.
   Pause status is not exposed to logical table, but is only available in physical table.}
   \resitem{TH4/TD4 MMU \& QoS validation and fix on Broadcom SAI 5.0.0.8:
   Applied separate PG to service pool mapping profile to CPU port under TH4/TD4 profile-id-based mapping archtecture;
@@ -446,15 +447,18 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{Handled out of order ACL tasks: physical port ACL table bind before LAG leave; physical port LAG join before ACL table unbind.}
 
   \resitem{Designed control flow for Inband Flow Analyzer (IFA) 2.0 transit functionality on TH4 and TD4,
-  compliant with SAI TAM model and object definition. Implemented software from orchagent down to Broadcom SAI and up to utility.}
+  compliant with SAI TAM model and object definition. Implemented software from orchagent down to Broadcom SAI and up to utility and KLISH CLI.}
   \resitem{Developed Broadcom SAI support for ERSPAN type III, and runtime mirror session encap change between ERSPAN type I and type III.}
   \resitem{Defined new hostif trap type for mirror-to-CPU packets. Designed and implemented rate limiting on mirror-to-CPU packets in Broadcom SAI,
   covering TD3, TH4, and TD4.
   Designed and implemented CPU-side receive scheme that inhibits kernel network stack forwarding to avoid duplicate packet forwarding.
   Employed the idea of tunneling (RSPAN) to further distinguish ingress-mirrored and egress-mirrored packets,
   and direct them to different netif/net\_device/hostif destinations.}
+  \resitem{\textcolor{Red}{Earned 2022 Network Systems (NS) All-Hands Topic Most Popular Award (网络系统与硬件主题分享最受欢迎奖)}}
   \resitem{Designed and implemented sFlow hardware offload, which accommodates all hardware offloading scenarios:
-  full ingress \& egress offload, partial offload (ingress only, or egress only), and no hardware offload.}
+  full ingress \& egress offload, partial offload (ingress only or egress only), and no hardware offload.}
+  \resitem{Designed and validated hardware offload solution to egress sFlow on TH4, which does not have native
+  hardware offload support for egress sFlow.}
   \end{itemize}
 
 \item
