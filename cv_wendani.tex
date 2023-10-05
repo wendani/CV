@@ -462,6 +462,15 @@ United States & E: wonda.ni@gmail.com\\
 
   \resitem{Extended inband telemetry functionality to IFA 1.0 transit on TH4 with minor code changes, and runtime shift between IFA 2.0 and IFA 1.0.}
   \resitem{Lifted ACL table limit at ingress by implementing the notion of user-level logical table.}
+  \resitem{In truncated packet sample case, pinpointed the root cause of incorrect frame length population in sFlow v5 raw packet header
+  down to Broadcom knet psample callback (kernel 4.19.0-12-2), and developed fix.}
+
+  \resitem{Enabled hosting user ACL tables in system COPP/trap field group to fully exploit hardware resource.}
+  \resitem{Enhanced SAI ACL with new match fields and actions: Match next hop/next hop group;
+  Redirect action to dynamic load balancing (DLB) next hop group;
+  Action to enable adaptive routing and switching (ARS);
+  Match RoCEv2 BTH reserved field using UDF yet without consuming additional container (i.e., leveraging the notion of UDF container sharing
+  among orthogonal packet types).}
   \end{itemize}
 
 \item
