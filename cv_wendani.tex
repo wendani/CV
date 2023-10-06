@@ -411,7 +411,7 @@ United States & E: wonda.ni@gmail.com\\
   storm detection.
   Pause status is not exposed to logical table, but is only available in physical table.}
   \resitem{TH4/TD4 MMU \& QoS validation and fix on Broadcom SAI 5.0.0.8:
-  Applied separate PG to service pool mapping profile to CPU port under TH4/TD4 profile-id-based mapping archtecture;
+  Applied separate PG to service pool mapping profile to CPU port under TH4/TD4 profile-id-based mapping architecture;
   Set lossless flag to PFC-enabled PGs;
   Set PFC refresh time on TD4;
   Initialized PG to PFC priority mapping in TH4 config yml to enable PG to generate PFC frames in XOFF state;
@@ -466,14 +466,14 @@ United States & E: wonda.ni@gmail.com\\
   \resitem{In truncated packet sample case, pinpointed the root cause of incorrect frame length population in sFlow v5 raw packet header
   down to Broadcom knet psample callback (kernel 4.19.0-12-2), and developed fix.}
 
-  \resitem{Enabled hosting user ACL tables in system COPP/trap field group to fully exploit hardware resource.}
+  \resitem{Enabled hosting user ACL tables in system COPP/trap field group to fully exploit hardware resource capacity.}
   \resitem{Enhanced SAI ACL with new match fields and actions: Match next hop/next hop group;
   Action to redirect packet to dynamic load balancing (DLB) next hop group;
   Action to enable adaptive routing and switching (ARS);
   Match RoCEv2 BTH reserved field using UDF yet not consuming additional container (i.e., leveraging the notion of UDF container sharing
   among orthogonal packet types).}
-  \resiten{Pinpointed the root cause of transcient packet match on all ports at new ACL rule installation, and
-  designed methods to inhibit such a match for both ingress and egress ACLs.}
+  \resitem{Pinpointed the root cause of transcient packet match on all ports at new ACL rule installation down to Broadcom SAI, and
+  designed remedies to inhibit such a match for both ingress and egress ACLs.}
   \resitem{Ported ACL custom changes from Broadcom SAI 7.1 to 9.2, which undergoes fundamental architectural changes in ACL implementation.}
   \end{itemize}
 
