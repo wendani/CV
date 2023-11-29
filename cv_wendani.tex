@@ -76,7 +76,7 @@
 %
 %\begin{minipage}[]{0.35\linewidth}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{tabular*}{7in}{l@{\extracolsep{\fill}}r}
-1906 250th PL SE&  \\
+27220 SE 18TH PL&  \\
 Sammamish, WA 98075  & M: +1 (425) 984 9332\\
 United States & E: wonda.ni@gmail.com\\
 \end{tabular*}
@@ -127,7 +127,7 @@ United States & E: wonda.ni@gmail.com\\
   \ressubheading{ByteDance Inc.}{Bellevue, WA, USA}
   {Network R\&D engineer, ByteDance Networking}{Nov. 2019 - present}
   \begin{itemize}
-  \resitem{Topics: Lambda network operating system, a customized version of SONiC, over world's bleeding-edge switching chips (25G, 100G, 400G)}
+  \resitem{Topics: Lambda network operating system, a customized version of SONiC, over world's bleeding-edge switching chips (25G, 100G, 400G, 800G)}
   \resitem{Extended sub port router interface support over link aggregation group (LAG) parent port,
   and developed virtual switch (vs) unit test \url{https://github.com/Azure/sonic-swss/pull/1235}}
   \resitem{Translated production Top-of-Rack (ToR) switch configuration of various vendors into Lambda configuration schema.
@@ -474,7 +474,14 @@ United States & E: wonda.ni@gmail.com\\
   among orthogonal packet types).}
   \resitem{Pinpointed the root cause of transcient packet match on all ports at new ACL rule installation down to Broadcom SAI, and
   designed remedies to inhibit such a match for both ingress and egress ACLs.}
-  \resitem{Ported ACL custom changes from Broadcom SAI 7.1 to 9.2, which undergoes fundamental architectural changes in ACL implementation.}
+  \resitem{Ported ACL custom changes from Broadcom SAI 7.1 to 9.2, which undergoes fundamental architectural refactoring in ACL implementation.}
+  \resitem{Validated egress sFlow hardware offload on TH5, leveraging egress flex sampler and egress pipeline recirculation (EPRC) newly introduced
+  to Tomahawk chip family, and designed SAI implementation.}
+  \resitem{Extended IFA 2.0 transit functionality to TH5.}
+  \resitem{In PFC watchdog hardware detection software restoration scenario, migrate PFC storm action from software-managed ACL to hardware native
+  storm action (with reference to public implementation).}
+  \resitem{\textcolor{Red}{Earned 2023 H2 Data-SYS Excellent Project Award (优秀项目奖)
+  being a team member of project white-box switches for network infrastructure 4.0 (4.0 网络架构自研交换机项目).}}
   \end{itemize}
 
 \item
@@ -944,13 +951,14 @@ ingress pipeline (L2 unicast \& multicast, L3 unicast \& multicast), egress pipe
 flexible pipeline, memory management unit (MMU) (resource accounting for unicast \& non-unicast packets), replication and queueing engine (RQE),
 buffer management, buffer statistics tracking (BST), oversubscription buffer, transient capture buffer,
 cross-point (XP) architecture, ingress traffic management (ITM), scheduler, shaper, QoS mapping, PFC, ECN, WRED, flex QoS,
-mirroring (ERSPAN), mirror on drop (MOD),
+mirroring (ERSPAN, local SPAN), mirror on drop (MOD),
 field processor (legacy, new, logical table selection, range checker, compression, hint),
 VRF, VXLAN (initiation, termination, bridging, riot),
 hashing (static, robust, flex, consistent, resilient), dynamic load balancing (DLB), flex digest, ECMP (weighted, hierarchical), LAG,
-user defined field (FP, hashing, flex hashing, flexible counter), flexible counters (1.0, 2.0), flex monitoring,
+user defined field (FP, hashing, flex hashing, flexible counter), flexible counters (1.0, 2.0, 2.2), flex monitoring,
 trace event, drop event,
-packet sampling (ingress, egress), sFlow, sFlow hardware offload, IFA (1.0, 2.0),
+packet sampling (ingress, egress, ingress flex sampler, egress flex sampler), sFlow, sFlow hardware offload, IFA (1.0, 2.0),
+EP recirculation,
 Broadcom DNX devices, BCM88670 (Jericho), BCM88690 (Jericho2), packet processor architecture, traffic management architecture,
 Cisco SiliconOne,
 Cisco Lacrosse
@@ -1333,7 +1341,7 @@ Jing Wu, \textbf{Wenda Ni}, and Changcheng Huang, ``Flow availability in two-lay
 %\newpage
 \vspace{0.2in}%
 \textbf{Guohan Lu, Ph.D.}\\
-\textit{Principal software engineering manager}, Azure Networking\\
+\textit{Partner software engineering manager}, Azure Networking\\
 Microsoft Corporation\\
 Tel: +1 (206) 643 8829\\
 E-mail: gulv@microsoft.com\\
